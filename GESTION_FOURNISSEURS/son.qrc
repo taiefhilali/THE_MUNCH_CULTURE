@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/son">
+        <file>click.wav</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/StyleSheet">
+        <file>SyNet.qss</file>
+        <file>Toolery.qss</file>
+    </qresource>
+</RCC>
