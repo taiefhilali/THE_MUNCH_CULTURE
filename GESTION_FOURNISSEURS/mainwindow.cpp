@@ -8,8 +8,15 @@
 #include <QFile>
 #include <QSqlQuery>
 #include <QPixmap>
+#include <QDebug>
 #include"QSqlRecord"
 #include"QSqlQuery"
+#include <QSqlDatabase>
+#include <QSqlError>
+#include<QtPrintSupport/QPrinter>
+#include<QPdfWriter>
+#include <QFileDialog>
+#include<QTextDocument>
 #include "stocks.h"
 #include "fourn.h"
 
@@ -40,7 +47,7 @@ void MainWindow::on_Ajouter_clicked()
     QString dat = ui->dat->text();
        int prix = ui->prix->text().toInt();
        int quantite = ui->quantite->text().toInt();
-       stocks S (dat, prix,quantite);
+       stocks S (0,dat, prix,quantite);
        bool test=S.ajouter();
        QMessageBox msgBox;
     if(test)
@@ -108,5 +115,102 @@ void MainWindow::on_supprimer_2_clicked()
 
 
 
+void MainWindow::on_modifier_2_clicked()
+{
+    int id= ui->id->text().toInt();
+     stocks S(id,"",0,0);
+     S.modifier(ui);
+     qDebug()<<"stock modifié avec succées";
+}
 
 
+
+void MainWindow::on_rechercher_clicked()
+{
+
+    int id= ui->id->text().toInt();
+       stocks S(id,"",0,0);
+       S.Rechercherstocks(id);
+       //ui->lineEdit_2 ->setText(com.get_nomProduit());
+       ui->dat_2->setText(S.get_dat());
+       ui->prix_2->setText(QString::number(S.get_prix()));
+       ui->quantite_2->setText(QString::number(S.get_quantite()));
+        QMessageBox:: information(nullptr,QObject::tr("Bravo"),QObject::tr(" recherche effectue\n"
+                                                                                 "click cancel to exit."),QMessageBox::Cancel);
+
+
+}
+
+void MainWindow::on_refresh_clicked()
+{
+
+        stocks S;
+        ui->tab_stk_2->setModel(S.afficher());
+  }
+
+
+
+void MainWindow::on_PDF_2_clicked()
+{
+    QString strStream;
+                    QTextStream out(&strStream);
+
+                    const int rowCount = ui->tab_stk_2->model()->rowCount();
+                    const int columnCount = ui->tab_stk_2->model()->columnCount();
+
+                    out <<  "<html>\n"
+                        "<head>\n"
+                        "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+                        <<  QString("<title>%1</title>\n").arg("strTitle")
+                        <<  "</head>\n"
+                        "<body bgcolor=#ffffff link=#5000A0>\n"
+
+                       //     "<align='right'> " << datefich << "</align>"
+                        "<center> <H1>Liste des stocks </H1></br></br><table border=1 cellspacing=0 cellpadding=2>\n";
+
+                    // headers
+                    out << "<thead><tr bgcolor=#f0f0f0> <th>Numero</th>";
+                    for (int column = 0; column < columnCount; column++)
+                        if (!ui->tab_stk_2->isColumnHidden(column))
+                            out << QString("<th>%1</th>").arg(ui->tab_stk_2->model()->headerData(column, Qt::Horizontal).toString());
+                    out << "</tr></thead>\n";
+
+                    // data table
+                    for (int row = 0; row < rowCount; row++) {
+                        out << "<tr> <td bkcolor=0>" << row+1 <<"</td>";
+                        for (int column = 0; column < columnCount; column++) {
+                            if (!ui->tab_stk_2->isColumnHidden(column)) {
+                                QString data = ui->tab_stk_2->model()->data(ui->tab_stk_2->model()->index(row, column)).toString().simplified();
+                                out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+                            }
+                        }
+                        out << "</tr>\n";
+                    }
+                    out <<  "</table> </center>\n"
+                        "</body>\n"
+                        "</html>\n";
+
+              QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Sauvegarder en PDF", QString(), "*.pdf");
+                if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append(".pdf"); }
+
+               QPrinter printer (QPrinter::PrinterResolution);
+                printer.setOutputFormat(QPrinter::PdfFormat);
+               printer.setPaperSize(QPrinter::A4);
+              printer.setOutputFileName(fileName);
+
+               QTextDocument doc;
+                doc.setHtml(strStream);
+                doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
+                doc.print(&printer);
+
+
+}
+
+
+
+void MainWindow::on_combo_activated()
+{
+    stocks S;
+    QString choix= ui->combo->currentText();
+    ui->tab_stk_2->setModel(S.Trier(choix));
+}

@@ -33,6 +33,18 @@ private slots:
 
     void on_modifier_2_clicked();
 
+    void on_rechercher_clicked();
+
+    void on_refresh_clicked();
+
+    void on_pushButton_3_clicked();
+
+    void on_PDF_2_clicked();
+
+    void on_colone_tri_activated(const QString &arg1);
+
+    void on_combo_activated();
+
 private:
     Ui::MainWindow *ui;
     stocks S;

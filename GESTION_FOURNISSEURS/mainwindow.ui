@@ -34,16 +34,53 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>30</y>
-        <width>781</width>
+        <y>10</y>
+        <width>821</width>
         <height>621</height>
        </rect>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="ToolTipBase">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>170</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="ToolTipBase">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>170</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="ToolTipBase">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>170</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
       </property>
       <property name="styleSheet">
        <string notr="true">tabWidget_2 = new QWidget(this); m_myWidget-&gt;setGeometry(0, 0, 300, 100)</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
@@ -134,13 +171,13 @@
          <string>Ajouter</string>
         </property>
        </widget>
-       <widget class="QDateTimeEdit" name="dat">
+       <widget class="QLineEdit" name="dat">
         <property name="geometry">
          <rect>
-          <x>280</x>
-          <y>80</y>
-          <width>194</width>
-          <height>22</height>
+          <x>290</x>
+          <y>90</y>
+          <width>113</width>
+          <height>20</height>
          </rect>
         </property>
        </widget>
@@ -159,49 +196,6 @@
          </rect>
         </property>
        </widget>
-       <widget class="QComboBox" name="cb_recherche">
-        <property name="geometry">
-         <rect>
-          <x>500</x>
-          <y>50</y>
-          <width>141</width>
-          <height>22</height>
-         </rect>
-        </property>
-        <item>
-         <property name="text">
-          <string>id_stock</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>date__stk</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>quantite</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>prix</string>
-         </property>
-        </item>
-       </widget>
-       <widget class="QLineEdit" name="le_recherche">
-        <property name="geometry">
-         <rect>
-          <x>660</x>
-          <y>50</y>
-          <width>113</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="placeholderText">
-         <string>Rechercher</string>
-        </property>
-       </widget>
        <widget class="QLineEdit" name="le_supprimer">
         <property name="geometry">
          <rect>
@@ -218,7 +212,7 @@
        <widget class="QPushButton" name="supprimer">
         <property name="geometry">
          <rect>
-          <x>690</x>
+          <x>680</x>
           <y>140</y>
           <width>75</width>
           <height>23</height>
@@ -307,86 +301,13 @@
         <property name="geometry">
          <rect>
           <x>390</x>
-          <y>430</y>
+          <y>410</y>
           <width>75</width>
           <height>23</height>
          </rect>
         </property>
         <property name="text">
          <string>modifier</string>
-        </property>
-       </widget>
-       <widget class="QComboBox" name="colone_tri">
-        <property name="geometry">
-         <rect>
-          <x>500</x>
-          <y>90</y>
-          <width>91</width>
-          <height>22</height>
-         </rect>
-        </property>
-        <item>
-         <property name="text">
-          <string>id_stock</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>produit</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>quantite</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>livreur</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>total</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>date_arrivee</string>
-         </property>
-        </item>
-       </widget>
-       <widget class="QComboBox" name="ordre_tri">
-        <property name="geometry">
-         <rect>
-          <x>620</x>
-          <y>90</y>
-          <width>51</width>
-          <height>22</height>
-         </rect>
-        </property>
-        <item>
-         <property name="text">
-          <string>ASC</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>DESC</string>
-         </property>
-        </item>
-       </widget>
-       <widget class="QPushButton" name="button_tri">
-        <property name="geometry">
-         <rect>
-          <x>690</x>
-          <y>90</y>
-          <width>75</width>
-          <height>23</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>tri</string>
         </property>
        </widget>
        <widget class="QPushButton" name="PDF">
@@ -422,7 +343,7 @@
          </rect>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="PDF_2">
         <property name="geometry">
          <rect>
           <x>580</x>
@@ -434,6 +355,112 @@
         <property name="text">
          <string>PDF</string>
         </property>
+       </widget>
+       <widget class="QPushButton" name="rechercher">
+        <property name="geometry">
+         <rect>
+          <x>390</x>
+          <y>470</y>
+          <width>75</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>rechercher</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="refresh">
+        <property name="geometry">
+         <rect>
+          <x>390</x>
+          <y>440</y>
+          <width>75</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>refresh</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_7">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>70</y>
+          <width>47</width>
+          <height>14</height>
+         </rect>
+        </property>
+        <property name="palette">
+         <palette>
+          <active>
+           <colorrole role="ToolTipBase">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>170</red>
+              <green>0</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </active>
+          <inactive>
+           <colorrole role="ToolTipBase">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>170</red>
+              <green>0</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </inactive>
+          <disabled>
+           <colorrole role="ToolTipBase">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>170</red>
+              <green>0</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </disabled>
+         </palette>
+        </property>
+        <property name="text">
+         <string>TRIE</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="combo">
+        <property name="geometry">
+         <rect>
+          <x>560</x>
+          <y>90</y>
+          <width>62</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>id</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>dat</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>prix</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>quantite</string>
+         </property>
+        </item>
        </widget>
       </widget>
      </widget>
