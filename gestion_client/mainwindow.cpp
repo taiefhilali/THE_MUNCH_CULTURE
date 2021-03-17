@@ -1,0 +1,88 @@
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+#include "commande.h"
+#include "client.h"
+#include <QMessageBox>
+
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent)
+    , ui(new Ui::MainWindow)
+{
+    ui->setupUi(this);
+ui->le_id->setValidator(new QIntValidator(100, 999, this));
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+
+void MainWindow::on_Ajouter_clicked()
+{
+    int id_cli=ui->le_id->text().toInt();
+    QString nom_cli=ui->le_nom->text();
+    QString prenom_cli=ui->le_prenom->text();
+    int nombre_com=ui->le_nombre->text().toInt();
+ Client C(id_cli,nom_cli,prenom_cli,nombre_com);
+ bool test=C.ajouter();
+ QMessageBox msgBox;
+
+ if(test)
+   {  msgBox.setText("Ajout avec succes.");
+     ui->tableView_3->setModel(C.afficher());
+ }
+ else
+     msgBox.setText("Echec d'ajout");
+     msgBox.exec();
+}
+
+void MainWindow::on_supprimer_3_clicked()
+{
+
+    Client C1; C1.setid_cli(ui->le_idsupprimer->text().toInt());
+    bool test=C1.supprimer(C1.getid_cli());
+    QMessageBox msgBox;
+
+    if(test)
+       { msgBox.setText("Suppression avec succes.");
+    ui->tableView_3->setModel(C.afficher());
+
+    }
+    else
+        msgBox.setText("Echec de suppression");
+        msgBox.exec();
+}
+
+void MainWindow::on_pb_ajouter_clicked()
+{
+    int id_com=ui->le_com->text().toInt();
+    QString date_com=ui->le_date->text();
+    int nombre_come=ui->le_nb->text().toInt();
+ Commande F(id_com,date_com,nombre_come);
+ bool test=F.ajoutercom();
+ QMessageBox msgBox;
+
+ if(test)
+   {  msgBox.setText("Ajout avec succes.");
+     ui->tableView_4->setModel(F.affichercom());
+ }
+ else
+     msgBox.setText("Echec d'ajout");
+     msgBox.exec();
+}
+
+void MainWindow::on_pb_supprimer_clicked()
+{
+     Commande C2; C2.setid_com(ui->le_idsupprimer_2->text().toInt());
+    bool test=C2.supprimercom(C2.getid_com());
+    QMessageBox msgBox;
+
+    if(test)
+       { msgBox.setText("Suppression avec succes.");
+          ui->tableView_4->setModel(F.affichercom());
+    }
+    else
+        msgBox.setText("Echec de suppression");
+        msgBox.exec();
+}
