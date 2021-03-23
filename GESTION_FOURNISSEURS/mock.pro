@@ -21,16 +21,21 @@ SOURCES += \
     fourn.cpp \
     main.cpp \
     mainwindow.cpp \
+    qcustomplot.cpp \
+    statistiq.cpp \
     stocks.cpp
 
 HEADERS += \
     connexion.h \
     fourn.h \
     mainwindow.h \
+    qcustomplot.h \
+    statistiq.h \
     stocks.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    statistiq.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
