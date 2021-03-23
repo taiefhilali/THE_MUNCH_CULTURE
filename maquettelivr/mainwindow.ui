@@ -33,8 +33,8 @@
      <widget class="QTabWidget" name="tabWidget_2">
       <property name="geometry">
        <rect>
-        <x>-30</x>
-        <y>-10</y>
+        <x>30</x>
+        <y>10</y>
         <width>781</width>
         <height>621</height>
        </rect>
@@ -43,7 +43,7 @@
        <string notr="true">tabWidget_2 = new QWidget(this); m_myWidget-&gt;setGeometry(0, 0, 300, 100)</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
@@ -126,8 +126,8 @@
        <widget class="QComboBox" name="cb_recherche">
         <property name="geometry">
          <rect>
-          <x>500</x>
-          <y>50</y>
+          <x>470</x>
+          <y>30</y>
           <width>141</width>
           <height>22</height>
          </rect>
@@ -147,17 +147,12 @@
           <string>date</string>
          </property>
         </item>
-        <item>
-         <property name="text">
-          <string>prix</string>
-         </property>
-        </item>
        </widget>
        <widget class="QLineEdit" name="le_recherche">
         <property name="geometry">
          <rect>
-          <x>660</x>
-          <y>50</y>
+          <x>620</x>
+          <y>30</y>
           <width>113</width>
           <height>20</height>
          </rect>
@@ -205,7 +200,7 @@
          <string>adresse</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="num_com_2">
+       <widget class="QLineEdit" name="id_3">
         <property name="geometry">
          <rect>
           <x>220</x>
@@ -242,16 +237,6 @@
         </property>
         <property name="text">
          <string>ID_livr</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="quantite_2">
-        <property name="geometry">
-         <rect>
-          <x>220</x>
-          <y>430</y>
-          <width>113</width>
-          <height>20</height>
-         </rect>
         </property>
        </widget>
        <widget class="QLabel" name="label_38">
@@ -304,54 +289,6 @@
           <string>date</string>
          </property>
         </item>
-        <item>
-         <property name="text">
-          <string>livreur</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>total</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>date_arrivee</string>
-         </property>
-        </item>
-       </widget>
-       <widget class="QComboBox" name="ordre_tri">
-        <property name="geometry">
-         <rect>
-          <x>620</x>
-          <y>90</y>
-          <width>51</width>
-          <height>22</height>
-         </rect>
-        </property>
-        <item>
-         <property name="text">
-          <string>ASC</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>DESC</string>
-         </property>
-        </item>
-       </widget>
-       <widget class="QPushButton" name="button_tri">
-        <property name="geometry">
-         <rect>
-          <x>690</x>
-          <y>90</y>
-          <width>75</width>
-          <height>23</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>tri</string>
-        </property>
        </widget>
        <widget class="QPushButton" name="imprimer">
         <property name="geometry">
@@ -379,7 +316,7 @@
          <string>PDF</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="produit_2">
+       <widget class="QLineEdit" name="adresse">
         <property name="geometry">
          <rect>
           <x>220</x>
@@ -412,6 +349,42 @@
          <string>notification</string>
         </property>
        </widget>
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>10</y>
+          <width>141</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>afficher</string>
+        </property>
+       </widget>
+       <widget class="QCommandLinkButton" name="commandLinkButton">
+        <property name="geometry">
+         <rect>
+          <x>740</x>
+          <y>20</y>
+          <width>31</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QDateTimeEdit" name="dt">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>430</y>
+          <width>194</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
       </widget>
      </widget>
     </widget>
@@ -422,14 +395,14 @@
      <widget class="QTabWidget" name="affichage2">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>0</y>
+        <x>40</x>
+        <y>30</y>
         <width>771</width>
         <height>601</height>
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_11">
        <attribute name="title">
@@ -558,8 +531,8 @@
        <widget class="QComboBox" name="cb_recherche_2">
         <property name="geometry">
          <rect>
-          <x>480</x>
-          <y>30</y>
+          <x>470</x>
+          <y>10</y>
           <width>141</width>
           <height>22</height>
          </rect>
@@ -586,15 +559,15 @@
         </item>
         <item>
          <property name="text">
-          <string>nbr_liv</string>
+          <string>salaire</string>
          </property>
         </item>
        </widget>
-       <widget class="QLineEdit" name="numtel_2">
+       <widget class="QLineEdit" name="rech">
         <property name="geometry">
          <rect>
-          <x>630</x>
-          <y>30</y>
+          <x>620</x>
+          <y>10</y>
           <width>113</width>
           <height>20</height>
          </rect>
@@ -634,42 +607,9 @@
         </item>
         <item>
          <property name="text">
-          <string>nbr_liv</string>
+          <string>salaire</string>
          </property>
         </item>
-       </widget>
-       <widget class="QComboBox" name="ordre_tri_2">
-        <property name="geometry">
-         <rect>
-          <x>590</x>
-          <y>70</y>
-          <width>51</width>
-          <height>22</height>
-         </rect>
-        </property>
-        <item>
-         <property name="text">
-          <string>ASC</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>DESC</string>
-         </property>
-        </item>
-       </widget>
-       <widget class="QPushButton" name="button_tri_2">
-        <property name="geometry">
-         <rect>
-          <x>660</x>
-          <y>70</y>
-          <width>75</width>
-          <height>23</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>tri</string>
-        </property>
        </widget>
        <widget class="QPushButton" name="supprimer_2">
         <property name="geometry">
@@ -864,7 +804,33 @@
          <string>notification</string>
         </property>
        </widget>
+       <widget class="QCommandLinkButton" name="commandLinkButton_2">
+        <property name="geometry">
+         <rect>
+          <x>730</x>
+          <y>0</y>
+          <width>31</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
       </widget>
+     </widget>
+     <widget class="QPushButton" name="pushButton_4">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>10</y>
+        <width>151</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>afficher</string>
+      </property>
      </widget>
     </widget>
    </widget>

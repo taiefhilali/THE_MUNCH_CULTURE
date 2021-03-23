@@ -1,4 +1,5 @@
 QT       += core gui sql multimedia multimediawidgets
+QT += printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -20,13 +21,15 @@ SOURCES += \
     livraison.cpp \
     livreur.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    notif.cpp
 
 HEADERS += \
     connection2.h \
     livraison.h \
     livreur.h \
-    mainwindow.h
+    mainwindow.h \
+    notif.h
 
 FORMS += \
     mainwindow.ui

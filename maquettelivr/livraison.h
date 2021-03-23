@@ -16,6 +16,7 @@ public:
         bool ajouter();
         QSqlQueryModel * afficher();
         bool supprimer (int);
+        bool modifE(int id,QString adr,QString date );
     private:
     QString adr,date;
     int id;
