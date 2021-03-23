@@ -41,9 +41,26 @@ private slots:
 
     void on_PDF_2_clicked();
 
-    void on_colone_tri_activated(const QString &arg1);
+   // void on_colone_tri_activated(const QString &arg1);
 
     void on_combo_activated();
+
+  //  void makePlot();
+    void on_stat_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_modifier3_clicked();
+
+    void on_refresh_2_clicked();
+
+    void on_rechercher_2_clicked();
+
+    void on_trie_2_activated();
+
+    void on_pdf2_clicked();
+
+    void on_combo_2_activated();
 
 private:
     Ui::MainWindow *ui;

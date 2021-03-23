@@ -2,12 +2,14 @@
 #define FOURN_H
 #include <QString>
 #include <QSqlQueryModel>
+#include <QSqlQueryModel>
+#include <ui_mainwindow.h>
 
 class fourn
 {
 public:
     fourn();
-    fourn(QString,QString,int,QString);
+    fourn(int,QString,QString,int,QString);
 
 
      QString get_nom();
@@ -17,8 +19,11 @@ public:
         void setid(int);
         int get_tel();
         bool ajouter();
+        bool modifier(Ui::MainWindow *ui);
+        void Rechercherfourns(int id);
         QSqlQueryModel * afficher();
         bool supprimer (int);
+         QSqlQueryModel *Trier(QString);
 private:
     QString nom,prenom,adresse;
     int tel,id;
