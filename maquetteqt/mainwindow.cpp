@@ -79,19 +79,22 @@ void MainWindow::on_supprimer_2_clicked()
 
 void MainWindow::on_modifier3_clicked()
 {
-    int id = ui->id->text().toInt();
-    int salaire = ui->salaire->text().toInt();
-      QString nom = ui->nom->text();
-      QString prenom =ui->prenom->text();
-      int numtel = ui->numtel->text().toInt();
-      livreur l(nom,prenom,numtel,salaire);
-         bool test = l.modif(id,nom,prenom,numtel,salaire);
-      if (test)
-      {
-                  QMessageBox::information(nullptr, QObject::tr("database is open"),
-                  QObject::tr("livreur modifié.\n"
-             "Click Cancel to exit."), QMessageBox::Cancel);
-      }
+    int id = ui->id_2->text().toInt();
+        QString nom = ui->nom_2->text();
+        QString prenom =ui->prenom_2->text();
+        int numtel =ui->numtel_3->text().toInt();
+        int salaire =ui->salaire_2->text().toInt();
+        livreur l(nom,prenom,numtel,salaire);
+           bool test = l.modif(id,nom,prenom,numtel,salaire);
+        if (test)
+
+        {
+                    QMessageBox::information(nullptr, QObject::tr("database is open"),
+                                QObject::tr("livraison modifiée.\n"
+                                            "Click Cancel to exit."), QMessageBox::Cancel);
+        }
+  ui->tab_liv_2->setModel(l.afficher());
+
 }
 
 void MainWindow::on_Ajouter_clicked()
@@ -376,5 +379,23 @@ void MainWindow::on_PDF_2_clicked()
                    doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
                    doc.print(&printer);
 
+
+}
+
+void MainWindow::on_modifier_2_clicked()
+{
+    int id = ui->id_3->text().toInt();
+        QString adr = ui->adresse->text();
+        QString date =ui->dt->text();
+        livraison l(adr,date);
+           bool test = l.modifE(id,adr,date);
+        if (test)
+
+        {
+                    QMessageBox::information(nullptr, QObject::tr("database is open"),
+                                QObject::tr("livraison modifiée.\n"
+                                            "Click Cancel to exit."), QMessageBox::Cancel);
+        }
+  ui->tab_livr->setModel(l.afficher());
 
 }

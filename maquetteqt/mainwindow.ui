@@ -200,7 +200,7 @@
          <string>adresse</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="num_com_2">
+       <widget class="QLineEdit" name="id_3">
         <property name="geometry">
          <rect>
           <x>220</x>
@@ -237,16 +237,6 @@
         </property>
         <property name="text">
          <string>ID_livr</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="quantite_2">
-        <property name="geometry">
-         <rect>
-          <x>220</x>
-          <y>430</y>
-          <width>113</width>
-          <height>20</height>
-         </rect>
         </property>
        </widget>
        <widget class="QLabel" name="label_38">
@@ -326,7 +316,7 @@
          <string>PDF</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="produit_2">
+       <widget class="QLineEdit" name="adresse">
         <property name="geometry">
          <rect>
           <x>220</x>
@@ -383,6 +373,16 @@
         </property>
         <property name="text">
          <string/>
+        </property>
+       </widget>
+       <widget class="QDateTimeEdit" name="dt">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>430</y>
+          <width>194</width>
+          <height>22</height>
+         </rect>
         </property>
        </widget>
       </widget>

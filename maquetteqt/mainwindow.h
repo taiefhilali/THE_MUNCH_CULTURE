@@ -45,6 +45,8 @@ private slots:
 
     void on_PDF_2_clicked();
 
+    void on_modifier_2_clicked();
+
 private:
     Ui::MainWindow *ui;
    livreur l;

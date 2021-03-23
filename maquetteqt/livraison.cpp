@@ -44,3 +44,16 @@ bool livraison::supprimer(int id)
     query.bindValue(":id",res);
     return query.exec();
 }
+bool livraison::modifE(int id,QString adr,QString date)
+{
+    QSqlQuery query;
+    QString res=QString::number(id);
+    query.prepare("update livraison set adr=:adr,datee=:date where id= :id");
+    query.bindValue(":id",res);
+    query.bindValue(":adr",adr);
+    query.bindValue(":date",date);
+
+
+
+    return query.exec();
+}
