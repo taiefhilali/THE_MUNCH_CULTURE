@@ -2,7 +2,7 @@
 #define CLIENT_H
 #include <QString>
 #include <QSqlQueryModel>
-
+#include <QDebug>
 class Client
 {
 public:
@@ -19,6 +19,10 @@ public:
     bool ajouter();
     QSqlQueryModel* afficher();
     bool supprimer(int);
+    void Rechercherclient(int id_cli);
+    QSqlQueryModel *Trier(QString );
+    bool modifE(int , QString,QString,int);
+
 private:
     int id_cli;
     QString nom_cli, prenom_cli;

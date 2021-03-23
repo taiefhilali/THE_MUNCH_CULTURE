@@ -5,6 +5,7 @@
 #include "client.h"
 #include "commande.h"
 
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -26,6 +27,18 @@ private slots:
     void on_pb_ajouter_clicked();
 
     void on_pb_supprimer_clicked();
+
+     void on_push_recherche_clicked();
+
+
+    //void on_combo_activated();
+
+    //void on_combo_activated(const QString &arg1);
+
+    void on_trie_activated();
+
+    void on_modifier_clicked();
+    //comment
 
 private:
     Ui::MainWindow *ui;

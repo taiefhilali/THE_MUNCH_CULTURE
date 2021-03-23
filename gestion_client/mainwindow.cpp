@@ -3,6 +3,23 @@
 #include "commande.h"
 #include "client.h"
 #include <QMessageBox>
+#include <QIntValidator>
+#include <QTabWidget>
+#include <QString>
+#include <QFile>
+#include <QSqlQuery>
+#include <QPixmap>
+#include <QDebug>
+#include <QInputDialog>
+#include"QSqlRecord"
+#include"QSqlQuery"
+#include <QSqlDatabase>
+#include <QSqlError>
+#include<QtPrintSupport/QPrinter>
+#include<QPdfWriter>
+#include <QFileDialog>
+#include<QTextDocument>
+#include<QFile>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -10,6 +27,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 ui->le_id->setValidator(new QIntValidator(100, 999, this));
+ui->tableView_3->setModel(C.afficher());
 }
 
 MainWindow::~MainWindow()
@@ -85,4 +103,41 @@ void MainWindow::on_pb_supprimer_clicked()
     else
         msgBox.setText("Echec de suppression");
         msgBox.exec();
+}
+
+
+
+
+
+
+
+
+void MainWindow::on_trie_activated()
+{
+
+    Client C;
+    QString choix= ui->trie->currentText();
+    ui->tableView_3->setModel(C.Trier(choix));
+}
+
+void MainWindow::on_modifier_clicked()
+{
+
+    int id_cli,nombre_com;
+    QString nom_cli,prenom_cli;
+    id_cli=ui->idclient->text().toInt();
+    nom_cli=ui->nomclient->text();
+    prenom_cli=ui->prenomclient->text();
+    nombre_com=ui->nombreclient->text().toInt();
+
+    QSqlQuery qry;
+    qry.prepare("update client set nom_cli=:nom_cli,prenom_cli=:prenom_cli,nombre_com=:nombre_com where id_cli=:id_cli");
+    qry.bindValue(":id_cli",id_cli);
+     qry.bindValue(":nom_cli",nom_cli);
+    qry.bindValue(":prenom_cli",prenom_cli);
+    qry.bindValue(":nombre_com",nombre_com);
+
+
+    qry.exec();
+    ui->tableView_3->setModel(C.afficher());//refresh
 }
