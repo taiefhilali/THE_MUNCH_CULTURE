@@ -40,6 +40,10 @@ private slots:
     void on_modifier_clicked();
     //comment
 
+    void on_triecommande_activated();
+
+    void on_modifiercom_clicked();
+
 private:
     Ui::MainWindow *ui;
     Client C;

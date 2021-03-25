@@ -2,7 +2,7 @@
 #define COMMANDE_H
 #include <QString>
 #include <QSqlQueryModel>
-
+#include <QDebug>
 class Commande
 {
 public:
@@ -17,6 +17,8 @@ public:
     bool ajoutercom();
     QSqlQueryModel* affichercom();
     bool supprimercom(int);
+    QSqlQueryModel *Triercom(QString );
+    bool modifC(int , QString,int);
 private:
     int id_com;
     QString date_com;

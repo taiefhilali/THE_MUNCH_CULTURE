@@ -2,6 +2,10 @@
 #include <QSqlQuery>
 #include <QtDebug>
 #include <QObject>
+#include <QString>
+#include <QSqlDatabase>
+#include <QSqlError>
+#include <QFile>
 Commande::Commande()
 {
 id_com=0; date_com=" ";  nombre_come=0;
@@ -52,4 +56,41 @@ QSqlQueryModel* Commande::affichercom()
 
 
   return  model;
+}
+QSqlQueryModel * Commande::Triercom(QString choix1){
+    QSqlQueryModel *model=new QSqlQueryModel();
+
+
+    if (choix1=="id_com"){
+         model->setQuery("SELECT * FROM Commande ORDER BY id_com DESC ");
+    }
+    else if(choix1=="date_com"){
+         model->setQuery("SELECT * FROM Commande ORDER BY date_com ");
+    }
+    else if(choix1=="nombre_come"){
+        model->setQuery("SELECT * FROM Commande ORDER BY nombre_come DESC  ");
+    }
+
+
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id_com"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("date_com"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("nombre_come "));
+
+
+return model;
+}
+bool Commande::modifC(int id_com,QString date_com,int nombre_come)
+{
+    QSqlQuery query;
+    QString res=QString::number(id_com);
+    QString res2=QString::number(nombre_come);
+
+    query.prepare("update Commande set id_com=:id_com,date_com=:date_com,nombre_come=:nombre_come where id_com= :id_com");
+    query.bindValue(":id_cli",res);
+    query.bindValue(":date_com",date_com);
+    query.bindValue(":nombre_come",res2);
+
+
+
+    return query.exec();
 }

@@ -28,6 +28,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 ui->le_id->setValidator(new QIntValidator(100, 999, this));
 ui->tableView_3->setModel(C.afficher());
+ui->tableView_4->setModel(F.affichercom());
 }
 
 MainWindow::~MainWindow()
@@ -140,4 +141,30 @@ void MainWindow::on_modifier_clicked()
 
     qry.exec();
     ui->tableView_3->setModel(C.afficher());//refresh
+}
+
+void MainWindow::on_triecommande_activated()
+{
+    Commande F;
+    QString choix= ui->triecommande->currentText();
+    ui->tableView_4->setModel(F.Triercom(choix));
+}
+
+void MainWindow::on_modifiercom_clicked()
+{
+    int id_com,nombre_come;
+    QString date_com;
+    id_com=ui->idcom->text().toInt();
+    date_com=ui->datecome->text();
+    nombre_come=ui->nbcom->text().toInt();
+
+    QSqlQuery qry;
+    qry.prepare("update Commande set date_com=:date_com,nombre_come=:nombre_come where id_com=:id_com");
+    qry.bindValue(":id_com",id_com);
+    qry.bindValue(":date_com",date_com);
+    qry.bindValue(":nombre_come",nombre_come);
+
+    qry.exec();
+    ui->tableView_4->setModel(F.affichercom());//refresh
+
 }
