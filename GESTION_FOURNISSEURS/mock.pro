@@ -1,7 +1,6 @@
 QT       += core gui sql
 QT       += printsupport
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets multimedia
 
 CONFIG += c++11
 
@@ -11,6 +10,11 @@ CONFIG += c++11
 # deprecated API in order to know how to port your code away from it.
 DEFINES += QT_DEPRECATED_WARNINGS
 
+TARGET = test_son
+
+TEMPLATE = app
+
+
 # You can also make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
@@ -19,8 +23,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     connexion.cpp \
     fourn.cpp \
+    gsf.cpp \
     main.cpp \
-    mainwindow.cpp \
     qcustomplot.cpp \
     statistiq.cpp \
     stocks.cpp
@@ -28,13 +32,14 @@ SOURCES += \
 HEADERS += \
     connexion.h \
     fourn.h \
-    mainwindow.h \
+    gsf.h \
     qcustomplot.h \
+    stati.cpp.autosave \
     statistiq.h \
     stocks.h
 
 FORMS += \
-    mainwindow.ui \
+    gsf.ui \
     statistiq.ui
 
 # Default rules for deployment.
@@ -43,4 +48,10 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    design.qrc
+    design.qrc \
+    design.qrc \
+    design.qrc \
+    design.qrc \
+    design.qrc \
+    img.qrc \
+    test_son.qrc
