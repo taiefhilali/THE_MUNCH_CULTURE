@@ -6,6 +6,7 @@
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QFile>
+#include <QSqlQueryModel>
 Commande::Commande()
 {
 id_com=0; date_com=" ";  nombre_come=0;
@@ -93,4 +94,14 @@ bool Commande::modifC(int id_com,QString date_com,int nombre_come)
 
 
     return query.exec();
+}
+QSqlQueryModel * Commande::recherche_com(int id_com)
+{
+    QSqlQueryModel* model = new QSqlQueryModel();
+     model->setQuery("select * from Commande where (id_com LIKE id_com='"+QString::number(id_com)+"'");
+     model->setHeaderData(0, Qt::Horizontal, QObject::tr("id_com"));
+     model->setHeaderData(1, Qt::Horizontal, QObject::tr("date_com "));
+     model->setHeaderData(2, Qt::Horizontal, QObject::tr("nombre_come"));
+
+         return model;
 }

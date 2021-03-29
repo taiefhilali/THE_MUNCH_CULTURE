@@ -60,7 +60,7 @@ QSqlQueryModel* Client::afficher()
 
   return  model;
 }
-void Client::Rechercherclient(int id_cli){
+/*void Client::Rechercherclient(int id_cli){
         QSqlQuery query2;
 
 
@@ -75,7 +75,7 @@ void Client::Rechercherclient(int id_cli){
         }
 
 
-    }
+    }*/
 QSqlQueryModel * Client::Trier(QString choix1){
     QSqlQueryModel *model=new QSqlQueryModel();
 
@@ -117,3 +117,18 @@ bool Client::modifE(int id_cli,QString nom_cli,QString prenom_cli,int nombre_com
 
     return query.exec();
 }
+ QSqlQueryModel * recherche_2(int id_cli)
+ {
+     QSqlQueryModel* model = new QSqlQueryModel();
+      model->setQuery("select * from client where (id_cli LIKE id_cli='"+QString::number(id_cli)+"'");
+      model->setHeaderData(0, Qt::Horizontal, QObject::tr("id_cli"));
+      model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom_cli "));
+      model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom_cli"));
+      model->setHeaderData(3, Qt::Horizontal, QObject::tr("nombre_com"));
+
+          return model;
+
+
+
+
+ }

@@ -10,7 +10,8 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
-class MainWindow : public QMainWindow
+class MainWindow :
+        public QMainWindow
 {
     Q_OBJECT
 
@@ -28,7 +29,7 @@ private slots:
 
     void on_pb_supprimer_clicked();
 
-     void on_push_recherche_clicked();
+   //  void on_push_recherche_clicked();
 
 
     //void on_combo_activated();
@@ -43,6 +44,10 @@ private slots:
     void on_triecommande_activated();
 
     void on_modifiercom_clicked();
+
+    void on_push_recherche_3_clicked();
+
+    void on_rech_but_clicked();
 
 private:
     Ui::MainWindow *ui;

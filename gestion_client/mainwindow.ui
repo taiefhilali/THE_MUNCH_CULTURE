@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab1">
      <attribute name="title">
@@ -209,7 +209,7 @@
        <widget class="QPushButton" name="push_recherche_3">
         <property name="geometry">
          <rect>
-          <x>310</x>
+          <x>650</x>
           <y>380</y>
           <width>93</width>
           <height>28</height>
@@ -222,7 +222,7 @@
        <widget class="QLineEdit" name="le_recherche_3">
         <property name="geometry">
          <rect>
-          <x>420</x>
+          <x>400</x>
           <y>380</y>
           <width>221</width>
           <height>20</height>
@@ -379,6 +379,36 @@
         <property name="text">
          <string>TRIE</string>
         </property>
+       </widget>
+       <widget class="QComboBox" name="rechercher_cli">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>380</y>
+          <width>73</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>id_cli</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>nom_cli</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>prenom_cli</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>nombre_com</string>
+         </property>
+        </item>
        </widget>
       </widget>
      </widget>
@@ -608,10 +638,10 @@
          <string>TRIE</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="rech_but">
         <property name="geometry">
          <rect>
-          <x>330</x>
+          <x>630</x>
           <y>410</y>
           <width>93</width>
           <height>28</height>
@@ -702,6 +732,31 @@
         <property name="text">
          <string>modifier</string>
         </property>
+       </widget>
+       <widget class="QComboBox" name="recombo">
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>410</y>
+          <width>73</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>id_com</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>date_com</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>nombre_come</string>
+         </property>
+        </item>
        </widget>
       </widget>
      </widget>

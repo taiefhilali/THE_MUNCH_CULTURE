@@ -19,7 +19,7 @@ public:
     bool ajouter();
     QSqlQueryModel* afficher();
     bool supprimer(int);
-    void Rechercherclient(int id_cli);
+    QSqlQueryModel * recherche_2(int id_cli);
     QSqlQueryModel *Trier(QString );
     bool modifE(int , QString,QString,int);
 

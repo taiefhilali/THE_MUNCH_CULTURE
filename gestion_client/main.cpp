@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+#include "clicom.h"
 #include <QApplication>
 #include <QMessageBox>
 #include <QDebug>
@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     Connexion c;
     bool test=c.ouvrirConnexion();
-    MainWindow w;
+    Clicom w;
          if(test)
          {
 

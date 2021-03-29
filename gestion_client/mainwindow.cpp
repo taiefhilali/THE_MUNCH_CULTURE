@@ -168,3 +168,45 @@ void MainWindow::on_modifiercom_clicked()
     ui->tableView_4->setModel(F.affichercom());//refresh
 
 }
+
+void MainWindow::on_push_recherche_3_clicked()
+{
+    QSqlQueryModel *modal=new QSqlQueryModel();
+                QSqlQuery request;
+               QString type=ui->rechercher_cli->currentText();
+               QString val=ui->le_recherche_3->text();
+               val="%"+val+"%";
+               if (type=="id_cli"){
+                   request.prepare("SELECT * FROM client WHERE id_cli LIKE:val ");
+               }else if (type=="nom_cli"){
+                   request.prepare("SELECT * FROM client WHERE nom_cli LIKE:val");
+               }else if (type=="prenom_cli"){
+                   request.prepare("SELECT * FROM client WHERE prenom_cli LIKE:val");
+               }else if (type=="nombre_com"){
+                   request.prepare("SELECT * FROM client WHERE nombre_com LIKE:val");
+               }
+               request.bindValue(":val",val);
+               request.exec();
+               modal->setQuery(request);
+               ui->tableView_3->setModel(modal);
+}
+
+void MainWindow::on_rech_but_clicked()
+{
+    QSqlQueryModel *modal=new QSqlQueryModel();
+                QSqlQuery request;
+               QString type=ui->recombo->currentText();
+               QString val=ui->linecomande->text();
+               val="%"+val+"%";
+               if (type=="id_com"){
+                   request.prepare("SELECT * FROM Commande WHERE id_com LIKE:val ");
+               }else if (type=="date_com"){
+                   request.prepare("SELECT * FROM Commande WHERE date_com LIKE:val");
+               }else if (type=="nombre_come"){
+                   request.prepare("SELECT * FROM Commande WHERE nombre_come LIKE:val");
+               }
+               request.bindValue(":val",val);
+               request.exec();
+               modal->setQuery(request);
+               ui->tableView_4->setModel(modal);
+}
