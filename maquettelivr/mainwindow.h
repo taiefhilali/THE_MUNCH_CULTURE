@@ -3,6 +3,7 @@
 #include "livreur.h"
 #include "livraison.h"
 #include "notif.h"
+#include <QSound>
 
 #include <QMainWindow>
 
@@ -51,11 +52,14 @@ private slots:
 
     void on_imprimer_clicked();
 
+    void on_pushButton_5_clicked();
+
 private:
     Ui::MainWindow *ui;
    livreur l;
    livraison liv;
    notif n;
+   QSound*son;
 };
 
 #endif // MAINWINDOW_H

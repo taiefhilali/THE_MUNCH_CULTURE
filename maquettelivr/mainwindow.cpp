@@ -26,6 +26,7 @@
 #include <QFileDialog>
 #include <QFile>
 #include <QFileInfo>
+#include <QSound>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -35,6 +36,7 @@ MainWindow::MainWindow(QWidget *parent)
         ui->numtel->setValidator(new QIntValidator(0, 9999999, this));
         ui->salaire->setValidator(new QIntValidator(0, 9999999, this));
         ui->tab_liv_2->setModel(l.afficher());
+        son=new QSound(":/click.wav");
 }
 
 MainWindow::~MainWindow()
@@ -112,14 +114,20 @@ livraison liv(adrlivraison,datelivraison);
       else
           msgBox.setText("Echec d'ajout");
           msgBox.exec();
+          son->play();
+          son=new QSound(":/click.wav");
 }
 
 void MainWindow::on_supprimer_clicked()
-{
-    livraison liv; liv.setid(ui->idsupprimer->text().toInt());
-        bool test=liv.supprimer(liv.getid());
-        QMessageBox msgBox;
-    if(test)
+{int col = ui->tab_livr->currentIndex().column();
+    int row = ui->tab_livr->currentIndex().row();
+    QString sql;
+    int id = liv.afficher()->index(row, 0).data().toInt();
+   sql= QString("DELETE FROM livraison WHERE id=%1").arg(id);
+   QSqlQuery qry;
+   qry.exec(sql);
+   //ui->tab_livr->setModel(l.afficher());
+    if(qry.exec(sql) && col>=0)
           {  notif n("supprimé avec succés","livraison supprimée");
         n.afficher();
        ui->tab_livr->setModel(liv.afficher());
@@ -128,7 +136,9 @@ void MainWindow::on_supprimer_clicked()
        else
         notif n("echec de suppression ","livraison non supprimée");
                n.afficher();
-           msgBox.exec();
+               son->play();
+               son=new QSound(":/click.wav");
+
 }
 
 void MainWindow::on_PDF_clicked()
@@ -183,12 +193,16 @@ void MainWindow::on_PDF_clicked()
                    doc.setHtml(strStream);
                    doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
                    doc.print(&printer);
+                   son->play();
+                   son=new QSound(":/click.wav");
 
 }
 
 void MainWindow::on_pushButton_3_clicked()
 {
      ui->tab_livr->setModel(liv.afficher());
+      son->play();
+      son=new QSound(":/click.wav");
 }
 
 void MainWindow::on_commandLinkButton_clicked()
@@ -212,6 +226,9 @@ void MainWindow::on_commandLinkButton_clicked()
            request.exec();
            modal->setQuery(request);
            ui->tab_livr->setModel(modal);
+           son->play();
+           son=new QSound(":/click.wav");
+
 
 }
 
@@ -241,6 +258,8 @@ void MainWindow::on_colone_tri_activated(const QString &arg1)
               request.exec();
               modal->setQuery(request);
               ui->tab_livr->setModel(modal);
+              son->play();
+              son=new QSound(":/click.wav");
   }
 }
 
@@ -271,11 +290,15 @@ void MainWindow::on_commandLinkButton_2_clicked()
            request.exec();
            modal->setQuery(request);
            ui->tab_liv_2->setModel(modal);
+           son->play();
+           son=new QSound(":/click.wav");
 }
 
 void MainWindow::on_pushButton_4_clicked()
 {
      ui->tab_liv_2->setModel(l.afficher());
+     son->play();
+     son=new QSound(":/click.wav");
 }
 
 void MainWindow::on_colone_tri_2_activated(const QString &arg1)
@@ -322,6 +345,8 @@ void MainWindow::on_colone_tri_2_activated(const QString &arg1)
               request.exec();
               modal->setQuery(request);
               ui->tab_liv_2->setModel(modal);
+              son->play();
+              son=new QSound(":/click.wav");
       }
 
 }
@@ -378,6 +403,8 @@ void MainWindow::on_PDF_2_clicked()
                    doc.setHtml(strStream);
                    doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
                    doc.print(&printer);
+                   son->play();
+                   son=new QSound(":/click.wav");
 
 
 }
@@ -397,6 +424,8 @@ void MainWindow::on_modifier_2_clicked()
                                             "Click Cancel to exit."), QMessageBox::Cancel);
         }
   ui->tab_livr->setModel(l.afficher());
+  son->play();
+  son=new QSound(":/click.wav");
 
 }
 
@@ -426,6 +455,8 @@ void MainWindow::on_imprimer_2_clicked()
                    document->print(&printer);
                }
                delete document;
+               son->play();
+               son=new QSound(":/click.wav");
 
 }
 
@@ -455,4 +486,27 @@ void MainWindow::on_imprimer_clicked()
                     document->print(&printer);
                 }
                 delete document;
+                son->play();
+                son=new QSound(":/click.wav");
 }
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    int col = ui->tab_livr->currentIndex().column();
+           int row = ui->tab_livr->currentIndex().row();
+           QString sql;
+        int id = liv.afficher()->index(row, 0).data().toInt();
+        QString dt = liv.afficher()->index(row, 2).data().toString();
+        QString adresse = liv.afficher()->index(row, 1).data().toString();
+        QDate Date = QDate::fromString(dt,"dd/MM/yyyy");
+
+           //int id= ui->id->text().toInt();
+           QString idd=liv.afficher()->index(row, 0).data().toString();
+           ui->id_3->setText(idd);
+           ui->dt->setDate(Date);
+           ui->adresse->setText(liv.afficher()->index(row, 1).data().toString());
+           son->play();
+           son=new QSound(":/click.wav");
+
+
+ }
