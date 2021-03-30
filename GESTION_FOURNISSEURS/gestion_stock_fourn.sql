@@ -1,0 +1,204 @@
+--------------------------------------------------------
+--  Fichier créé - mardi-mars-30-2021   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Sequence FOURNISSEURS_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "TAIEF"."FOURNISSEURS_SEQ"  MINVALUE 1 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence FOURN_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "TAIEF"."FOURN_SEQ"  MINVALUE 1 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence FOURN_SEQ1
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "TAIEF"."FOURN_SEQ1"  MINVALUE 1 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence FOURN_SEQ2
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "TAIEF"."FOURN_SEQ2"  MINVALUE 1 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 41 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence STOCK_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "TAIEF"."STOCK_SEQ"  MINVALUE 1 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence STOCK_SEQ1
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "TAIEF"."STOCK_SEQ1"  MINVALUE 1 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 41 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence STOCK_SEQ2
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "TAIEF"."STOCK_SEQ2"  MINVALUE 1 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence STOCK_SEQ3
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "TAIEF"."STOCK_SEQ3"  MINVALUE 1 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 41 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Table CLIENTS
+--------------------------------------------------------
+
+  CREATE TABLE "TAIEF"."CLIENTS" 
+   (	"CIN" VARCHAR2(20 BYTE), 
+	"NOM" VARCHAR2(20 BYTE), 
+	"PRENOM" VARCHAR2(20 BYTE), 
+	"COLUMN1" NUMBER
+   ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table ETUDIANT
+--------------------------------------------------------
+
+  CREATE TABLE "TAIEF"."ETUDIANT" 
+   (	"ID" NUMBER(*,0), 
+	"NOM" VARCHAR2(20 BYTE), 
+	"PRENOM" VARCHAR2(20 BYTE)
+   ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table FOURN
+--------------------------------------------------------
+
+  CREATE TABLE "TAIEF"."FOURN" 
+   (	"ID" NUMBER(*,0), 
+	"NOM" VARCHAR2(255 BYTE), 
+	"PRENOM" VARCHAR2(255 BYTE), 
+	"TEL" NUMBER, 
+	"ADRESSE" VARCHAR2(255 BYTE)
+   ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Table STOCK
+--------------------------------------------------------
+
+  CREATE TABLE "TAIEF"."STOCK" 
+   (	"ID" NUMBER(*,0), 
+	"DAT" VARCHAR2(255 BYTE), 
+	"PRIX" NUMBER(*,0), 
+	"QUANTITE" NUMBER(*,0)
+   ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT)
+  TABLESPACE "SYSTEM" ;
+REM INSERTING into TAIEF.CLIENTS
+SET DEFINE OFF;
+REM INSERTING into TAIEF.ETUDIANT
+SET DEFINE OFF;
+Insert into TAIEF.ETUDIANT (ID,NOM,PRENOM) values ('0','rihem','taief');
+Insert into TAIEF.ETUDIANT (ID,NOM,PRENOM) values ('564','yy','reehem');
+REM INSERTING into TAIEF.FOURN
+SET DEFINE OFF;
+Insert into TAIEF.FOURN (ID,NOM,PRENOM,TEL,ADRESSE) values ('21','taief','hilali','9758887','fdgfgd');
+Insert into TAIEF.FOURN (ID,NOM,PRENOM,TEL,ADRESSE) values ('22','hilali','taiieeeeem','8855555','ddddd');
+Insert into TAIEF.FOURN (ID,NOM,PRENOM,TEL,ADRESSE) values ('23','tebessi','ghada','8888','sss');
+REM INSERTING into TAIEF.STOCK
+SET DEFINE OFF;
+Insert into TAIEF.STOCK (ID,DAT,PRIX,QUANTITE) values ('22','lun. mars 29 2021','100','300');
+Insert into TAIEF.STOCK (ID,DAT,PRIX,QUANTITE) values ('23','jeu. mars 11 2021','10','20');
+--------------------------------------------------------
+--  DDL for Index FOURN_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "TAIEF"."FOURN_PK" ON "TAIEF"."FOURN" ("ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index CLIENTS_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "TAIEF"."CLIENTS_PK" ON "TAIEF"."CLIENTS" ("CIN") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index STOCK_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "TAIEF"."STOCK_PK" ON "TAIEF"."STOCK" ("ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Trigger FOURN_TRG
+--------------------------------------------------------
+
+  CREATE OR REPLACE TRIGGER "TAIEF"."FOURN_TRG" 
+BEFORE INSERT ON FOURN 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    IF INSERTING AND :NEW.ID IS NULL THEN
+      SELECT FOURN_SEQ2.NEXTVAL INTO :NEW.ID FROM SYS.DUAL;
+    END IF;
+  END COLUMN_SEQUENCES;
+END;
+/
+ALTER TRIGGER "TAIEF"."FOURN_TRG" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger STOCK_TRG
+--------------------------------------------------------
+
+  CREATE OR REPLACE TRIGGER "TAIEF"."STOCK_TRG" 
+BEFORE INSERT ON STOCK 
+FOR EACH ROW 
+BEGIN
+  <<COLUMN_SEQUENCES>>
+  BEGIN
+    IF INSERTING AND :NEW.ID IS NULL THEN
+      SELECT STOCK_SEQ3.NEXTVAL INTO :NEW.ID FROM SYS.DUAL;
+    END IF;
+  END COLUMN_SEQUENCES;
+END;
+/
+ALTER TRIGGER "TAIEF"."STOCK_TRG" ENABLE;
+--------------------------------------------------------
+--  Constraints for Table FOURN
+--------------------------------------------------------
+
+  ALTER TABLE "TAIEF"."FOURN" ADD CONSTRAINT "FOURN_PK" PRIMARY KEY ("ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+ 
+  ALTER TABLE "TAIEF"."FOURN" MODIFY ("ID" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table STOCK
+--------------------------------------------------------
+
+  ALTER TABLE "TAIEF"."STOCK" ADD CONSTRAINT "STOCK_PK" PRIMARY KEY ("ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+ 
+  ALTER TABLE "TAIEF"."STOCK" MODIFY ("ID" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table CLIENTS
+--------------------------------------------------------
+
+  ALTER TABLE "TAIEF"."CLIENTS" ADD CONSTRAINT "CLIENTS_PK" PRIMARY KEY ("CIN")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+ 
+  ALTER TABLE "TAIEF"."CLIENTS" MODIFY ("CIN" NOT NULL ENABLE);
