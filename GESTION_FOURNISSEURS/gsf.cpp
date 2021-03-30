@@ -56,7 +56,7 @@ gsf::~gsf()
 {
     delete ui;
 }
-
+//------------ajout1-------//
 
 
 void gsf::on_Ajouter_clicked()
@@ -80,7 +80,7 @@ void gsf::on_Ajouter_clicked()
 
    }
 
-
+//--------------supprimer1///////
 void gsf::on_supprimer_clicked()
 { son->play();
     int col = ui->tab_stk_2->currentIndex().column();
@@ -102,7 +102,7 @@ void gsf::on_supprimer_clicked()
                 msgBox.exec();
                  son->play();
 }
-
+//----------------ajout2-----------------//
 void gsf::on_ajouter1_clicked()
 { son->play();
     QString nom = ui->nom->text();
@@ -143,6 +143,7 @@ void gsf::on_ajouter1_clicked()
 
 
 
+//------------------modif1----------//
 
 void gsf::on_modifier_2_clicked()
 {
@@ -156,7 +157,7 @@ void gsf::on_modifier_2_clicked()
       son->play();
 }
 
-
+// -------------------------rechercher stock------------//
 
 void gsf::on_rechercher_clicked()
 { son->play();
@@ -184,7 +185,7 @@ void gsf::on_refresh_clicked()
   }
 
 
-
+//--------------------pdf stock----------------//
 void gsf::on_PDF_2_clicked()
 { son->play();
     QString strStream;

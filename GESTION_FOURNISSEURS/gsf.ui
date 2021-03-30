@@ -75,6 +75,11 @@
        </disabled>
       </palette>
      </property>
+     <property name="font">
+      <font>
+       <family>MS Shell Dlg 2</family>
+      </font>
+     </property>
      <property name="styleSheet">
       <string notr="true">background-image: url(&quot;taief.jpg&quot;);</string>
      </property>
