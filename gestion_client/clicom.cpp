@@ -20,6 +20,8 @@
 #include <QFileDialog>
 #include<QTextDocument>
 #include<QFile>
+#include"smtp.h"
+
 
 Clicom::Clicom(QWidget *parent) :
     QDialog(parent),
@@ -29,6 +31,8 @@ Clicom::Clicom(QWidget *parent) :
 ui->le_id->setValidator(new QIntValidator(100, 999, this));
 ui->tableView_3->setModel(C.afficher());
 ui->tableView_4->setModel(F.affichercom());
+connect(ui->sendBtn, SIGNAL(clicked()),this, SLOT(sendMail()));
+   connect(ui->exitBtn, SIGNAL(clicked()),this, SLOT(close()));
 }
 
 Clicom::~Clicom()
@@ -207,4 +211,25 @@ void Clicom::on_rech_but_clicked()
                request.exec();
                modal->setQuery(request);
                ui->tableView_4->setModel(modal);
+}
+
+
+
+//MAILING*********************************************************************************************************************************
+
+
+
+void Clicom::sendMail()
+{
+    Smtp* smtp = new Smtp(ui->uname->text(), ui->paswd->text(), ui->server->text(), ui->port->text().toInt());
+    connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
+
+
+    smtp->sendMail(ui->uname->text(), ui->rcpt->text() , ui->subject->text(),ui->msg->toPlainText());
+}
+
+void Clicom::mailSent(QString status)
+{
+    if(status == "Message sent")
+        QMessageBox::warning( 0, tr( "Qt Simple SMTP client" ), tr( "Message sent!\n\n" ) );
 }

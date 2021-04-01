@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += sql widgets
 
@@ -20,13 +20,15 @@ SOURCES += \
     client.cpp \
     commande.cpp \
     connexion.cpp \
-    main.cpp
+    main.cpp \
+    smtp.cpp
 
 HEADERS += \
     clicom.h \
     client.h \
     commande.h \
-    connexion.h
+    connexion.h \
+    smtp.h
 
 FORMS += \
     clicom.ui

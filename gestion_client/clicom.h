@@ -5,6 +5,7 @@
 #include "client.h"
 #include "commande.h"
 
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class Clicom;
@@ -47,7 +48,13 @@ private slots:
 
     void on_rech_but_clicked();
 
+void sendMail();
+void mailSent(QString status);
+
+
 private:
+
+
     Ui::Clicom *ui;
     Client C;
     Commande F;
