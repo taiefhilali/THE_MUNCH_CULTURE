@@ -66,7 +66,7 @@ QSqlQueryModel * Commande::Triercom(QString choix1){
          model->setQuery("SELECT * FROM Commande ORDER BY id_com DESC ");
     }
     else if(choix1=="date_com"){
-         model->setQuery("SELECT * FROM Commande ORDER BY date_com ");
+         model->setQuery("SELECT * FROM Commande ORDER BY date_com DESC");
     }
     else if(choix1=="nombre_come"){
         model->setQuery("SELECT * FROM Commande ORDER BY nombre_come DESC  ");

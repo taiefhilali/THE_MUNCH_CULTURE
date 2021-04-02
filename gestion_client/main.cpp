@@ -3,12 +3,17 @@
 #include <QMessageBox>
 #include <QDebug>
 #include "connexion.h"
+#include <QFile>
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     Connexion c;
     bool test=c.ouvrirConnexion();
     Clicom w;
+    QFile styleSheetFile(":/StyleSheet/SyNet.qss");
+                  styleSheetFile.open(QFile::ReadOnly);
+                  QString styleSheet = QLatin1String(styleSheetFile.readAll());
+                  a.setStyleSheet(styleSheet);
          if(test)
          {
 

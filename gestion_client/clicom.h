@@ -28,17 +28,9 @@ private slots:
 
     void on_pb_supprimer_clicked();
 
-   //  void on_push_recherche_clicked();
-
-
-    //void on_combo_activated();
-
-    //void on_combo_activated(const QString &arg1);
-
     void on_trie_activated();
 
     void on_modifier_clicked();
-    //comment
 
     void on_triecommande_activated();
 
@@ -48,9 +40,12 @@ private slots:
 
     void on_rech_but_clicked();
 
-void sendMail();
-void mailSent(QString status);
+    void sendMail();
 
+    void mailSent(QString status);
+
+
+    void on_pushButton_clicked();
 
 private:
 

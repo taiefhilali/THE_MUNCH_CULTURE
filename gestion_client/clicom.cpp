@@ -21,7 +21,7 @@
 #include<QTextDocument>
 #include<QFile>
 #include"smtp.h"
-
+#include "stato.h"
 
 Clicom::Clicom(QWidget *parent) :
     QDialog(parent),
@@ -107,12 +107,6 @@ void Clicom::on_pb_supprimer_clicked()
         msgBox.setText("Echec de suppression");
         msgBox.exec();
 }
-
-
-
-
-
-
 
 
 void Clicom::on_trie_activated()
@@ -213,12 +207,6 @@ void Clicom::on_rech_but_clicked()
                ui->tableView_4->setModel(modal);
 }
 
-
-
-//MAILING*********************************************************************************************************************************
-
-
-
 void Clicom::sendMail()
 {
     Smtp* smtp = new Smtp(ui->uname->text(), ui->paswd->text(), ui->server->text(), ui->port->text().toInt());
@@ -232,4 +220,10 @@ void Clicom::mailSent(QString status)
 {
     if(status == "Message sent")
         QMessageBox::warning( 0, tr( "Qt Simple SMTP client" ), tr( "Message sent!\n\n" ) );
+}
+
+void Clicom::on_pushButton_clicked()
+{
+    stato *a=new stato();
+             a->show();
 }

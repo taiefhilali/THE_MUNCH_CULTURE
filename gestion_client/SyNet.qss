@@ -23,8 +23,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SO
 /*-----QWidget-----*/
 QWidget
 {
-	background-color: #1a1a1a;
-	color: #000000;
+        background-color: #1a1a1a;
+        color: 	#b22222;
 
 }
 
@@ -127,8 +127,8 @@ QCheckBox::indicator:disabled
 /*-----QLineEdit-----*/
 QLineEdit
 {
-	background-color: #c2c7d5;
-	color: #000;
+        background-color: 	#b22222;
+        color: #000;
 	font-weight: bold;
 	border: none;
 	border-radius: 2px;
@@ -307,7 +307,7 @@ QTableCornerButton::section
 
 QHeaderView::section
 {
-	color: #fff;
+        color: #b22222;
 	border-top: 0px;
 	border-bottom: 1px solid gray;
 	border-right: 1px solid gray;

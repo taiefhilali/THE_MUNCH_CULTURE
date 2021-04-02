@@ -1,5 +1,5 @@
 QT       += core gui network
-
+QT += printsupport
 greaterThan(QT_MAJOR_VERSION, 4): QT += sql widgets
 
 CONFIG += c++11
@@ -21,17 +21,22 @@ SOURCES += \
     commande.cpp \
     connexion.cpp \
     main.cpp \
-    smtp.cpp
+    qcustomplot.cpp \
+    smtp.cpp \
+    stato.cpp
 
 HEADERS += \
     clicom.h \
     client.h \
     commande.h \
     connexion.h \
-    smtp.h
+    qcustomplot.h \
+    smtp.h \
+    stato.h
 
 FORMS += \
-    clicom.ui
+    clicom.ui \
+    stato.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -60,22 +60,7 @@ QSqlQueryModel* Client::afficher()
 
   return  model;
 }
-/*void Client::Rechercherclient(int id_cli){
-        QSqlQuery query2;
 
-
-        query2.prepare ("SELECT * FROM client WHERE id_cli= '"+QString::number(id_cli)+"'");
-        query2.exec();
-
-        while(query2.next()){
-            id_cli= query2.value(0).toInt();
-           nom_cli= query2.value(1).toString();
-          prenom_cli=query2.value(2).toString();
-           nombre_com= query2.value(3).toInt();
-        }
-
-
-    }*/
 QSqlQueryModel * Client::Trier(QString choix1){
     QSqlQueryModel *model=new QSqlQueryModel();
 
