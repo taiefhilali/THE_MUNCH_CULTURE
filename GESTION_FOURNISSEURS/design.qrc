@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/StyleSheet">
-        <file>SyNet.qss</file>
-        <file>Toolery.qss</file>
+        <file>NeonButtons.qss</file>
+        <file>MacOS.qss</file>
     </qresource>
 </RCC>

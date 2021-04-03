@@ -25,7 +25,9 @@ SOURCES += \
     fourn.cpp \
     gsf.cpp \
     main.cpp \
+    pdf.cpp \
     qcustomplot.cpp \
+    stati.cpp \
     statistiq.cpp \
     stocks.cpp
 
@@ -33,13 +35,17 @@ HEADERS += \
     connexion.h \
     fourn.h \
     gsf.h \
+    pdf.h \
     qcustomplot.h \
     stati.cpp.autosave \
+    stati.h \
     statistiq.h \
     stocks.h
 
 FORMS += \
     gsf.ui \
+    pdf.ui \
+    stati.ui \
     statistiq.ui
 
 # Default rules for deployment.
@@ -53,5 +59,5 @@ RESOURCES += \
     design.qrc \
     design.qrc \
     design.qrc \
-    img.qrc \
+    image.qrc \
     test_son.qrc

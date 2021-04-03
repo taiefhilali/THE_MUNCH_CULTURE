@@ -5,7 +5,6 @@
 #include "qcustomplot.h"
 #include <QWidget>
 
-#include <QMainWindow>
 
 namespace Ui {
 class statistiq;

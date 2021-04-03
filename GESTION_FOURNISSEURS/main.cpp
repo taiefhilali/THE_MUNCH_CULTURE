@@ -1,17 +1,25 @@
-#include "mainwindow.h"
+
 #include <QFile>
 #include <QApplication>
 #include <QMessageBox>
 #include <QDebug>
+#include <QtWidgets/QApplication>
 #include "connexion.h"
+#include "gsf.h"
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
-    QFile styleSheetFile(":/StyleSheet/SyNet.qss");
+    gsf w;
+   // ThemeWidget *widget = new ThemeWidget();
+    //window.setCentralWidget(widget);
+   // window.resize(900, 600);
+   // window.show();
+    QFile styleSheetFile(":/StyleSheet/MacOS.qss");
               styleSheetFile.open(QFile::ReadOnly);
               QString styleSheet = QLatin1String(styleSheetFile.readAll());
               a.setStyleSheet(styleSheet);
+
     Connection c;
         bool test=c.createconnect();
         if(test)

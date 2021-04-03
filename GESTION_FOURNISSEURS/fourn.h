@@ -3,7 +3,7 @@
 #include <QString>
 #include <QSqlQueryModel>
 #include <QSqlQueryModel>
-#include <ui_mainwindow.h>
+#include <ui_gsf.h>
 
 class fourn
 {
@@ -19,15 +19,16 @@ public:
         void setid(int);
         int get_tel();
         bool ajouter();
-        bool modifier(Ui::MainWindow *ui);
+        bool modifier(Ui::gsf *ui);
         void Rechercherfourns(int id);
         QSqlQueryModel * afficher();
-        bool supprimer (int);
+        bool delete_2 (int);
          QSqlQueryModel *Trier(QString);
 private:
     QString nom,prenom,adresse;
-    int tel,id;
+    int id,tel;
 
 };
 
 #endif // FOURN_H
+//

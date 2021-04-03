@@ -4,6 +4,8 @@
 #include <QDialog>
 #include "stocks.h"
 #include "fourn.h"
+#include "pdf.h"
+#include <QTimer>
 #include <QSound>
 namespace Ui {
 class gsf;
@@ -16,6 +18,8 @@ class gsf : public QDialog
 public:
     explicit gsf(QWidget *parent = nullptr);
     ~gsf();
+public slots:
+    //void clockTimer();
 private slots:
     void on_Ajouter_clicked();
 
@@ -34,7 +38,7 @@ private slots:
 
    // void on_pushButton_3_clicked();
 
-    void on_PDF_2_clicked();
+    void on_PDF_3_clicked();
 
    // void on_colone_tri_activated(const QString &arg1);
 
@@ -82,12 +86,36 @@ private slots:
 
     void on_excel_clicked();
 
+    void on_rechercherfournn_clicked();
+
+    void on_pushButton_5_clicked();
+
+    void on_stat_2_clicked();
+
+    void on_pushButton_7_clicked();
+
+    void on_pushButton_8_clicked();
+
+    void on_refresh_3_clicked();
+
+    void on_ajouter3_clicked();
+
+
+
+   // void on_PDF_3_clicked();
+
+    //void on_pddf_clicked();
+
+    void on_pushButton_imprimer_5_clicked();
+
 private:
     Ui::gsf *ui;
     stocks S;
     fourn f;
     QSound *son;
     QLabel *label1;
+     pdf *go;
+
 };
 
 #endif // GSF_H

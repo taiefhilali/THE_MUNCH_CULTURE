@@ -52,16 +52,16 @@ QSqlQueryModel * fourn::afficher()
 
 }
 
-bool fourn::supprimer(int id)
+bool fourn::delete_2(int id)
 {
     QSqlQuery query;
-    QString res= QString::number(id);
-    query.prepare("delete from fourn where id = :id");
-    query.bindValue(":id",res);
+    QString rec= QString::number(id);
+    query.prepare("delete from FOURN where id = :id");
+    query.bindValue(":id",rec);
     return query.exec();
 }
 
-bool fourn::modifier(Ui::MainWindow *ui){
+bool fourn::modifier(Ui::gsf *ui){
 
 
      int id= ui->id_2->text().toInt();

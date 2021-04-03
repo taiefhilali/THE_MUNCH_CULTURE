@@ -20,12 +20,15 @@
 #include <QFileDialog>
 #include<QTextDocument>
 #include <QDateTime>
+#include <QPainter>
 #include <QSound>
 #include "stocks.h"
 #include "fourn.h"
 #include "statistiq.h"
+#include "stati.h"
 #include "qcustomplot.h"
 //#include "stati.h"
+#include <QTimer>
 
 gsf::gsf(QWidget *parent) :
     QDialog(parent),
@@ -33,7 +36,9 @@ gsf::gsf(QWidget *parent) :
 {
     ui->setupUi(this);
 
-
+   /* qTimer=new QTimer(this);
+    connect(qTimer,SIGNAL(timeout()),this,SLOT(clockTimer()));
+    qTimer->start(100);*/
         ui->prix->setValidator(new QIntValidator(0, 9999999, this));
         ui->quantite->setValidator(new QIntValidator(0, 9999999, this));
         ui->tab_stk_2->setModel(S.afficher());
@@ -57,17 +62,26 @@ gsf::~gsf()
     delete ui;
 }
 //------------ajout1-------//
+/*void gsf::clockTimer()
+{
+    QTime clockTime=QTime::currentTime();
+    ui->clock->setText(clockTime.toString(" hh : mm : ss"));
+    QString date = QDate::currentDate().toString();
+    ui->date->setText(date);
 
+}*/
 
 void gsf::on_Ajouter_clicked()
 {  son->play();
 
     //QString dat = ui->dat->text();
- QString dat = ui->dat->selectedDate().toString();
+ QString dat = ui->dat->text();
 
        int prix = ui->prix->text().toInt();
        int quantite = ui->quantite->text().toInt();
-       stocks S (0,dat, prix,quantite);
+       QString nom = ui->noms->text();
+
+       stocks S (0,dat, prix,quantite,nom);
        bool test=S.ajouter();
        QMessageBox msgBox;
     if(test)
@@ -77,6 +91,7 @@ void gsf::on_Ajouter_clicked()
        else
            msgBox.setText("Echec d'ajout");
            msgBox.exec();
+            ui->tab_stk_2->setModel(S.afficher());
 
    }
 
@@ -109,9 +124,10 @@ void gsf::on_ajouter1_clicked()
     QString prenom = ui->prenom->text();
        int tel = ui->tel->text().toInt();
         QString adresse = ui->adresse->text();
-       fourn f (0,nom, prenom,tel,adresse);
+       fourn f (0,nom,prenom,tel,adresse);
        bool test=f.ajouter();
        QMessageBox msgBox;
+
     if(test)
          {  msgBox.setText("Ajout avec succes.");
            ui->tab_fourn_2->setModel(f.afficher());
@@ -151,10 +167,12 @@ void gsf::on_modifier_2_clicked()
  son->play();
 
   int id= ui->id->text().toInt();
-     stocks S(id,"",0,0);
+     stocks S(id,"",0,0,"");
      S.modifier(ui);
-     qDebug()<<"stock modifié avec succées";
-      son->play();
+     QMessageBox:: information(nullptr,QObject::tr("Bravo"),QObject::tr(" modification effectuee\n"
+                                                                              "click cancel to exit."),QMessageBox::Cancel);
+    ui->tab_stk_2->setModel(S.afficher());
+     son->play();
 }
 
 // -------------------------rechercher stock------------//
@@ -163,12 +181,13 @@ void gsf::on_rechercher_clicked()
 { son->play();
 
     int id= ui->id->text().toInt();
-       stocks S(id,"",0,0);
+       stocks S(id,"",0,0,"");
        S.Rechercherstocks(id);
        //ui->lineEdit_2 ->setText(com.get_nomProduit());
        ui->dat_3->setText(S.get_dat());
        ui->prix_2->setText(QString::number(S.get_prix()));
        ui->quantite_2->setText(QString::number(S.get_quantite()));
+       ui->noms->setText(S.get_noms());
         QMessageBox:: information(nullptr,QObject::tr("Bravo"),QObject::tr(" recherche effectue\n"
                                                                                  "click cancel to exit."),QMessageBox::Cancel);
          son->play();
@@ -186,7 +205,7 @@ void gsf::on_refresh_clicked()
 
 
 //--------------------pdf stock----------------//
-void gsf::on_PDF_2_clicked()
+void gsf::on_PDF_3_clicked()
 { son->play();
     QString strStream;
                     QTextStream out(&strStream);
@@ -196,13 +215,14 @@ void gsf::on_PDF_2_clicked()
 
                     out <<  "<html>\n"
                         "<head>\n"
+
                         "<meta Content=\"Text/html; charset=Windows-1251\">\n"
-                        <<  QString("<title>%1</title>\n").arg("strTitle")
+                        <<  QString("<GESTION DU STOCK>%1</>\n").arg("strTitle")
                         <<  "</head>\n"
-                        "<body bgcolor=#ffffff link=#5000A0>\n"
+                        "<body bgcolor=#e0c182 link=#5000A0>\n"
 
                        //     "<align='right'> " << datefich << "</align>"
-                        "<center> <H1>Liste des fournisseurs </H1></br></br><table border=1 cellspacing=0 cellpadding=2>\n";
+                        "<center> <H1>Liste des stocks </H1></br></br><table border=1 cellspacing=0 cellpadding=2>\n";
 
                     // headers
                     out << "<thead><tr bgcolor=#f0f0f0> <th>Numero</th>";
@@ -230,10 +250,13 @@ void gsf::on_PDF_2_clicked()
                 if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append(".pdf"); }
 
                QPrinter printer (QPrinter::PrinterResolution);
+
                 printer.setOutputFormat(QPrinter::PdfFormat);
                printer.setPaperSize(QPrinter::A4);
               printer.setOutputFileName(fileName);
 
+              qDebug()<<"le pdf a ete cree";
+              QMessageBox::information(this,"pdf cree","ce pdf a ete cree");
                QTextDocument doc;
                 doc.setHtml(strStream);
                 doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
@@ -266,9 +289,13 @@ void gsf::on_modifier3_clicked()
     int id= ui->id_2->text().toInt();
      fourn f(id,"","",0,"");
      f.modifier(ui);
+
      QMessageBox:: information(nullptr,QObject::tr("Bravo"),QObject::tr(" modification effectuee\n"
                                                                               "click cancel to exit."),QMessageBox::Cancel);
-      son->play();
+
+
+     ui->tab_fourn_2->setModel(f.afficher());
+     son->play();
 
 
 
@@ -356,6 +383,10 @@ void gsf::on_pdf2_clicked()
                 doc.setHtml(strStream);
                 doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
                 doc.print(&printer);
+                QPainter painter;
+                        painter.begin(&printer);
+                QImage image("C:/Users/taief/Desktop/MUNCH_CULTURE/logo.png");
+                        painter.drawImage(-30,-100,image);
  son->play();
 
 }
@@ -447,6 +478,9 @@ void gsf::on_commandLinkButton_clicked()
            else if (type=="quantite"){
                request.prepare("SELECT * FROM stock WHERE quantite LIKE:val order by quantite");
            }
+           else if (type=="nom"){
+               request.prepare("SELECT * FROM stock WHERE nom LIKE:val order by nom");
+           }
 
            request.bindValue(":val",val);
            request.exec();
@@ -519,24 +553,28 @@ void gsf::on_pushButton_3_clicked()
 
 
 
-
+//----------------------methode2 modif2----/////
 
 void gsf::on_IMPORT_clicked()
 { son->play();
-    int col = ui->tab_stk_2->currentIndex().column();
-        int row = ui->tab_stk_2->currentIndex().row();
+    int col = ui->tab_fourn_2->currentIndex().column();
+        int row = ui->tab_fourn_2->currentIndex().row();
         QString sql;
-     int id = S.afficher()->index(row, 0).data().toInt();
-     int prix = S.afficher()->index(row, 2).data().toInt();
-     int quantite = S.afficher()->index(row, 3).data().toInt();
-   QString dat=S.afficher()->index(row, 1).data().toString();
+     int id = f.afficher()->index(row, 0).data().toInt();
+    QString nom = f.afficher()->index(row, 1).data().toString();
+    int tel = f.afficher()->index(row, 3).data().toInt();
+   QString  prenom=f.afficher()->index(row, 2).data().toString();
+   QString  adresse=f.afficher()->index(row, 4).data().toString();
         //int id= ui->id->text().toInt();
-        QString idd=S.afficher()->index(row, 0).data().toString();
-        ui->id->setText(idd);
-        ui->dat_2->setSelectedDate(QDate::fromString(dat,"dd/MM/yyyy"));
+        QString idd=f.afficher()->index(row, 0).data().toString();
+        ui->id_2->setText(idd);
+        ui->nom_2->setText(nom);
+        ui->prenom_2->setText(prenom);
+         ui->tel_2->setText(QString::number(tel));
+          ui->adresse_2->setText(adresse);
        // ui->dat_3->setText(S.afficher()->index(row, 1).data().toString());
-         ui->prix_2->setText(QString::number(prix));
-         ui->quantite_2->setText(QString::number(quantite));
+         //ui->prix_2->setText(QString::number(prix));
+        // ui->quantite_2->setText(QString::number(quantite));
           son->play();
 }
 
@@ -555,6 +593,8 @@ void gsf::on_pushButton_4_clicked()
          ui->dat_3->setText(S.afficher()->index(row, 1).data().toString());
          ui->prix_2->setText(QString::number(prix));
          ui->quantite_2->setText(QString::number(quantite));
+         ui->noms1->setText(S.afficher()->index(row, 4).data().toString());
+
           son->play();
 }
 
@@ -562,7 +602,7 @@ void gsf::on_play_clicked()
 {
        son->play();
 }
-
+//-------export1---/////
 void gsf::on_EXPORT_clicked()
 {
     QPixmap pix(ui->tab_stk_2->size());
@@ -651,4 +691,102 @@ void gsf::on_excel_clicked()
                   }
 
 
+}
+
+void gsf::on_rechercherfournn_clicked()
+{
+    son->play();
+        int id= ui->id_2->text().toInt();
+           fourn f(id,"","",0,"");
+           f.Rechercherfourns(id);
+           //ui->lineEdit_2 ->setText(com.get_nomProduit());
+           ui->nom_2->setText(f.get_nom());
+           ui->prenom_2->setText(f.get_prenom());
+           ui->tel_2->setText(QString::number(f.get_tel()));
+           ui->adresse_2->setText(f.get_adresse());
+            QMessageBox:: information(nullptr,QObject::tr("Bravo"),QObject::tr(" recherche effectue\n"
+                                                                                     "click cancel to exit."),QMessageBox::Cancel);
+             son->play();
+}
+//---IMPORT CALENDER---/
+void gsf::on_pushButton_5_clicked()
+{
+    son->play();
+        int col = ui->tab_stk_2->currentIndex().column();
+            int row = ui->tab_stk_2->currentIndex().row();
+            QString sql;
+         int id = S.afficher()->index(row, 0).data().toInt();
+         int prix = S.afficher()->index(row, 2).data().toInt();
+         int quantite = S.afficher()->index(row, 3).data().toInt();
+       QString dat=S.afficher()->index(row, 1).data().toString();
+            //int id= ui->id->text().toInt();
+            QString idd=S.afficher()->index(row, 0).data().toString();
+            ui->id->setText(idd);
+            ui->dat_2->setSelectedDate(QDate::fromString(dat,"dd/MM/yyyy"));
+           // ui->dat_3->setText(S.afficher()->index(row, 1).data().toString());
+             ui->prix_2->setText(QString::number(prix));
+             ui->quantite_2->setText(QString::number(quantite));
+              son->play();
+}
+
+void gsf::on_stat_2_clicked()
+{
+    stati *b=new stati();
+              b->show();
+}
+
+
+void gsf::on_pushButton_7_clicked()
+{
+    statistiq *b=new statistiq();
+              b->show();
+}
+
+void gsf::on_pushButton_8_clicked()
+{
+    statistiq *b=new statistiq();
+              b->show();
+}
+
+
+
+void gsf::on_refresh_3_clicked()
+{
+    son->play();
+
+            stocks S;
+            ui->tab_stk_2->setModel(S.afficher());
+             son->play();
+}
+
+void gsf::on_ajouter3_clicked()
+{
+    son->play();
+        QString nom = ui->nom->text();
+        QString prenom = ui->prenom->text();
+           int tel = ui->tel->text().toInt();
+            QString adresse = ui->adresse->text();
+           fourn f (0,nom,prenom,tel,adresse);
+           bool test=f.ajouter();
+           QMessageBox msgBox;
+
+        if(test)
+             {  msgBox.setText("Ajout avec succes.");
+               ui->tab_fourn_2->setModel(f.afficher());
+           }
+           else
+               msgBox.setText("Echec d'ajout");
+               msgBox.exec();
+                ui->tab_fourn_2->setModel(f.afficher());
+                son->play();
+}
+
+
+
+
+
+void gsf::on_pushButton_imprimer_5_clicked()
+{
+    go = new pdf(this);
+       go->show();
 }
