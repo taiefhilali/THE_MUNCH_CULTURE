@@ -69,10 +69,10 @@ QSqlQueryModel * Client::Trier(QString choix1){
          model->setQuery("SELECT * FROM client ORDER BY id_cli DESC ");
     }
     else if(choix1=="nom_cli"){
-         model->setQuery("SELECT * FROM client ORDER BY nom_cli ");
+         model->setQuery("SELECT * FROM client ORDER BY nom_cli DESC");
     }
     else if(choix1=="prenom_cli"){
-        model->setQuery("SELECT * FROM client ORDER BY prenom_cli  ");
+        model->setQuery("SELECT * FROM client ORDER BY prenom_cli  DESC");
     }
     else if(choix1=="nombre_com"){
         model->setQuery("SELECT * FROM client ORDER BY nombre_com DESC ");

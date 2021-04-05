@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
     Connexion c;
     bool test=c.ouvrirConnexion();
     Clicom w;
-    QFile styleSheetFile(":/StyleSheet/SyNet.qss");
+    QFile styleSheetFile(":/StyleSheet/MacOS.qss");
                   styleSheetFile.open(QFile::ReadOnly);
                   QString styleSheet = QLatin1String(styleSheetFile.readAll());
                   a.setStyleSheet(styleSheet);
