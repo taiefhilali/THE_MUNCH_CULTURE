@@ -7,23 +7,24 @@ class Revenu
 {
 public:
     Revenu();
-    Revenu (int,int,int,int);
+    Revenu (int,int);
     int getid_rev();
     int gettot_rev();
-    int getid_dep();
-    int gettot_dep();
+
 
     void setid_rev(int);
     void settot_rev(int);
-    void setid_dep(int);
-    void settot_dep(int);
+
 
     bool ajouter();
     QSqlQueryModel* afficher();
     bool supprimer(int);
+    bool modifier(int , int);
+    QSqlQuery  recherche_2(int id_rev);
+    QSqlQueryModel * Trierrev(QString choix1);
 
 private:
-    int id_revenu,id_dep, tot_dep,tot_rev;
+    int id_rev , tot_rev;
 
 };
 

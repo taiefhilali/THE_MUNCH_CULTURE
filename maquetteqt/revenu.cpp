@@ -4,42 +4,38 @@
 #include <QObject>
 Revenu::Revenu()
 {
-id_revenu=0; tot_rev=0; id_dep=0; tot_dep=0; ;
+id_rev=0; tot_rev=0; ;
 }
-Revenu::Revenu(int id_revenu,int tot_rev,int id_dep,int tot_dep)
-{this-> id_revenu=id_revenu; this-> tot_rev=tot_rev; this-> id_dep=id_dep; this-> tot_dep=tot_dep; }
-int Revenu::getid_rev(){return id_revenu;}
+Revenu::Revenu(int id_rev,int tot_rev)
+{this-> id_rev=id_rev; this-> tot_rev=tot_rev;  }
+int Revenu::getid_rev(){return id_rev;}
 int Revenu::gettot_rev(){return tot_rev;}
-int Revenu::getid_dep(){return id_dep;}
-int Revenu::gettot_dep(){return tot_dep;}
 
-void Revenu::setid_rev(int id_revenu){this-> id_revenu=id_revenu;}
+
+void Revenu::setid_rev(int id_rev){this-> id_rev=id_rev;}
 void Revenu::settot_rev(int tot_rev){this-> tot_rev=tot_rev;}
-void Revenu::setid_dep(int id_dep){this-> id_dep=id_dep;}
-void Revenu::settot_dep(int tot_dep){this-> tot_dep=tot_dep;}
+
 
 bool Revenu::ajouter()
 {
     QSqlQuery query;
-  QString id_string= QString::number(id_dep);
-  QString totrev= QString::number(tot_dep);
-  QString iddep= QString::number(id_revenu);
-  QString totdep= QString::number(tot_rev);
 
-         query.prepare("INSERT INTO REVENUDEPENSE (id_dep,tot_dep,id_revenu,tot_rev) "
-                                   "VALUES (:id_dep, :tot_dep, :id_revenu,:tot_rev)");
-         query.bindValue(":id_dep",id_string);
-         query.bindValue(":tot_dep", totdep);
-         query.bindValue(":id_revenu", iddep);
-         query.bindValue(":tot_rev", totrev);
+  QString idrev= QString::number(id_rev);
+  QString totrev= QString::number(tot_rev);
+
+         query.prepare("INSERT INTO REVENU (id_rev,tot_rev) "
+                                   "VALUES ( :id_rev,:tot_rev)");
+
+         query.bindValue(":id_rev", id_rev);
+         query.bindValue(":tot_rev", tot_rev);
 
         return query.exec();
 }
-bool Revenu::supprimer(int  id_dep)
+bool Revenu::supprimer(int  id_rev)
 {
     QSqlQuery query;
-         query.prepare(" Delete from REVENUDEPENSE where id_dep=:id_dep");
-         query.bindValue(0,  id_dep);
+         query.prepare(" Delete from REVENU where id_rev=:id_rev");
+         query.bindValue(0,  id_rev);
 
         return query.exec();
 
@@ -50,13 +46,68 @@ QSqlQueryModel* Revenu::afficher()
   QSqlQueryModel* model=new QSqlQueryModel();
 
 
-   model->setQuery("SELECT* FROM REVENUDEPENSE");
-   model->setHeaderData(0, Qt::Horizontal, QObject::tr("id_dep"));
-   model->setHeaderData(1, Qt::Horizontal, QObject::tr("tot_dep"));
-   model->setHeaderData(2, Qt::Horizontal, QObject::tr("id_revenu"));
+   model->setQuery("SELECT* FROM REVENU");
+
+   model->setHeaderData(2, Qt::Horizontal, QObject::tr("id_rev"));
    model->setHeaderData(3, Qt::Horizontal, QObject::tr("tot_rev"));
 
 
 
   return  model;
+
+}
+
+bool Revenu::modifier(int id_rev,int tot_rev)
+{
+    QSqlQuery query;
+
+    QString res3=QString::number(id_rev);
+    QString res4=QString::number(tot_rev);
+
+
+
+    query.prepare("update REVENU set id_rev=id_rev,tot_rev=tot_rev where id_rev= :id_rev");
+
+    query.bindValue(":id_rev",res3);
+    query.bindValue(":tot_rev",res4);
+
+
+
+    return query.exec();
+}
+QSqlQueryModel * recherche_2(int id_rev)
+ {
+     QSqlQueryModel* model = new QSqlQueryModel();
+      model->setQuery("select * from REVENU where (id_rev LIKE id_rev='"+QString::number(id_rev)+"'");
+      model->setHeaderData(0, Qt::Horizontal, QObject::tr("id_rev"));
+      model->setHeaderData(1, Qt::Horizontal, QObject::tr("tot_rev "));
+
+
+          return model;
+
+
+
+
+ }
+
+
+QSqlQueryModel * Revenu::Trierrev(QString choix1){
+    QSqlQueryModel *model=new QSqlQueryModel();
+
+
+    if (choix1=="id_rev"){
+         model->setQuery("SELECT * FROM Revenu ORDER BY id_rev DESC ");
+    }
+    else if(choix1=="tot_rev"){
+         model->setQuery("SELECT * FROM Revenu ORDER BY tot_rev ");
+    }
+
+
+
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id_rev"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("tot_rev"));
+
+
+
+return model;
 }
