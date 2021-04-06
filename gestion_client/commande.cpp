@@ -58,24 +58,10 @@ QSqlQueryModel* Commande::affichercom()
 
   return  model;
 }
-QSqlQueryModel * Commande::Triercom(QString choix1){
+QSqlQueryModel * Commande::Triercom(const QString &critere, const QString &mode){
     QSqlQueryModel *model=new QSqlQueryModel();
 
-
-    if (choix1=="id_com"){
-         model->setQuery("SELECT * FROM Commande ORDER BY id_com DESC ");
-    }
-    else if(choix1=="date_com"){
-         model->setQuery("SELECT * FROM Commande ORDER BY date_com DESC");
-    }
-    else if(choix1=="nombre_come"){
-        model->setQuery("SELECT * FROM Commande ORDER BY nombre_come DESC  ");
-    }
-
-
-    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id_com"));
-    model->setHeaderData(1, Qt::Horizontal, QObject::tr("date_com"));
-    model->setHeaderData(2, Qt::Horizontal, QObject::tr("nombre_come "));
+model->setQuery("select * from Commande order by "+critere+" "+mode+"");
 
 
 return model;

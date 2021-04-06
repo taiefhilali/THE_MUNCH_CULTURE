@@ -28,11 +28,7 @@ private slots:
 
     void on_pb_supprimer_clicked();
 
-    void on_trie_activated();
-
     void on_modifier_clicked();
-
-    void on_triecommande_activated();
 
     void on_modifiercom_clicked();
 
@@ -44,12 +40,15 @@ private slots:
 
     void mailSent(QString status);
 
-
     void on_pushButton_clicked();
 
     void on_pushButton_2_clicked();
 
     void on_pushButton_3_clicked();
+
+    void on_trierClient_clicked();
+
+    void on_triercom_clicked();
 
 private:
 

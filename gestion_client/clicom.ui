@@ -16,14 +16,14 @@
   <widget class="QTabWidget" name="temprature">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>10</x>
      <y>0</y>
      <width>841</width>
      <height>701</height>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab1">
     <attribute name="title">
@@ -213,8 +213,8 @@
       <widget class="QPushButton" name="push_recherche_3">
        <property name="geometry">
         <rect>
-         <x>640</x>
-         <y>410</y>
+         <x>680</x>
+         <y>450</y>
          <width>93</width>
          <height>28</height>
         </rect>
@@ -226,8 +226,8 @@
       <widget class="QLineEdit" name="le_recherche_3">
        <property name="geometry">
         <rect>
-         <x>400</x>
-         <y>420</y>
+         <x>440</x>
+         <y>460</y>
          <width>221</width>
          <height>20</height>
         </rect>
@@ -265,7 +265,7 @@
       <widget class="QLabel" name="label_7">
        <property name="geometry">
         <rect>
-         <x>0</x>
+         <x>10</x>
          <y>390</y>
          <width>56</width>
          <height>16</height>
@@ -344,7 +344,7 @@
       <widget class="QComboBox" name="trie">
        <property name="geometry">
         <rect>
-         <x>310</x>
+         <x>370</x>
          <y>380</y>
          <width>73</width>
          <height>22</height>
@@ -371,24 +371,11 @@
         </property>
        </item>
       </widget>
-      <widget class="QLabel" name="label_9">
-       <property name="geometry">
-        <rect>
-         <x>410</x>
-         <y>380</y>
-         <width>56</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;TRIE&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
       <widget class="QComboBox" name="rechercher_cli">
        <property name="geometry">
         <rect>
-         <x>310</x>
-         <y>420</y>
+         <x>360</x>
+         <y>460</y>
          <width>73</width>
          <height>22</height>
         </rect>
@@ -451,6 +438,45 @@ background-repeat:none;</string>
         <string>importer</string>
        </property>
       </widget>
+      <widget class="QRadioButton" name="desc">
+       <property name="geometry">
+        <rect>
+         <x>470</x>
+         <y>380</y>
+         <width>97</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>descendant</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="asc">
+       <property name="geometry">
+        <rect>
+         <x>470</x>
+         <y>410</y>
+         <width>97</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>ascendant</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="trierClient">
+       <property name="geometry">
+        <rect>
+         <x>580</x>
+         <y>380</y>
+         <width>93</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>trier</string>
+       </property>
+      </widget>
       <zorder>label_23</zorder>
       <zorder>label</zorder>
       <zorder>label_2</zorder>
@@ -477,9 +503,11 @@ background-repeat:none;</string>
       <zorder>nombreclient</zorder>
       <zorder>modifier</zorder>
       <zorder>trie</zorder>
-      <zorder>label_9</zorder>
       <zorder>rechercher_cli</zorder>
       <zorder>pushButton_2</zorder>
+      <zorder>desc</zorder>
+      <zorder>asc</zorder>
+      <zorder>trierClient</zorder>
      </widget>
     </widget>
    </widget>
@@ -663,30 +691,17 @@ background-repeat:none;</string>
        <property name="geometry">
         <rect>
          <x>380</x>
-         <y>420</y>
+         <y>460</y>
          <width>181</width>
          <height>22</height>
         </rect>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_12">
-       <property name="geometry">
-        <rect>
-         <x>380</x>
-         <y>380</y>
-         <width>56</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;TRIE&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
       <widget class="QPushButton" name="rech_but">
        <property name="geometry">
         <rect>
          <x>570</x>
-         <y>420</y>
+         <y>460</y>
          <width>93</width>
          <height>28</height>
         </rect>
@@ -781,7 +796,7 @@ background-repeat:none;</string>
        <property name="geometry">
         <rect>
          <x>290</x>
-         <y>420</y>
+         <y>460</y>
          <width>73</width>
          <height>22</height>
         </rect>
@@ -844,12 +859,51 @@ background-repeat:none;</string>
         <rect>
          <x>170</x>
          <y>330</y>
-         <width>61</width>
+         <width>81</width>
          <height>28</height>
         </rect>
        </property>
        <property name="text">
         <string>importer</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="triercom">
+       <property name="geometry">
+        <rect>
+         <x>570</x>
+         <y>380</y>
+         <width>93</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>trier</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="decend">
+       <property name="geometry">
+        <rect>
+         <x>430</x>
+         <y>380</y>
+         <width>97</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>descendant</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="asend">
+       <property name="geometry">
+        <rect>
+         <x>430</x>
+         <y>420</y>
+         <width>97</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>ascendant</string>
        </property>
       </widget>
       <zorder>label_24</zorder>
@@ -866,7 +920,6 @@ background-repeat:none;</string>
       <zorder>pb_supprimer</zorder>
       <zorder>triecommande</zorder>
       <zorder>linecomande</zorder>
-      <zorder>label_12</zorder>
       <zorder>rech_but</zorder>
       <zorder>label_11</zorder>
       <zorder>label_13</zorder>
@@ -878,6 +931,9 @@ background-repeat:none;</string>
       <zorder>recombo</zorder>
       <zorder>pushButton</zorder>
       <zorder>pushButton_3</zorder>
+      <zorder>triercom</zorder>
+      <zorder>decend</zorder>
+      <zorder>asend</zorder>
      </widget>
     </widget>
    </widget>

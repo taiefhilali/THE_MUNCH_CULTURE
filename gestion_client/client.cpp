@@ -61,30 +61,16 @@ QSqlQueryModel* Client::afficher()
   return  model;
 }
 
-QSqlQueryModel * Client::Trier(QString choix1){
+QSqlQueryModel * Client::Trier(const QString &critere, const QString &mode){
+
     QSqlQueryModel *model=new QSqlQueryModel();
 
 
-    if (choix1=="id_cli"){
-         model->setQuery("SELECT * FROM client ORDER BY id_cli DESC ");
-    }
-    else if(choix1=="nom_cli"){
-         model->setQuery("SELECT * FROM client ORDER BY nom_cli DESC");
-    }
-    else if(choix1=="prenom_cli"){
-        model->setQuery("SELECT * FROM client ORDER BY prenom_cli  DESC");
-    }
-    else if(choix1=="nombre_com"){
-        model->setQuery("SELECT * FROM client ORDER BY nombre_com DESC ");
-    }
 
 
-    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id_cli"));
-    model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom_cli"));
-    model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom_cli "));
-    model->setHeaderData(3, Qt::Horizontal, QObject::tr("nombre_com"));
+model->setQuery("select * from client order by "+critere+" "+mode+"");
 
-return model;
+    return model;
 }
 bool Client::modifE(int id_cli,QString nom_cli,QString prenom_cli,int nombre_com)
 {

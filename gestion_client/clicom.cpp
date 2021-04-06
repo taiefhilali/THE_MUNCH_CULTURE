@@ -109,13 +109,6 @@ void Clicom::on_pb_supprimer_clicked()
 }
 
 
-void Clicom::on_trie_activated()
-{
-
-    Client C;
-    QString choix= ui->trie->currentText();
-    ui->tableView_3->setModel(C.Trier(choix));
-}
 
 void Clicom::on_modifier_clicked()
 {
@@ -139,12 +132,7 @@ void Clicom::on_modifier_clicked()
     ui->tableView_3->setModel(C.afficher());//refresh
 }
 
-void Clicom::on_triecommande_activated()
-{
-    Commande F;
-    QString choix= ui->triecommande->currentText();
-    ui->tableView_4->setModel(F.Triercom(choix));
-}
+
 
 void Clicom::on_modifiercom_clicked()
 {
@@ -262,4 +250,35 @@ void Clicom::on_pushButton_3_clicked()
     ui->nbcom->setText(F.affichercom()->index(row,2).data().toString());
 
 
+}
+
+void Clicom::on_trierClient_clicked()
+{
+    QString critere=ui->trie->currentText();
+        QString mode;
+        if (ui->asc->isChecked()==true)
+    {
+             mode="ASC";
+    }
+         else if(ui-> desc->isChecked()==true)
+         {
+             mode="DESC";
+         }
+      ui->tableView_3->setModel(C.Trier(critere,mode));
+
+}
+
+void Clicom::on_triercom_clicked()
+{
+    QString critere=ui->triecommande->currentText();
+        QString mode;
+        if (ui->asend->isChecked()==true)
+    {
+             mode="ASC";
+    }
+         else if(ui->decend->isChecked()==true)
+         {
+             mode="DESC";
+         }
+      ui->tableView_4->setModel(F.Triercom(critere,mode));
 }

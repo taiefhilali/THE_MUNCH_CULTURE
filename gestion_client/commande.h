@@ -17,7 +17,7 @@ public:
     bool ajoutercom();
     QSqlQueryModel* affichercom();
     bool supprimercom(int);
-    QSqlQueryModel *Triercom(QString );
+    QSqlQueryModel *Triercom(const QString &critere, const QString &mode);
     QSqlQueryModel * recherche_com(int id_com);
     bool modifC(int , QString,int);
 private:

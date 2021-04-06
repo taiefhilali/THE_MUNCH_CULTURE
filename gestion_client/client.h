@@ -20,7 +20,7 @@ public:
     QSqlQueryModel* afficher();
     bool supprimer(int);
     QSqlQueryModel * recherche_2(int id_cli);
-    QSqlQueryModel *Trier(QString );
+    QSqlQueryModel *Trier(const QString &critere, const QString &mode);
     bool modifE(int , QString,QString,int);
 
 private:
