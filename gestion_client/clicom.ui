@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab1">
     <attribute name="title">
@@ -438,6 +438,19 @@ background-repeat:none;</string>
         <string/>
        </property>
       </widget>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>460</y>
+         <width>93</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>importer</string>
+       </property>
+      </widget>
       <zorder>label_23</zorder>
       <zorder>label</zorder>
       <zorder>label_2</zorder>
@@ -466,6 +479,7 @@ background-repeat:none;</string>
       <zorder>trie</zorder>
       <zorder>label_9</zorder>
       <zorder>rechercher_cli</zorder>
+      <zorder>pushButton_2</zorder>
      </widget>
     </widget>
    </widget>
@@ -825,6 +839,19 @@ background-repeat:none;</string>
         <string/>
        </property>
       </widget>
+      <widget class="QPushButton" name="pushButton_3">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>330</y>
+         <width>61</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>importer</string>
+       </property>
+      </widget>
       <zorder>label_24</zorder>
       <zorder>label_15</zorder>
       <zorder>label_17</zorder>
@@ -850,6 +877,7 @@ background-repeat:none;</string>
       <zorder>modifiercom</zorder>
       <zorder>recombo</zorder>
       <zorder>pushButton</zorder>
+      <zorder>pushButton_3</zorder>
      </widget>
     </widget>
    </widget>

@@ -227,3 +227,39 @@ void Clicom::on_pushButton_clicked()
     stato *a=new stato();
              a->show();
 }
+
+void Clicom::on_pushButton_2_clicked()
+{
+    int col = ui->tableView_3->currentIndex().column();
+        int row = ui->tableView_3->currentIndex().row();
+
+        if(col==0)
+        {
+            int id=C.afficher()->index(row,col).data().toInt();
+            QString sql=QString("SELECT * FROM client WHERE id_cli=:id").arg(id);
+
+        }
+        ui->idclient->setText(C.afficher()->index(row,0).data().toString());
+        ui->nomclient->setText(C.afficher()->index(row,1).data().toString());
+        ui->prenomclient->setText(C.afficher()->index(row,2).data().toString());
+        ui->nombreclient->setText(C.afficher()->index(row,3).data().toString());
+
+}
+
+void Clicom::on_pushButton_3_clicked()
+{
+    int col = ui->tableView_4->currentIndex().column();
+    int row = ui->tableView_4->currentIndex().row();
+
+    if(col==0)
+    {
+        int id=F.affichercom()->index(row,col).data().toInt();
+        QString sql=QString("SELECT * FROM Commande WHERE id_com=:id").arg(id);
+
+    }
+    ui->idcom->setText(F.affichercom()->index(row,0).data().toString());
+    ui->datecome->setText(F.affichercom()->index(row,1).data().toString());
+    ui->nbcom->setText(F.affichercom()->index(row,2).data().toString());
+
+
+}
