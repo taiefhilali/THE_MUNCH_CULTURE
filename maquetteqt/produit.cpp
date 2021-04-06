@@ -71,21 +71,22 @@ bool Produit::modifier(int id_produit,int tot_produit, QString type_produit)
 {
     QSqlQuery query;
 
-    QString idproduit=QString::number(id_produit);
-     QString totproduit=QString::number(tot_produit);
+    QString res3=QString::number(id_produit);
+    QString res4=QString::number(tot_produit);
+    QString res5=QString(type_produit);
 
 
 
+    query.prepare("update PRODUIT set id_produit=id_produit,tot_produit=tot_produit, type_produit=type_produit where id_produit= :id_produit");
 
-    query.prepare("update PRODUIT set tot_produit=tot_produit, type_produit=type_produit where id_produit= :id_produit");
-
-    query.bindValue(":id_produit",idproduit);
-    query.bindValue(":tot_produit",totproduit);
-    query.bindValue(":type_produit",type_produit);
+    query.bindValue(":id_produit",res3);
+    query.bindValue(":tot_produit",res4);
+    query.bindValue(":type_produit",res5);
 
 
 
     return query.exec();
+
 }
 
 QSqlQueryModel * recherche_4(int id_produit)
@@ -105,27 +106,18 @@ QSqlQueryModel * recherche_4(int id_produit)
 
 
  }
-QSqlQueryModel * Produit::Trierproduit(QString choix1){
+QSqlQueryModel * Produit::Trierproduit(const QString &critere, const QString &mode){
+
+
+
     QSqlQueryModel *model=new QSqlQueryModel();
 
 
-    if (choix1=="id_produit"){
-         model->setQuery("SELECT * FROM Produit ORDER BY id_produit DESC ");
-    }
-    else if(choix1=="tot_produit"){
-         model->setQuery("SELECT * FROM Produit ORDER BY tot_produit ");
-    }else if(choix1=="type_produit"){
-        model->setQuery("SELECT * FROM Produit ORDER BY type_produit ");}
 
 
+model->setQuery("select * from produit order by "+critere+" "+mode+"");
 
-    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id_produit"));
-    model->setHeaderData(1, Qt::Horizontal, QObject::tr("tot_produit"));
-    model->setHeaderData(2, Qt::Horizontal, QObject::tr("type_produit"));
-
-
-
-return model;
+    return model;
 }
 
 

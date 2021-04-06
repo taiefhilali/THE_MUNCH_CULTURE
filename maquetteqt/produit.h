@@ -23,7 +23,7 @@ public:
     bool supprimer(int);
     bool modifier(int , int , QString);
     QSqlQueryModel * recherche_4(int id_produit);
-    QSqlQueryModel * Trierproduit(QString choix1);
+    QSqlQueryModel * Trierproduit(const QString &critere, const QString &mode);
 
 private:
     int id_produit,tot_produit;

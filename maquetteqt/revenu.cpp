@@ -92,23 +92,13 @@ QSqlQueryModel * recherche_2(int id_rev)
  }
 
 
-QSqlQueryModel * Revenu::Trierrev(QString choix1){
+QSqlQueryModel * Revenu::Trierrev(const QString &critere, const QString &mode){
     QSqlQueryModel *model=new QSqlQueryModel();
 
 
-    if (choix1=="id_rev"){
-         model->setQuery("SELECT * FROM Revenu ORDER BY id_rev DESC ");
-    }
-    else if(choix1=="tot_rev"){
-         model->setQuery("SELECT * FROM Revenu ORDER BY tot_rev ");
-    }
 
 
+model->setQuery("select * from revenu order by "+critere+" "+mode+"");
 
-    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id_rev"));
-    model->setHeaderData(1, Qt::Horizontal, QObject::tr("tot_rev"));
-
-
-
-return model;
+    return model;
 }

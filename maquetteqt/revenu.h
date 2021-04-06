@@ -21,7 +21,8 @@ public:
     bool supprimer(int);
     bool modifier(int , int);
     QSqlQuery  recherche_2(int id_rev);
-    QSqlQueryModel * Trierrev(QString choix1);
+   // QSqlQueryModel * Trierrev(QString choix1);
+    QSqlQueryModel * Trierrev(const QString &critere, const QString &mode );
 
 private:
     int id_rev , tot_rev;

@@ -80,22 +80,15 @@ QSqlQueryModel * Depense::recherche_2(int id_dep)
 
          return model;
 }
-QSqlQueryModel * Depense::Trierdep(QString choix1){
+QSqlQueryModel * Depense::Trierdep(const QString &critere, const QString &mode){
+
+
     QSqlQueryModel *model=new QSqlQueryModel();
 
 
-    if (choix1=="id_dep"){
-         model->setQuery("SELECT * FROM Depense ORDER BY id_dep DESC ");
-    }
-    else if(choix1=="tot_dep"){
-         model->setQuery("SELECT * FROM Depense ORDER BY tot_dep ");
-    }
 
 
+model->setQuery("select * from depense order by "+critere+" "+mode+"");
 
-    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id_dep"));
-    model->setHeaderData(1, Qt::Horizontal, QObject::tr("tot_dep"));
-
-
-return model;
+    return model;
 }

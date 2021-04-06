@@ -105,9 +105,19 @@ void youssef::on_pushButton_3_clicked()
 
 void youssef::on_pushButton_clicked()
 {
-    Revenu R;
-    QString choix= ui->cb_recherche_9->currentText();
-    ui->tab_rev->setModel(R.Trierrev(choix));
+
+
+    QString critere=ui->cb_recherche_9->currentText();
+        QString mode;
+        if (ui->asc->isChecked()==true)
+    {
+             mode="ASC";
+    }
+         else if(ui->desc->isChecked()==true)
+         {
+             mode="DESC";
+         }
+      ui->tab_rev->setModel(R.Trierrev(critere,mode));
 }
 
 
@@ -227,9 +237,18 @@ void youssef::on_pushButton_7_clicked()
 
 void youssef::on_pushButton_8_clicked()
 {
-    Depense D;
-    QString choix= ui->cb_recherche_10->currentText();
-    ui->tab_dep->setModel(D.Trierdep(choix));
+
+    QString critere=ui->cb_recherche_10->currentText();
+        QString mode;
+        if (ui->asc1->isChecked()==true)
+    {
+             mode="ASC";
+    }
+         else if(ui->desc1->isChecked()==true)
+         {
+             mode="DESC";
+         }
+      ui->tab_dep->setModel(D.Trierdep(critere,mode));
 
 }
 
@@ -310,13 +329,13 @@ void youssef::on_supprimer_2_clicked()
 
 void youssef::on_modifier3_2_clicked()
 {
-    {
+   {
         int id_produit,tot_produit;
                 QString type_produit;
 
         id_produit=ui->le_id_produit_3->text().toInt();
         tot_produit=ui->le_tot_produit_3->text().toInt();
-        type_produit=ui->letypeproduit->currentText();
+        type_produit=ui->mtypeproduit->currentText();
 
 
         QSqlQuery qry;
@@ -335,13 +354,23 @@ void youssef::on_modifier3_2_clicked()
     }
 
 
+
 }
 
 void youssef::on_pushButton_9_clicked()
 {
-    Produit P;
-    QString choix= ui->trieprod->currentText();
-    ui->tab_produit->setModel(P.Trierproduit(choix));
+
+    QString critere=ui->trieprod->currentText();
+        QString mode;
+        if (ui->asc2->isChecked()==true)
+    {
+             mode="ASC";
+    }
+         else if(ui->desc2->isChecked()==true)
+         {
+             mode="DESC";
+         }
+      ui->tab_produit->setModel(P.Trierproduit(critere,mode));
 
 }
 
@@ -512,25 +541,50 @@ void youssef::makePolt()
 
 }
 
-/*void youssef::on_pushButton_5_clicked()
+
+void youssef::on_pushButton_5_clicked()
 {
-    int row=ui->tab_produit->selectionModel()->currentIndex().row();
-       QString id_produit=ui->tab_produit->model()->index(row,0).data().toString(); //row = ligne / 0 : colonne
-       QString tot_produit=ui->tab_produit->model()->index(row,1).data().toString();
-       QString type_produit=ui->tab_produit->model()->index(row,2).data().toString();
+ int col = ui->tab_produit->currentIndex().column();
+    int row = ui->tab_produit->currentIndex().row();
+
+    if(col==0)
+    {
+        int id=P.afficher()->index(row,col).data().toInt();
+        QString sql=QString("SELECT * FROM PRODUIT WHERE id_produit=:id").arg(id);
+
+    }
+    ui->le_id_produit_3->setText(P.afficher()->index(row,0).data().toString());
+    ui->le_tot_produit_3->setText(P.afficher()->index(row,1).data().toString());
+}
 
 
+void youssef::on_pushButton_6_clicked()
+{
+    int col = ui->tab_dep->currentIndex().column();
+       int row = ui->tab_dep->currentIndex().row();
 
-       if(row==-1)
+       if(col==0)
        {
-           QMessageBox ::information(nullptr,QObject::tr("modifier produit"),
-                                             QObject::tr("aucune selection.\n"
-                                                 "click ok to exit"),QMessageBox::Ok);
+           int id=D.afficher()->index(row,col).data().toInt();
+           QString sql=QString("SELECT * FROM DEPENSE WHERE id_dep=:id").arg(id);
+
        }
-       else
+       ui->le_id_dep_5->setText(D.afficher()->index(row,0).data().toString());
+       ui->le_tot_dep_2->setText(D.afficher()->index(row,1).data().toString());
+    }
+
+void youssef::on_pushButton_10_clicked()
+{
+    int col = ui->tab_rev->currentIndex().column();
+       int row = ui->tab_rev->currentIndex().row();
+
+       if(col==0)
        {
-           ui->le_id_produit->setText(id_produit);
-           ui->le_tot_produit->setText(tot_produit);
-           ui->letypeproduit->setCurrentText(type_produit);
+           int id=R.afficher()->index(row,col).data().toInt();
+           QString sql=QString("SELECT * FROM REVENU WHERE id_rev=:id").arg(id);
+
        }
-}*/
+       ui->le_id_rev_3->setText(R.afficher()->index(row,0).data().toString());
+       ui->le_tot_rev_2->setText(R.afficher()->index(row,1).data().toString());
+    }
+

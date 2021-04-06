@@ -21,7 +21,7 @@ public:
     bool supprimer(int);
     bool modifier(int , int);
 QSqlQueryModel * recherche_2(int id_dep);
-QSqlQueryModel * Trierdep(QString choix1);
+QSqlQueryModel * Trierdep(const QString &critere, const QString &mode);
 
 private:
     int  id_dep, tot_dep;
