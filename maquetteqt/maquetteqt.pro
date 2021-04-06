@@ -18,20 +18,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     connexion.cpp \
     depense.cpp \
-    gestion_prd.cpp \
     main.cpp \
     produit.cpp \
-    revenu.cpp
+    qcustomplot.cpp \
+    revenu.cpp \
+    youssef.cpp
 
 HEADERS += \
     connexion.h \
     depense.h \
-    gestion_prd.h \
     produit.h \
-    revenu.h
+    qcustomplot.h \
+    revenu.h \
+    youssef.h
 
 FORMS += \
-    gestion_prd.ui
+    youssef.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

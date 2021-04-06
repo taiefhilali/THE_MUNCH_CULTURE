@@ -2,6 +2,7 @@
 #define DEPENSE_H
 #include <QString>
 
+
 #include <QSqlQueryModel>
 class Depense
 {

@@ -1,4 +1,5 @@
-#include "gestion_prd.h"
+#include "youssef.h"
+
 #include <QFile>
 #include <QApplication>
 #include <QMessageBox>
@@ -9,7 +10,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     Connection c;
     bool test=c.ouvrirConnexion();
-   gestion_prd w;
+   youssef w;
     QFile styleSheetFile(":/StyleSheet/MacOS.qss");
                   styleSheetFile.open(QFile::ReadOnly);
                   QString styleSheet = QLatin1String(styleSheetFile.readAll());

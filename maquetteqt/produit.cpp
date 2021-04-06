@@ -90,14 +90,16 @@ bool Produit::modifier(int id_produit,int tot_produit, QString type_produit)
 
 QSqlQueryModel * recherche_4(int id_produit)
  {
-     QSqlQueryModel* model = new QSqlQueryModel();
-      model->setQuery("select * from produit where (id_produit LIKE id_produit='"+QString::number(id_produit)+"'");
-      model->setHeaderData(0, Qt::Horizontal, QObject::tr("id_produit"));
-      model->setHeaderData(1, Qt::Horizontal, QObject::tr("tot_produit "));
-      model->setHeaderData(3, Qt::Horizontal, QObject::tr("type_produit "));
 
 
-          return model;
+         QSqlQueryModel* model = new QSqlQueryModel();
+          model->setQuery("select * from PRODUIT where (id_produit LIKE id_produit='"+QString::number(id_produit)+"'");
+          model->setHeaderData(0, Qt::Horizontal, QObject::tr("id_produit"));
+          model->setHeaderData(1, Qt::Horizontal, QObject::tr("tot_produit "));
+          model->setHeaderData(2, Qt::Horizontal, QObject::tr("type_produit "));
+
+
+              return model;
 
 
 

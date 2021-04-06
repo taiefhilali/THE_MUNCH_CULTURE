@@ -2,6 +2,7 @@
 #include <QSqlQuery>
 #include <QtDebug>
 #include <QObject>
+
 Revenu::Revenu()
 {
 id_rev=0; tot_rev=0; ;

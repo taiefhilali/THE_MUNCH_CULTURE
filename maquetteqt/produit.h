@@ -7,6 +7,7 @@ class Produit
 {
 public:
     Produit();
+
     Produit (int,int,QString);
     int getid_produit();
     int gettot_produit();
