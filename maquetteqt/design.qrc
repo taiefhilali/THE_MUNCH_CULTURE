@@ -3,6 +3,7 @@
         <file>SyNet.qss</file>
         <file>MacOS.qss</file>
         <file>1.jpg</file>
+        <file>ajouter.jpg</file>
     </qresource>
     <qresource prefix="/">
         <file>../../../Downloads/try/try/Click.mp3</file>

@@ -5,6 +5,7 @@
 #include "revenu.h"
 #include <QDialog>
 
+
 namespace Ui {
 class youssef;
 }
@@ -72,6 +73,7 @@ private:
     Revenu R;
     Produit P;
     Depense D;
+
 };
 
 #endif // YOUSSEF_H

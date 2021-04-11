@@ -17,6 +17,7 @@ youssef::youssef(QWidget *parent) :
     ui->tab_rev->setModel(R.afficher());
     ui->tab_dep->setModel(D.afficher());
     ui->tab_produit->setModel(P.afficher());
+
     makePolt();
 }
 
@@ -43,6 +44,7 @@ Revenu R(id_rev,tot_rev);
  else
      msgBox.setText("Echec d'ajout");
      msgBox.exec();
+
 }
 
 
@@ -66,6 +68,7 @@ void youssef::on_modifier_3_clicked()
         ui->tab_rev->setModel(R.afficher());//refresh
 
     }
+
 }
 
 void youssef::on_supprimer_3_clicked()
@@ -82,6 +85,7 @@ void youssef::on_supprimer_3_clicked()
     else
         msgBox.setText("Echec de suppression");
         msgBox.exec();
+
 }
 
 void youssef::on_pushButton_3_clicked()
@@ -101,6 +105,7 @@ void youssef::on_pushButton_3_clicked()
                request.exec();
                modal->setQuery(request);
                ui->tab_rev->setModel(modal);
+
 }
 
 void youssef::on_pushButton_clicked()
@@ -118,6 +123,7 @@ void youssef::on_pushButton_clicked()
              mode="DESC";
          }
       ui->tab_rev->setModel(R.Trierrev(critere,mode));
+
 }
 
 
@@ -157,6 +163,7 @@ void youssef::on_EXCEL_clicked()
                           file.close();
                           QMessageBox::information(this,"Exporter To  export","Exporter En  export Avec Succées ");
                       }
+
 }
 
 void youssef::on_pushButton_1_clicked()
@@ -176,6 +183,7 @@ Depense D(id_dep,tot_dep);
  else
      msgBox.setText("Echec d'ajout");
      msgBox.exec();
+
 }
 
 void youssef::on_supprimer_6_clicked()
@@ -192,6 +200,7 @@ void youssef::on_supprimer_6_clicked()
         else
             msgBox.setText("Echec de suppression");
             msgBox.exec();
+
 }
 
 void youssef::on_pushButton_2_clicked()
@@ -213,7 +222,9 @@ void youssef::on_pushButton_2_clicked()
         qry.exec();
         ui->tab_dep->setModel(D.afficher());//refresh
 
+
     }
+
 }
 
 void youssef::on_pushButton_7_clicked()
@@ -233,6 +244,7 @@ void youssef::on_pushButton_7_clicked()
                request.exec();
                modal->setQuery(request);
                ui->tab_dep->setModel(modal);
+
 }
 
 void youssef::on_pushButton_8_clicked()
@@ -292,13 +304,14 @@ void youssef::on_ajouter1_clicked()
 {
 
     int id_produit=ui->le_id_produit->text().toInt();
+    QString nom_produit=ui->le_nom_produit->text();
+    QString type_produit=ui->letypeproduit->currentText();
     int tot_produit=ui->le_tot_produit->text().toInt();
-
-   // QString type_produit=ui->le_type_produit_2->text();
-     QString type_produit=ui->letypeproduit->currentText();
+    QString produit_rester=ui->leproduitrester->currentText();
 
 
-Produit P(id_produit,tot_produit,type_produit);
+
+Produit P(id_produit,nom_produit,type_produit,tot_produit,produit_rester);
  bool test=P.ajouter();
  QMessageBox msgBox;
 
@@ -331,20 +344,24 @@ void youssef::on_modifier3_2_clicked()
 {
    {
         int id_produit,tot_produit;
-                QString type_produit;
+                QString nom_produit,type_produit,produit_rester;
 
         id_produit=ui->le_id_produit_3->text().toInt();
-        tot_produit=ui->le_tot_produit_3->text().toInt();
+        nom_produit=ui->le_nom_produit_3->text();
         type_produit=ui->mtypeproduit->currentText();
+        tot_produit=ui->le_tot_produit_3->text().toInt();
+        produit_rester=ui->mproduitrester->currentText();
 
 
         QSqlQuery qry;
-        qry.prepare("update PRODUIT set tot_produit=:tot_produit,type_produit=:type_produit where id_produit=:id_produit");
+        qry.prepare("update PRODUIT set nom_produit=:nom_produit,type_produit=:type_produit,tot_produit=:tot_produit,produit_rester=:produit_rester where id_produit=:id_produit");
 
 
         qry.bindValue(":id_produit",id_produit);
-        qry.bindValue(":tot_produit",tot_produit);
+        qry.bindValue(":nom_produit",nom_produit);
         qry.bindValue(":type_produit",type_produit);
+        qry.bindValue(":tot_produit",tot_produit);
+        qry.bindValue(":produit_rester",produit_rester);
 
 
 
@@ -383,10 +400,14 @@ void youssef::on_pushButton_4_clicked()
                val="%"+val+"%";
                if (type=="id_produit"){
                    request.prepare("SELECT * FROM PRODUIT WHERE id_produit LIKE:val");
+               }else if (type=="nom_produit"){
+                   request.prepare("SELECT * FROM PRODUIT WHERE nom_produit LIKE:val");
+               }else if (type=="type_produit"){
+                   request.prepare("SELECT * FROM PRODUIT WHERE type_produit LIKE:val");
                }else if (type=="tot_produit"){
                    request.prepare("SELECT * FROM PRODUIT WHERE tot_produit LIKE:val");
-               }else if (type=="type_produit"){
-                   request.prepare("SELECT * FROM PRODUIT WHERE type_produit LIKE:val");}
+               }else if (type=="produit_rester"){
+                   request.prepare("SELECT * FROM PRODUIT WHERE produit_rester LIKE:val");
                request.bindValue(":val",val);
                request.exec();
                modal->setQuery(request);
@@ -395,7 +416,7 @@ void youssef::on_pushButton_4_clicked()
 }
 
 
-
+}
 void youssef::on_EXCEL_3_clicked()
 {
     QTableView *table;
@@ -469,7 +490,7 @@ void youssef::makePolt()
 
        ticks << 1<<2<<3;
 
-      labels <<"fastfood"<<"healthyfood "<<"Others";
+      labels <<"fastfood"<<"healthyfood "<<"others";
        QSharedPointer<QCPAxisTickerText> textTicker(new QCPAxisTickerText);
        textTicker->addTicks(ticks, labels);
        ui->customPlot->xAxis->setTicker(textTicker);
@@ -515,7 +536,7 @@ void youssef::makePolt()
                qDebug()<<"Nombre produits : "<<n2<<endl;
            }
 
-           QSqlQuery q3("select count(*) from produit where type_produit='Others' ");
+           QSqlQuery q3("select count(*) from produit where type_produit='others' ");
            while (q3.next())
            {
                 n3 = q3.value(0).toInt();
@@ -542,6 +563,7 @@ void youssef::makePolt()
 }
 
 
+
 void youssef::on_pushButton_5_clicked()
 {
  int col = ui->tab_produit->currentIndex().column();
@@ -554,7 +576,13 @@ void youssef::on_pushButton_5_clicked()
 
     }
     ui->le_id_produit_3->setText(P.afficher()->index(row,0).data().toString());
-    ui->le_tot_produit_3->setText(P.afficher()->index(row,1).data().toString());
+    ui->le_nom_produit_3->setText(P.afficher()->index(row,1).data().toString());
+    ui->letypeproduit->setCurrentText(P.afficher()->index(row,1).data().toString());
+
+    ui->le_tot_produit_3->setText(P.afficher()->index(row,3).data().toString());
+    ui->leproduitrester->setCurrentText(P.afficher()->index(row,1).data().toString());
+
+
 }
 
 
