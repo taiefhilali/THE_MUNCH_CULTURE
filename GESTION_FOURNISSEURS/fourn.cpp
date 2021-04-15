@@ -1,8 +1,14 @@
 #include "fourn.h"
+#include "ui_pdf.h"
+#include<QSqlQuery>
+#include<QMessageBox>
 #include <QSqlQuery>
 #include <QtDebug>
 #include <QObject>
 #include <QString>
+
+
+
 fourn::fourn()
 {
     id=0;
@@ -31,7 +37,7 @@ bool fourn::ajouter()
     QSqlQuery query;
     QString res= QString::number(id);
     query.prepare("INSERT INTO fourn (nom,prenom,tel,adresse) VALUES (:nom,:prenom,:tel,:adresse)");
- //   query.bindValue(":id",res);
+ //   query.bindValue(":id",res);+
     query.bindValue(":nom",nom);
     query.bindValue(":prenom",prenom);
     query.bindValue(":tel",tel);
@@ -130,3 +136,123 @@ return model;
 }
 
 
+void fourn::pdffonction( int code ,QString type)
+
+    {
+            QPrinter printer;
+            printer.setOutputFormat(QPrinter::PdfFormat);
+            printer.setOutputFileName("C:/Users/taief/Documents/stock/taief.pdf");
+            QPainter painter;
+            painter.begin(&printer);
+
+            QFont font;
+          //  QString code;//=ui->lineEdit_code_pdf_3->text();
+            QSqlQuery query;
+            QString typeanim_pdf,id_pdf,nb_pdf,type_pdf,idanimation_pdf,lieu_pdf,dateanim_pdf,duree_pdf,cin_pdf,datefin_pdf,
+                    idd_pdf,iddd_pdf,a_pdf,b_pdf,c_pdf,d_pdf,e_pdf,f_pdf;
+    QString code1=QString::number(code);
+     // qDebug() << ":" << code;
+      if (type=="fourn")
+            {
+                query.prepare("select * from fourn where id='"+code1+"'");
+                if (query.exec())
+                {
+                    while (query.next())
+                    {
+                        iddd_pdf=query.value(0).toString();
+                        nb_pdf=query.value(1).toString();
+                        type_pdf=query.value(3).toString();
+                        idanimation_pdf=query.value(2).toString();
+                         a_pdf=query.value(4).toString();
+                        /* b_pdf=query.value(5).toString();
+                         c_pdf=query.value(6).toString();
+                         d_pdf=query.value(7).toString();
+                         e_pdf=query.value(8).toString();
+                         f_pdf=query.value(9).toString();*/
+                    }
+                }
+                font.setPixelSize(50);
+                painter.setFont(font);
+                painter.setPen(Qt::red);
+                painter.drawText(300,150,"FOURNISSEUR");
+
+                font.setPixelSize(35);
+                painter.setFont(font);
+                painter.setPen(Qt::blue);
+                painter.drawText(25,300,"ID :");
+                painter.drawText(25,380,"Nom :");
+                painter.drawText(25,460,"Prenom :");
+                painter.drawText(25,540,"Adresse :");
+                painter.drawText(25,620,"tel :");
+                font.setPixelSize(22);
+                painter.setFont(font);
+                painter.setPen(Qt::black);
+                painter.drawText(350,300,iddd_pdf);
+                   painter.drawText(350,380,nb_pdf);
+                   painter.drawText(350,460,idanimation_pdf);
+                   painter.drawText(350,540,type_pdf);
+                   painter.drawText(350,620,a_pdf);
+                   painter.drawText(350,700,b_pdf);
+                   painter.drawText(350,780,c_pdf);
+                   painter.drawText(350,860,d_pdf);
+                   painter.drawText(350,940,e_pdf);
+                   painter.drawText(350,1020,f_pdf);
+
+            }
+        if(type=="stock")
+            {
+                query.prepare("select * from stock where id='"+code1+"'");
+                if (query.exec())
+                {
+                    while (query.next())
+                    {
+                        idd_pdf=query.value(0).toString();
+                        typeanim_pdf=query.value(1).toString();
+                        lieu_pdf=query.value(2).toString();
+                        dateanim_pdf=query.value(3).toString();
+                        duree_pdf=query.value(4).toString();
+                        cin_pdf=query.value(5).toString();
+                       // datefin_pdf=query.value(6).toString();
+                    }
+                }
+                font.setPixelSize(45);
+                painter.setFont(font);
+                painter.setPen(Qt::red);
+                painter.drawText(300,150,"STOCK");
+
+                font.setPixelSize(30);
+                painter.setFont(font);
+                painter.setPen(Qt::blue);
+                painter.drawText(25,300,"ID :");
+                painter.drawText(25,400,"dat :");
+                painter.drawText(25,500,"prix :");
+                painter.drawText(25,600,"quantite :");
+                painter.drawText(25,700,"nom :");
+                painter.drawText(25,800,"type :");
+               // painter.drawText(25,780,"Date de fin :");
+
+
+                font.setPixelSize(22);
+                painter.setFont(font);
+                painter.setPen(Qt::black);
+
+                painter.drawText(400,300,idd_pdf);
+                painter.drawText(400,400,typeanim_pdf);
+                painter.drawText(400,500,lieu_pdf);
+                 painter.drawText(400,700,duree_pdf);
+                 painter.drawText(400,800,cin_pdf);
+                 painter.drawText(400,600,dateanim_pdf);
+
+                //painter.drawText(150,350,taux_pdf+"%");
+            }
+
+            QImage image("C:/Users/taief/Documents/stock/111.png");
+            painter.drawImage(-30,-100,image);
+           // QImage image1("C:/Users/YedesHamda/Documents/RH_NEWS/img/prs.png");
+           // painter.drawImage(720,0,image1);
+
+            painter.end();
+            qDebug()<<"le pdf a ete cree";
+            //QMessageBox::information(this,"pdf cree","ce pdf a ete cree");
+
+    }

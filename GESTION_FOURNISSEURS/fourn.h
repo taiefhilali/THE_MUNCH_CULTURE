@@ -4,6 +4,10 @@
 #include <QSqlQueryModel>
 #include <QSqlQueryModel>
 #include <ui_gsf.h>
+#include <QPrintDialog>
+#include <QPrinter>
+#include <QSystemTrayIcon>
+#include "qcustomplot.h"
 
 class fourn
 {
@@ -24,9 +28,10 @@ public:
         QSqlQueryModel * afficher();
         bool delete_2 (int);
          QSqlQueryModel *Trier(QString);
+         void pdffonction(int code ,QString type);
 private:
-    QString nom,prenom,adresse;
-    int id,tel;
+    QString nom,prenom,adresse,type;
+    int id,tel,code;
 
 };
 

@@ -28,7 +28,12 @@
 #include "stati.h"
 #include "qcustomplot.h"
 //#include "stati.h"
+#include "ui_pdf.h"
 #include <QTimer>
+#include"historique.h"
+double firstNum;
+bool userIsTypingSecondNum = false;
+
 
 gsf::gsf(QWidget *parent) :
     QDialog(parent),
@@ -39,19 +44,52 @@ gsf::gsf(QWidget *parent) :
    /* qTimer=new QTimer(this);
     connect(qTimer,SIGNAL(timeout()),this,SLOT(clockTimer()));
     qTimer->start(100);*/
+    //***************************************controles de saisie********************
         ui->prix->setValidator(new QIntValidator(0, 9999999, this));
         ui->quantite->setValidator(new QIntValidator(0, 9999999, this));
         ui->tab_stk_2->setModel(S.afficher());
-        ui->tel->setValidator(new QIntValidator(0, 99999999, this));
+        ui->tel->setValidator(new QIntValidator(0, 9999999, this));
         ui->tab_fourn_2->setModel(f.afficher());
           son=new QSound(":/sons/click.wav");
+          son2=new QSound(":/sons/12.wav");
           label1 = new QLabel;
 
              label1->setPixmap(QPixmap("/imge/taief.png"));
 
              label1->show();
+             QRegExp rx("[a-zA-Z]+");
+             QValidator *validator = new QRegExpValidator(rx, this);
 
+             ui->nom->setValidator(validator);
+             ui->prenom->setValidator(validator);
+             ui->adresse->setValidator(validator);
+             ui->adresse_2->setValidator(validator);
+             ui->noms->setValidator(validator);
+             ui->noms1->setValidator(validator);
+             ui->prenom_2->setValidator(validator);
+             ui->nom_2->setValidator(validator);
+             ui->prenom_2->setValidator(validator);
+             connect(ui->pushButton_0,SIGNAL(released()),this,SLOT(digit_pressed()));
+             connect(ui->pushButt1,SIGNAL(released()),this,SLOT(digit_pressed()));
+             connect(ui->pushButt2,SIGNAL(released()),this,SLOT(digit_pressed()));
+             connect(ui->pushButt3,SIGNAL(released()),this,SLOT(digit_pressed()));
+             connect(ui->pushButt4,SIGNAL(released()),this,SLOT(digit_pressed()));
+             connect(ui->pushButt5,SIGNAL(released()),this,SLOT(digit_pressed()));
+             connect(ui->pushButt6,SIGNAL(released()),this,SLOT(digit_pressed()));
+             connect(ui->pushButt7,SIGNAL(released()),this,SLOT(digit_pressed()));
+             connect(ui->pushButt8,SIGNAL(released()),this,SLOT(digit_pressed()));
+             connect(ui->pushButt9,SIGNAL(released()),this,SLOT(digit_pressed()));
+             connect(ui->pushButton_signal,SIGNAL(released()),this,SLOT(unary_operation_pressed()));
+             connect(ui->pushButton_porcentage,SIGNAL(released()),this,SLOT(unary_operation_pressed()));
+             connect(ui->pushButton_plus,SIGNAL(released()),this,SLOT(binary_operation_pressed()));
+             connect(ui->pushButton_minus,SIGNAL(released()),this,SLOT(binary_operation_pressed()));
+             connect(ui->pushButton_division,SIGNAL(released()),this,SLOT(binary_operation_pressed()));
+             connect(ui->pushButton_times,SIGNAL(released()),this,SLOT(binary_operation_pressed()));
 
+             ui->pushButton_plus->setCheckable(true);
+             ui->pushButton_minus->setCheckable(true);
+             ui->pushButton_division->setCheckable(true);
+             ui->pushButton_times->setCheckable(true);
 
 
 
@@ -70,18 +108,20 @@ gsf::~gsf()
     ui->date->setText(date);
 
 }*/
-
+//********************************AJOUTER STOCK*******************
 void gsf::on_Ajouter_clicked()
 {  son->play();
 
     //QString dat = ui->dat->text();
- QString dat = ui->dat->text();
 
+    son2->play();
+ QString dat = ui->dat->text();
+QString type= ui->type->currentText();
        int prix = ui->prix->text().toInt();
        int quantite = ui->quantite->text().toInt();
        QString nom = ui->noms->text();
 
-       stocks S (0,dat, prix,quantite,nom);
+       stocks S (0,dat, prix,quantite,nom,type);
        bool test=S.ajouter();
        QMessageBox msgBox;
     if(test)
@@ -92,10 +132,12 @@ void gsf::on_Ajouter_clicked()
            msgBox.setText("Echec d'ajout");
            msgBox.exec();
             ui->tab_stk_2->setModel(S.afficher());
-
+            historique h;
+                        QString  textajouter= "stock a ete ajouté avec succees";
+                            h.write(textajouter);
    }
 
-//--------------supprimer1///////
+//***********************************************SUPPRIMER STOCK**************************
 void gsf::on_supprimer_clicked()
 { son->play();
     int col = ui->tab_stk_2->currentIndex().column();
@@ -116,10 +158,16 @@ void gsf::on_supprimer_clicked()
                 msgBox.setText("Echec de suppression");
                 msgBox.exec();
                  son->play();
+                 historique h;
+                             QString  textajouter= "stock a ete supprimé avec succees";
+                                 h.write(textajouter);
 }
-//----------------ajout2-----------------//
-void gsf::on_ajouter1_clicked()
+//----------------ajout 2-----------------//
+/*void gsf::on_ajouter1_clicked()
 { son->play();
+    fourn S;
+    ui->tab_stk_2->setModel(S.afficher());
+
     QString nom = ui->nom->text();
     QString prenom = ui->prenom->text();
        int tel = ui->tel->text().toInt();
@@ -137,7 +185,7 @@ void gsf::on_ajouter1_clicked()
            msgBox.exec();
             son->play();
 }
-
+*/
 
 
 /*void gsf::on_supprimer_2_clicked()
@@ -159,7 +207,7 @@ void gsf::on_ajouter1_clicked()
 
 
 
-//------------------modif1----------//
+//******************************MODIFIER STOCK****************************//
 
 void gsf::on_modifier_2_clicked()
 {
@@ -167,12 +215,15 @@ void gsf::on_modifier_2_clicked()
  son->play();
 
   int id= ui->id->text().toInt();
-     stocks S(id,"",0,0,"");
+     stocks S(id,"",0,0,"","");
      S.modifier(ui);
      QMessageBox:: information(nullptr,QObject::tr("Bravo"),QObject::tr(" modification effectuee\n"
                                                                               "click cancel to exit."),QMessageBox::Cancel);
     ui->tab_stk_2->setModel(S.afficher());
      son->play();
+     historique h;
+                 QString  textajouter= "stock a ete modifiee avec succees";
+                     h.write(textajouter);
 }
 
 // -------------------------rechercher stock------------//
@@ -181,17 +232,20 @@ void gsf::on_rechercher_clicked()
 { son->play();
 
     int id= ui->id->text().toInt();
-       stocks S(id,"",0,0,"");
+       stocks S(id,"",0,0,"","");
        S.Rechercherstocks(id);
        //ui->lineEdit_2 ->setText(com.get_nomProduit());
        ui->dat_3->setText(S.get_dat());
        ui->prix_2->setText(QString::number(S.get_prix()));
        ui->quantite_2->setText(QString::number(S.get_quantite()));
        ui->noms->setText(S.get_noms());
+        ui->type->currentText();
         QMessageBox:: information(nullptr,QObject::tr("Bravo"),QObject::tr(" recherche effectue\n"
                                                                                  "click cancel to exit."),QMessageBox::Cancel);
          son->play();
-
+         historique h;
+                     QString  textajouter= "recherche a ete effectuée avec succees";
+                         h.write(textajouter);
 
 }
 //------------------------------1st refresh stockk--------------------/
@@ -201,10 +255,13 @@ void gsf::on_refresh_clicked()
         stocks S;
         ui->tab_stk_2->setModel(S.afficher());
          son->play();
+         historique h;
+                     QString  textajouter= "stock a ete affichée avec succees";
+                         h.write(textajouter);
   }
 
 
-//--------------------pdf stock----------------//
+//***************************************pdf stocK**************************//
 void gsf::on_PDF_3_clicked()
 { son->play();
     QString strStream;
@@ -217,10 +274,15 @@ void gsf::on_PDF_3_clicked()
                         "<head>\n"
 
                         "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+                          <<  "<br>"
+                           << "<br>"
+                           << "<br>"
                         <<  QString("<GESTION DU STOCK>%1</>\n").arg("strTitle")
                         <<  "</head>\n"
-                        "<body bgcolor=#e0c182 link=#5000A0>\n"
+                           "<br>"
 
+                        "<body bgcolor=#e0c182 link=#5000A0>\n"
+                          "<img src=C:/Users/taief/Documents/111.png>"
                        //     "<align='right'> " << datefich << "</align>"
                         "<center> <H1>Liste des stocks </H1></br></br><table border=1 cellspacing=0 cellpadding=2>\n";
 
@@ -232,6 +294,10 @@ void gsf::on_PDF_3_clicked()
                     out << "</tr></thead>\n";
 
                     // data table
+                    QTimer *qTimer;
+                        qTimer=new QTimer(this);
+                            connect(qTimer,SIGNAL(timeout()),this,SLOT(clockTimer()));
+                            qTimer->start(100);
                     for (int row = 0; row < rowCount; row++) {
                         out << "<tr> <td bkcolor=0>" << row+1 <<"</td>";
                         for (int column = 0; column < columnCount; column++) {
@@ -263,16 +329,22 @@ void gsf::on_PDF_3_clicked()
                 doc.print(&printer);
 
  son->play();
+ historique h;
+             QString  textajouter= "PDF a ete genrée avec succees";
+                 h.write(textajouter);
 }
 
 
-
+//****************************TRIE STOCK****************
 void gsf::on_combo_activated()
 { son->play();
     stocks S;
     QString choix= ui->combo->currentText();
     ui->tab_stk_2->setModel(S.Trier(choix));
      son->play();
+     historique h;
+                 QString  textajouter= "stock a ete ajouté avec succees";
+                     h.write(textajouter);
 }
 
 
@@ -283,7 +355,7 @@ void gsf::on_pushButton_2_clicked()
               a->show();
                son->play();
 }
-
+//*******************************Modifier FOURNISSEURS*******************************
 void gsf::on_modifier3_clicked()
 { son->play();
     int id= ui->id_2->text().toInt();
@@ -296,16 +368,21 @@ void gsf::on_modifier3_clicked()
 
      ui->tab_fourn_2->setModel(f.afficher());
      son->play();
-
+     historique h;
+                 QString  textajouter= "modification a ete effectuée avec succees";
+                     h.write(textajouter);
 
 
 }
-
+//**********************************REFERESH FOURNISSEURS***************
 void gsf::on_refresh_2_clicked()
 { son->play();
     fourn f;
     ui->tab_fourn_2->setModel(f.afficher());
      son->play();
+     historique h;
+                 QString  textajouter= "fournisseur a ete affichee avec succees";
+                     h.write(textajouter);
 }
 
 void gsf::on_rechercher_2_clicked()
@@ -321,16 +398,22 @@ void gsf::on_rechercher_2_clicked()
         QMessageBox:: information(nullptr,QObject::tr("Bravo"),QObject::tr(" recherche effectue\n"
                                                                                  "click cancel to exit."),QMessageBox::Cancel);
          son->play();
+         historique h;
+                     QString  textajouter= "recherche  a ete effectuée avec succees";
+                         h.write(textajouter);
 }
-
+//***************************TRIE FOURNISSEURS*******************
 void gsf::on_trie_2_activated()
 { son->play();
     fourn f;
     QString choix= ui->combo_2->currentText();
     ui->tab_fourn_2->setModel(f.Trier(choix));
      son->play();
+     historique h;
+                 QString  textajouter= "trie a ete effectue avec succees";
+                     h.write(textajouter);
 }
-
+//*************************PDF FOURNISSEURS********************
 void gsf::on_pdf2_clicked()
 {
     QString strStream;
@@ -341,15 +424,22 @@ void gsf::on_pdf2_clicked()
 
                     out <<  "<html>\n"
                         "<head>\n"
-                        "<meta Content=\"Text/html; charset=Windows-1251\">\n"
-                        <<  QString("<title>%1</title>\n").arg("strTitle")
-                        <<  "</head>\n"
-                        "<body bgcolor=#ffffff link=#5000A0>\n"
 
+                        "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+                          <<  "<br>"
+                           << "<br>"
+                           << "<br>"
+                        <<  QString("<LISTE DES FOURNISSEURTS>%1</>\n").arg("strTitle")
+                        <<  "</head>\n"
+                           "<br>"
+
+                        "<body bgcolor=#DABBEC link=#5000A0>\n"
+                          "<img src=images/111.png>"
                        //     "<align='right'> " << datefich << "</align>"
-                        "<center> <H1>Liste des stocks </H1></br></br><table border=1 cellspacing=0 cellpadding=2>\n";
+                        "<center> <H1>Liste des fournisseurs </H1></br></br><table border=1 cellspacing=0 cellpadding=2>\n";
 
                     // headers
+
                     out << "<thead><tr bgcolor=#f0f0f0> <th>Numero</th>";
                     for (int column = 0; column < columnCount; column++)
                         if (!ui->tab_fourn_2->isColumnHidden(column))
@@ -357,6 +447,10 @@ void gsf::on_pdf2_clicked()
                     out << "</tr></thead>\n";
 
                     // data table
+                    QTimer *qTimer;
+                        qTimer=new QTimer(this);
+                            connect(qTimer,SIGNAL(timeout()),this,SLOT(clockTimer()));
+                            qTimer->start(100);
                     for (int row = 0; row < rowCount; row++) {
                         out << "<tr> <td bkcolor=0>" << row+1 <<"</td>";
                         for (int column = 0; column < columnCount; column++) {
@@ -375,22 +469,22 @@ void gsf::on_pdf2_clicked()
                 if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append(".pdf"); }
 
                QPrinter printer (QPrinter::PrinterResolution);
+
                 printer.setOutputFormat(QPrinter::PdfFormat);
                printer.setPaperSize(QPrinter::A4);
               printer.setOutputFileName(fileName);
 
+              qDebug()<<"le pdf a ete cree";
+              QMessageBox::information(this,"pdf cree","ce pdf a ete cree");
                QTextDocument doc;
                 doc.setHtml(strStream);
                 doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
                 doc.print(&printer);
-                QPainter painter;
-                        painter.begin(&printer);
-                QImage image("C:/Users/taief/Desktop/MUNCH_CULTURE/logo.png");
-                        painter.drawImage(-30,-100,image);
- son->play();
-
+                historique h;
+                            QString  textajouter= "PDF a ete génerer avec succees";
+                                h.write(textajouter);
 }
-
+//*******************************TRIE STOCK*************************
 void gsf::on_combo_2_activated()
 { son->play();
     fourn f;
@@ -407,6 +501,8 @@ void gsf::on_combo_2_activated()
               b->show();
 }*/
 
+
+//*******************************supprimer FOURNISSEURS*******************
 void gsf::on_delete_2_clicked()
 { son->play();
     int col = ui->tab_fourn_2->currentIndex().column();
@@ -427,9 +523,12 @@ void gsf::on_delete_2_clicked()
                 msgBox.setText("Echec de suppression");
                 msgBox.exec();
                  son->play();
+                 historique h;
+                             QString  textajouter= "fournisseur a ete supprimee avec succees";
+                                 h.write(textajouter);
 }
 
-
+//*****************************IMPRIMER STOCK************************
 void gsf::on_pushButton_clicked()
 { son->play();
     QString strStream;
@@ -458,7 +557,7 @@ void gsf::on_pushButton_clicked()
                 delete document;
                  son->play();
 }
-
+//**************************************RECHERCHER STOCK************************
 void gsf::on_commandLinkButton_clicked()
 { son->play();
     QSqlQueryModel *modal=new QSqlQueryModel();
@@ -488,7 +587,7 @@ void gsf::on_commandLinkButton_clicked()
            ui->tab_stk_2->setModel(modal);
  son->play();
 }
-
+//********************************RECHERCHER FOURNISSEURS****************
 void gsf::on_commandLinkButton_2_clicked()
 
 {   son->play();
@@ -520,7 +619,7 @@ request.prepare("SELECT * FROM fourn WHERE id LIKE:val order by id");
  son->play();
 
 }
-
+//*************************IMPRIMER IMPRIMER*************************
 void gsf::on_pushButton_3_clicked()
 { son->play();
     QString strStream;
@@ -553,7 +652,7 @@ void gsf::on_pushButton_3_clicked()
 
 
 
-//----------------------methode2 modif2----/////
+//****************************IMPORT FOURNISSEURS*******************/////
 
 void gsf::on_IMPORT_clicked()
 { son->play();
@@ -577,7 +676,7 @@ void gsf::on_IMPORT_clicked()
         // ui->quantite_2->setText(QString::number(quantite));
           son->play();
 }
-
+//*************************IMPORT STOCK*************************************
 void gsf::on_pushButton_4_clicked()
 { son->play();
     int col = ui->tab_stk_2->currentIndex().column();
@@ -589,12 +688,13 @@ void gsf::on_pushButton_4_clicked()
 
         //int id= ui->id->text().toInt();
         QString idd=S.afficher()->index(row, 0).data().toString();
+         QString typee=S.afficher()->index(row, 5).data().toString();
         ui->id->setText(idd);
          ui->dat_3->setText(S.afficher()->index(row, 1).data().toString());
          ui->prix_2->setText(QString::number(prix));
          ui->quantite_2->setText(QString::number(quantite));
          ui->noms1->setText(S.afficher()->index(row, 4).data().toString());
-
+         ui->type->currentText();
           son->play();
 }
 
@@ -621,7 +721,9 @@ void gsf::on_EXPORT_clicked()
 
               printer.setPaperSize(QPrinter::A4);
 
-              printer.setOutputFileName("C:/Users/taief/Documents/stock/st.pdf"); // will be in build folder
+              printer.setOutputFileName("C:/Users/taief/Documents/stock/st."
+                                        ""
+                                        ""); // will be in build folder
 
               painter.begin(&printer);
 
@@ -728,7 +830,7 @@ void gsf::on_pushButton_5_clicked()
              ui->quantite_2->setText(QString::number(quantite));
               son->play();
 }
-
+//****************************STATISTIQUE FOURNISSEURS**************
 void gsf::on_stat_2_clicked()
 {
     stati *b=new stati();
@@ -742,13 +844,14 @@ void gsf::on_pushButton_7_clicked()
               b->show();
 }
 
+//*****************************STATISTIQUES STOCK***************************
 void gsf::on_pushButton_8_clicked()
 {
     statistiq *b=new statistiq();
               b->show();
 }
 
-
+//***************************REFRESH STOCK********************************
 
 void gsf::on_refresh_3_clicked()
 {
@@ -758,7 +861,7 @@ void gsf::on_refresh_3_clicked()
             ui->tab_stk_2->setModel(S.afficher());
              son->play();
 }
-
+// **********************************ajouter fournisseurs******************************
 void gsf::on_ajouter3_clicked()
 {
     son->play();
@@ -784,9 +887,204 @@ void gsf::on_ajouter3_clicked()
 
 
 
-
+//*********************************************AUTRE FACON DU PDF*********************************//
 void gsf::on_pushButton_imprimer_5_clicked()
-{
+{ /*son2->play();
     go = new pdf(this);
-       go->show();
+       go->show();*/
+
+    son2->play();
+       int col = ui->tab_stk_2->currentIndex().column();
+       int row = ui->tab_stk_2->currentIndex().row();
+      // qDebug() << "kkkk:" << col;
+
+   //go = new pdf();
+       if (col==0){
+
+           int id = S.afficher()->index(row, 0).data().toInt();
+   QString type="stock";
+              f.pdffonction(id,type);
+
+       }
+}
+//************************TYPING SOUND***********************
+void gsf::on_noms_textChanged(const QString &arg1)
+{
+    son2->play();
+}
+
+
+
+
+void gsf::on_prenom_textChanged(const QString &arg1)
+{
+    son2->play();
+}
+
+/*void gsf::on_jh_clicked()
+{
+   //QString code=ui->lineEdit_code_pdf_3->text();
+ f. pdffonction(code);
+}*/
+
+/*void gsf::on_newpdf_clicked()
+{
+    QString code=ui->lineEdit_code_pdf_3->text();
+ // f.pdffonction(code);
+  if (code=="fourn")
+    f.pdffonction(code);
+  else  S.pdffonction(code);
+}*/
+
+void gsf::on_PPPDF_clicked()
+{
+
+    son2->play();
+       int col = ui->tab_fourn_2->currentIndex().column();
+       int row = ui->tab_fourn_2->currentIndex().row();
+      // qDebug() << "kkkk:" << col;
+
+   //go = new pdf();
+       if (col==0){
+
+           int id = f.afficher()->index(row, 0).data().toInt();
+   QString type="fourn";
+              f.pdffonction(id,type);
+
+       }
+}
+void gsf::digit_pressed()
+{
+    QPushButton * button = (QPushButton*)sender();
+    QString newLabel;
+
+    double labelNumber;
+
+    if((ui->pushButton_plus->isChecked()||ui->pushButton_minus->isChecked()||ui->pushButton_division->isChecked()||ui->pushButton_times->isChecked()) && (!userIsTypingSecondNum))
+    {
+        labelNumber = (button->text()).toDouble();
+        userIsTypingSecondNum = true;
+        newLabel = QString::number(labelNumber,'g',15);
+    }
+    //new label number
+    else
+    {
+        if(ui->label_15->text().contains(".") && button->text() == "0")
+        {
+            newLabel = ui->label_15->text() + button->text();
+        }
+        else
+        {
+            labelNumber = (ui->label_15->text() + button->text()).toDouble();
+            newLabel = QString::number(labelNumber,'g',15);
+        }
+    }
+
+    //label of the ui
+    ui->label_15->setText(newLabel);
+}
+
+void gsf::on_pushButton_point_released()
+{
+    ui->label_15->setText(ui->label_15->text()+("."));
+}
+
+void gsf::unary_operation_pressed()
+{
+    QPushButton * button = (QPushButton *)sender();
+    double labelNumber;
+    QString newLabel;
+    if(button->text() == "+/-")
+    {
+        labelNumber = ui->label_15->text().toDouble();
+        labelNumber = labelNumber * -1;
+        newLabel = QString::number(labelNumber,'g',15);
+        ui->label_15->setText(newLabel);
+    }
+    if(button->text() == "%")
+    {
+        labelNumber = ui->label_15->text().toDouble();
+        labelNumber = labelNumber * 0.01;
+        newLabel = QString::number(labelNumber,'g',15);
+        ui->label_15->setText(newLabel);
+    }
+}
+
+void gsf::on_pushButton_C_released()
+{
+    ui->pushButton_plus->setChecked(false);
+    ui->pushButton_minus->setChecked(false);
+    ui->pushButton_division->setChecked(false);
+    ui->pushButton_times->setChecked(false);
+
+    userIsTypingSecondNum = false;
+
+    ui->label_15->setText("0");
+}
+
+void gsf::on_pushButton_equal_released()
+{
+    double labelNumber,secondNum;
+    QString newLabel;
+
+    secondNum = ui->label_15->text().toDouble();
+
+    if(ui->pushButton_plus->isChecked())
+    {
+        labelNumber = firstNum + secondNum;
+        newLabel = QString::number(labelNumber,'g',15);
+        ui->label_15->setText(newLabel);
+        ui->pushButton_plus->setChecked(false);
+    }
+    else if(ui->pushButton_minus->isChecked())
+    {
+        labelNumber = firstNum - secondNum;
+        newLabel = QString::number(labelNumber,'g',15);
+        ui->label_15->setText(newLabel);
+        ui->pushButton_minus->setChecked(false);
+    }
+    else if(ui->pushButton_division->isChecked())
+    {
+        labelNumber = firstNum / secondNum;
+        newLabel = QString::number(labelNumber,'g',15);
+        ui->label_15->setText(newLabel);
+        ui->pushButton_division->setChecked(false);
+    }
+    else if(ui->pushButton_times->isChecked())
+    {
+        labelNumber = firstNum * secondNum;
+        newLabel = QString::number(labelNumber,'g',15);
+        ui->label_15->setText(newLabel);
+        ui->pushButton_times->setChecked(false);
+    }
+
+    userIsTypingSecondNum = false;
+}
+
+void gsf::binary_operation_pressed()
+{
+    QPushButton * button = (QPushButton *)sender();
+
+    firstNum = ui->label_15->text().toDouble();
+    button->setChecked(true);
+}
+//******************************UPLOAD IMAGE******************************//
+void gsf::on_pushButton_9_clicked()
+{   filename=QFileDialog::getOpenFileName(this,tr("choose"), "",tr("Images(*.png *.jpg *.jpeg *.bmp *.gif)"));
+    if (QString::compare(filename,QString()) !=0)
+    {
+        QImage image;
+        bool valid=image.load(filename);
+        if (valid)
+        {
+            image=image.scaledToWidth(ui->img->width(), Qt::SmoothTransformation);
+            ui->img->setPixmap(QPixmap::fromImage(image));
+        }
+        else
+        {
+            qDebug()<<"error";
+        }
+    }
+
+
 }

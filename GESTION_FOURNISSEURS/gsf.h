@@ -19,13 +19,12 @@ public:
     explicit gsf(QWidget *parent = nullptr);
     ~gsf();
 public slots:
-    //void clockTimer();
+   // void clockTimer();
 private slots:
     void on_Ajouter_clicked();
 
     void on_supprimer_clicked();
 
-    void on_ajouter1_clicked();
 
 
     //void on_supprimer_2_clicked();
@@ -57,7 +56,7 @@ private slots:
 
     void on_trie_2_activated();
 
-    void on_pdf2_clicked();
+    //void on_pdf2_clicked();
 
     void on_combo_2_activated();
 
@@ -107,14 +106,38 @@ private slots:
     //void on_pddf_clicked();
 
     void on_pushButton_imprimer_5_clicked();
+    void on_noms_textChanged(const QString &arg1);
+    void on_prenom_textChanged(const QString &arg1);
+
+
+
+
+
+    void on_pdf2_clicked();
+
+    //void on_newpdf_clicked();
+
+    void on_PPPDF_clicked();
+    void digit_pressed();
+        void on_pushButton_point_released();
+        void unary_operation_pressed();
+        void on_pushButton_C_released();
+        void on_pushButton_equal_released();
+        void binary_operation_pressed();
+
+        void on_pushButton_9_clicked();
 
 private:
     Ui::gsf *ui;
     stocks S;
     fourn f;
     QSound *son;
+     QSound *son2;
     QLabel *label1;
      pdf *go;
+    QTimer *qTimer;
+    QString*code;
+    QString filename;
 
 };
 
