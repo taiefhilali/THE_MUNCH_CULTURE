@@ -50,6 +50,16 @@ private slots:
 
     void on_triercom_clicked();
 
+    void on_pushButton_4_clicked();
+
+    void on_gestiondescommandesnavbar_clicked();
+
+    void on_mailingnavbar_clicked();
+
+    void on_pushButton_5_clicked();
+
+    void on_acualiser_1_clicked();
+
 private:
 
 

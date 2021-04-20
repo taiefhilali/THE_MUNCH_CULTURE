@@ -15,24 +15,26 @@
 #include "QSqlQuery"
 #include <QSqlDatabase>
 #include <QSqlError>
-#include<QtPrintSupport/QPrinter>
 #include<QPdfWriter>
 #include <QFileDialog>
 #include<QTextDocument>
 #include<QFile>
 #include"smtp.h"
-#include "stato.h"
+#include <QFileDialog>
+#include <QTextStream>
+#include <QTextEdit>
 
 Clicom::Clicom(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Clicom)
 {
- ui->setupUi(this);
+  ui->setupUi(this);
 ui->le_id->setValidator(new QIntValidator(100, 999, this));
 ui->tableView_3->setModel(C.afficher());
 ui->tableView_4->setModel(F.affichercom());
 connect(ui->sendBtn, SIGNAL(clicked()),this, SLOT(sendMail()));
    connect(ui->exitBtn, SIGNAL(clicked()),this, SLOT(close()));
+
 }
 
 Clicom::~Clicom()
@@ -44,8 +46,11 @@ void Clicom::on_Ajouter_clicked()
     int id_cli=ui->le_id->text().toInt();
     QString nom_cli=ui->le_nom->text();
     QString prenom_cli=ui->le_prenom->text();
-    int nombre_com=ui->le_nombre->text().toInt();
- Client C(id_cli,nom_cli,prenom_cli,nombre_com);
+    int num_tel=ui->le_nombre->text().toInt();
+    QString adresse=ui->le_adresse->text();
+
+
+ Client C(id_cli,nom_cli,prenom_cli,num_tel,adresse);
  bool test=C.ajouter();
  QMessageBox msgBox;
 
@@ -80,7 +85,9 @@ void Clicom::on_pb_ajouter_clicked()
     int id_com=ui->le_com->text().toInt();
     QString date_com=ui->le_date->text();
     int nombre_come=ui->le_nb->text().toInt();
- Commande F(id_com,date_com,nombre_come);
+    QString type_com=ui->combotype->currentText();
+
+ Commande F(id_com,date_com,nombre_come,type_com);
  bool test=F.ajoutercom();
  QMessageBox msgBox;
 
@@ -113,19 +120,22 @@ void Clicom::on_pb_supprimer_clicked()
 void Clicom::on_modifier_clicked()
 {
 
-    int id_cli,nombre_com;
-    QString nom_cli,prenom_cli;
+    int id_cli,num_tel;
+    QString nom_cli,prenom_cli,adresse;
     id_cli=ui->idclient->text().toInt();
     nom_cli=ui->nomclient->text();
     prenom_cli=ui->prenomclient->text();
-    nombre_com=ui->nombreclient->text().toInt();
+    num_tel=ui->nombreclient->text().toInt();
+     adresse=ui->adresseline->text();
 
     QSqlQuery qry;
-    qry.prepare("update client set nom_cli=:nom_cli,prenom_cli=:prenom_cli,nombre_com=:nombre_com where id_cli=:id_cli");
+    qry.prepare("update client set nom_cli=:nom_cli,prenom_cli=:prenom_cli,num_tel=:num_tel ,adresse=:adresse where id_cli=:id_cli");
     qry.bindValue(":id_cli",id_cli);
      qry.bindValue(":nom_cli",nom_cli);
     qry.bindValue(":prenom_cli",prenom_cli);
-    qry.bindValue(":nombre_com",nombre_com);
+    qry.bindValue(":num_tel",num_tel);
+    qry.bindValue(":adresse",adresse);
+
 
 
     qry.exec();
@@ -137,16 +147,20 @@ void Clicom::on_modifier_clicked()
 void Clicom::on_modifiercom_clicked()
 {
     int id_com,nombre_come;
-    QString date_com;
+    QString date_com,type_com;
     id_com=ui->idcom->text().toInt();
     date_com=ui->datecome->text();
     nombre_come=ui->nbcom->text().toInt();
+    type_com=ui->comboBox_3->currentText();
+
 
     QSqlQuery qry;
-    qry.prepare("update Commande set date_com=:date_com,nombre_come=:nombre_come where id_com=:id_com");
+    qry.prepare("update Commande set date_com=:date_com,nombre_come=:nombre_come ,type_com=:type_com where id_com=:id_com");
     qry.bindValue(":id_com",id_com);
     qry.bindValue(":date_com",date_com);
     qry.bindValue(":nombre_come",nombre_come);
+    qry.bindValue(":type_com",type_com);
+
 
     qry.exec();
     ui->tableView_4->setModel(F.affichercom());//refresh
@@ -166,9 +180,12 @@ void Clicom::on_push_recherche_3_clicked()
                    request.prepare("SELECT * FROM client WHERE nom_cli LIKE:val");
                }else if (type=="prenom_cli"){
                    request.prepare("SELECT * FROM client WHERE prenom_cli LIKE:val");
-               }else if (type=="nombre_com"){
-                   request.prepare("SELECT * FROM client WHERE nombre_com LIKE:val");
+               }else if (type=="num_tel"){
+                   request.prepare("SELECT * FROM client WHERE num_tel LIKE:val");
+               }else if (type=="adresse"){
+                   request.prepare("SELECT * FROM client WHERE adresse LIKE:val");
                }
+
                request.bindValue(":val",val);
                request.exec();
                modal->setQuery(request);
@@ -210,11 +227,7 @@ void Clicom::mailSent(QString status)
         QMessageBox::warning( 0, tr( "Qt Simple SMTP client" ), tr( "Message sent!\n\n" ) );
 }
 
-void Clicom::on_pushButton_clicked()
-{
-    stato *a=new stato();
-             a->show();
-}
+
 
 void Clicom::on_pushButton_2_clicked()
 {
@@ -231,6 +244,7 @@ void Clicom::on_pushButton_2_clicked()
         ui->nomclient->setText(C.afficher()->index(row,1).data().toString());
         ui->prenomclient->setText(C.afficher()->index(row,2).data().toString());
         ui->nombreclient->setText(C.afficher()->index(row,3).data().toString());
+        ui->adresseline->setText(C.afficher()->index(row,4).data().toString());
 
 }
 
@@ -248,6 +262,8 @@ void Clicom::on_pushButton_3_clicked()
     ui->idcom->setText(F.affichercom()->index(row,0).data().toString());
     ui->datecome->setText(F.affichercom()->index(row,1).data().toString());
     ui->nbcom->setText(F.affichercom()->index(row,2).data().toString());
+    ui->comboBox_3->setCurrentText(F.affichercom()->index(row,3).data().toString());
+
 
 
 }
@@ -281,4 +297,38 @@ void Clicom::on_triercom_clicked()
              mode="DESC";
          }
       ui->tableView_4->setModel(F.Triercom(critere,mode));
+}
+
+void Clicom::on_pushButton_clicked()
+{
+    ui->total->setNum(F.get_total());
+    ui->label_dt->setText("Commmandes");
+}
+
+void Clicom::on_pushButton_4_clicked()
+{
+    ui->temprature->setCurrentIndex(1);
+
+}
+
+void Clicom::on_gestiondescommandesnavbar_clicked()
+{
+    ui->temprature->setCurrentIndex(2);
+}
+
+void Clicom::on_mailingnavbar_clicked()
+{
+    ui->temprature->setCurrentIndex(3);
+}
+
+
+void Clicom::on_pushButton_5_clicked()
+{
+
+       ui->tableView_4->setModel(F.affichercom());
+}
+
+void Clicom::on_acualiser_1_clicked()
+{
+   ui->tableView_3->setModel(C.afficher());
 }

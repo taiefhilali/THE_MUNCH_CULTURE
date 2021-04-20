@@ -16,18 +16,75 @@
   <widget class="QTabWidget" name="temprature">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>0</x>
      <y>0</y>
      <width>841</width>
      <height>701</height>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
+   <widget class="QWidget" name="tab_4">
+    <attribute name="title">
+     <string>home</string>
+    </attribute>
+    <widget class="QLabel" name="label_29">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>40</y>
+       <width>281</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:36pt; font-weight:600; color:#ffffff;&quot;&gt;home&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_4">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>197</y>
+       <width>401</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>gestion des clients</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="gestiondescommandesnavbar">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>300</y>
+       <width>401</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>gestion des  commandes</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="mailingnavbar">
+     <property name="geometry">
+      <rect>
+       <x>192</x>
+       <y>400</y>
+       <width>401</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>mailling</string>
+     </property>
+    </widget>
+   </widget>
    <widget class="QWidget" name="tab1">
     <attribute name="title">
-     <string>Gestion de client</string>
+     <string>Gestion des clients</string>
     </attribute>
     <widget class="QTabWidget" name="tabWidget_2">
      <property name="geometry">
@@ -102,7 +159,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;nombre de commande&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;numero telephone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="le_id">
@@ -142,13 +199,17 @@
        <property name="geometry">
         <rect>
          <x>120</x>
-         <y>200</y>
+         <y>230</y>
          <width>75</width>
          <height>23</height>
         </rect>
        </property>
        <property name="text">
         <string>Ajouter</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>verifier-signer_318-9087.jpg</normaloff>verifier-signer_318-9087.jpg</iconset>
        </property>
       </widget>
       <widget class="QLineEdit" name="le_nom">
@@ -202,19 +263,23 @@
         <rect>
          <x>540</x>
          <y>340</y>
-         <width>75</width>
+         <width>91</width>
          <height>23</height>
         </rect>
        </property>
        <property name="text">
         <string>Supprimer</string>
        </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>seo-social-web-network-internet_262_icon-icons.com_61518.png</normaloff>seo-social-web-network-internet_262_icon-icons.com_61518.png</iconset>
+       </property>
       </widget>
       <widget class="QPushButton" name="push_recherche_3">
        <property name="geometry">
         <rect>
-         <x>680</x>
-         <y>450</y>
+         <x>590</x>
+         <y>440</y>
          <width>93</width>
          <height>28</height>
         </rect>
@@ -222,13 +287,17 @@
        <property name="text">
         <string>recherche</string>
        </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>kisspng-computer-icons-magnifying-glass-clip-art-glass-buttons-5ae1a2958d8b85.9342250715247366615798.jpg</normaloff>kisspng-computer-icons-magnifying-glass-clip-art-glass-buttons-5ae1a2958d8b85.9342250715247366615798.jpg</iconset>
+       </property>
       </widget>
       <widget class="QLineEdit" name="le_recherche_3">
        <property name="geometry">
         <rect>
-         <x>440</x>
-         <y>460</y>
-         <width>221</width>
+         <x>400</x>
+         <y>450</y>
+         <width>181</width>
          <height>20</height>
         </rect>
        </property>
@@ -278,20 +347,20 @@
       <widget class="QLabel" name="label_8">
        <property name="geometry">
         <rect>
-         <x>0</x>
+         <x>10</x>
          <y>430</y>
-         <width>91</width>
+         <width>111</width>
          <height>16</height>
         </rect>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;nombre de com&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;numero telephone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="idclient">
        <property name="geometry">
         <rect>
-         <x>100</x>
+         <x>90</x>
          <y>300</y>
          <width>113</width>
          <height>22</height>
@@ -301,7 +370,7 @@
       <widget class="QLineEdit" name="nomclient">
        <property name="geometry">
         <rect>
-         <x>100</x>
+         <x>90</x>
          <y>340</y>
          <width>113</width>
          <height>22</height>
@@ -311,7 +380,7 @@
       <widget class="QLineEdit" name="prenomclient">
        <property name="geometry">
         <rect>
-         <x>100</x>
+         <x>90</x>
          <y>390</y>
          <width>113</width>
          <height>22</height>
@@ -321,7 +390,7 @@
       <widget class="QLineEdit" name="nombreclient">
        <property name="geometry">
         <rect>
-         <x>100</x>
+         <x>130</x>
          <y>430</y>
          <width>113</width>
          <height>22</height>
@@ -332,7 +401,7 @@
        <property name="geometry">
         <rect>
          <x>100</x>
-         <y>460</y>
+         <y>500</y>
          <width>93</width>
          <height>28</height>
         </rect>
@@ -340,11 +409,15 @@
        <property name="text">
         <string>modifier</string>
        </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>kisspng-computer-icons-user-profile-icon-design-edit-5b21054a784701.8199027215288906984927.jpg</normaloff>kisspng-computer-icons-user-profile-icon-design-edit-5b21054a784701.8199027215288906984927.jpg</iconset>
+       </property>
       </widget>
       <widget class="QComboBox" name="trie">
        <property name="geometry">
         <rect>
-         <x>370</x>
+         <x>310</x>
          <y>380</y>
          <width>73</width>
          <height>22</height>
@@ -374,8 +447,8 @@
       <widget class="QComboBox" name="rechercher_cli">
        <property name="geometry">
         <rect>
-         <x>360</x>
-         <y>460</y>
+         <x>310</x>
+         <y>450</y>
          <width>73</width>
          <height>22</height>
         </rect>
@@ -429,7 +502,7 @@ background-repeat:none;</string>
        <property name="geometry">
         <rect>
          <x>220</x>
-         <y>460</y>
+         <y>500</y>
          <width>93</width>
          <height>28</height>
         </rect>
@@ -437,11 +510,15 @@ background-repeat:none;</string>
        <property name="text">
         <string>importer</string>
        </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>téléchargé.png</normaloff>téléchargé.png</iconset>
+       </property>
       </widget>
       <widget class="QRadioButton" name="desc">
        <property name="geometry">
         <rect>
-         <x>470</x>
+         <x>410</x>
          <y>380</y>
          <width>97</width>
          <height>20</height>
@@ -454,7 +531,7 @@ background-repeat:none;</string>
       <widget class="QRadioButton" name="asc">
        <property name="geometry">
         <rect>
-         <x>470</x>
+         <x>410</x>
          <y>410</y>
          <width>97</width>
          <height>20</height>
@@ -467,7 +544,7 @@ background-repeat:none;</string>
       <widget class="QPushButton" name="trierClient">
        <property name="geometry">
         <rect>
-         <x>580</x>
+         <x>540</x>
          <y>380</y>
          <width>93</width>
          <height>28</height>
@@ -475,6 +552,73 @@ background-repeat:none;</string>
        </property>
        <property name="text">
         <string>trier</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>117264.png</normaloff>117264.png</iconset>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>190</y>
+         <width>111</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;adresse&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="le_adresse">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>190</y>
+         <width>113</width>
+         <height>20</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_12">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>470</y>
+         <width>56</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;adresse&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="adresseline">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>470</y>
+         <width>113</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="acualiser_1">
+       <property name="geometry">
+        <rect>
+         <x>700</x>
+         <y>440</y>
+         <width>93</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>actualiser</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>pngtree-cartoon-arrow-icon-download-image_1256957.jpg</normaloff>pngtree-cartoon-arrow-icon-download-image_1256957.jpg</iconset>
        </property>
       </widget>
       <zorder>label_23</zorder>
@@ -508,12 +652,17 @@ background-repeat:none;</string>
       <zorder>desc</zorder>
       <zorder>asc</zorder>
       <zorder>trierClient</zorder>
+      <zorder>label_9</zorder>
+      <zorder>le_adresse</zorder>
+      <zorder>label_12</zorder>
+      <zorder>adresseline</zorder>
+      <zorder>acualiser_1</zorder>
      </widget>
     </widget>
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
-     <string>Gestion des commande</string>
+     <string>Gestion des commandes</string>
     </attribute>
     <widget class="QTabWidget" name="affichage2">
      <property name="geometry">
@@ -547,7 +696,7 @@ background-repeat:none;</string>
       <widget class="QLabel" name="label_17">
        <property name="geometry">
         <rect>
-         <x>0</x>
+         <x>10</x>
          <y>70</y>
          <width>151</width>
          <height>16</height>
@@ -560,7 +709,7 @@ background-repeat:none;</string>
       <widget class="QLineEdit" name="le_com">
        <property name="geometry">
         <rect>
-         <x>150</x>
+         <x>160</x>
          <y>10</y>
          <width>113</width>
          <height>20</height>
@@ -570,7 +719,7 @@ background-repeat:none;</string>
       <widget class="QLineEdit" name="le_nb">
        <property name="geometry">
         <rect>
-         <x>150</x>
+         <x>160</x>
          <y>70</y>
          <width>113</width>
          <height>20</height>
@@ -580,14 +729,18 @@ background-repeat:none;</string>
       <widget class="QPushButton" name="pb_ajouter">
        <property name="geometry">
         <rect>
-         <x>150</x>
-         <y>110</y>
-         <width>75</width>
-         <height>23</height>
+         <x>190</x>
+         <y>140</y>
+         <width>81</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="text">
         <string>Ajouter</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>verifier-signer_318-9087.jpg</normaloff>verifier-signer_318-9087.jpg</iconset>
        </property>
       </widget>
       <widget class="QLabel" name="label_42">
@@ -600,13 +753,13 @@ background-repeat:none;</string>
         </rect>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;id &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;id &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="le_date">
        <property name="geometry">
         <rect>
-         <x>150</x>
+         <x>160</x>
          <y>40</y>
          <width>113</width>
          <height>22</height>
@@ -616,9 +769,9 @@ background-repeat:none;</string>
       <widget class="QTableView" name="tableView_4">
        <property name="geometry">
         <rect>
-         <x>270</x>
-         <y>0</y>
-         <width>401</width>
+         <x>300</x>
+         <y>60</y>
+         <width>471</width>
          <height>241</height>
         </rect>
        </property>
@@ -626,9 +779,9 @@ background-repeat:none;</string>
       <widget class="QLineEdit" name="le_idsupprimer_2">
        <property name="geometry">
         <rect>
-         <x>400</x>
+         <x>360</x>
          <y>340</y>
-         <width>171</width>
+         <width>211</width>
          <height>20</height>
         </rect>
        </property>
@@ -639,9 +792,9 @@ background-repeat:none;</string>
       <widget class="QLabel" name="label_43">
        <property name="geometry">
         <rect>
-         <x>290</x>
+         <x>310</x>
          <y>340</y>
-         <width>101</width>
+         <width>41</width>
          <height>20</height>
         </rect>
        </property>
@@ -654,12 +807,16 @@ background-repeat:none;</string>
         <rect>
          <x>580</x>
          <y>340</y>
-         <width>75</width>
+         <width>81</width>
          <height>23</height>
         </rect>
        </property>
        <property name="text">
         <string>Supprimer</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>seo-social-web-network-internet_262_icon-icons.com_61518.png</normaloff>seo-social-web-network-internet_262_icon-icons.com_61518.png</iconset>
        </property>
       </widget>
       <widget class="QComboBox" name="triecommande">
@@ -708,6 +865,10 @@ background-repeat:none;</string>
        </property>
        <property name="text">
         <string>rechercher</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>kisspng-computer-icons-magnifying-glass-clip-art-glass-buttons-5ae1a2958d8b85.9342250715247366615798.jpg</normaloff>kisspng-computer-icons-magnifying-glass-clip-art-glass-buttons-5ae1a2958d8b85.9342250715247366615798.jpg</iconset>
        </property>
       </widget>
       <widget class="QLabel" name="label_11">
@@ -782,14 +943,18 @@ background-repeat:none;</string>
       <widget class="QPushButton" name="modifiercom">
        <property name="geometry">
         <rect>
-         <x>70</x>
-         <y>330</y>
+         <x>60</x>
+         <y>370</y>
          <width>93</width>
          <height>28</height>
         </rect>
        </property>
        <property name="text">
         <string>modifier</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>kisspng-computer-icons-user-profile-icon-design-edit-5b21054a784701.8199027215288906984927.jpg</normaloff>kisspng-computer-icons-user-profile-icon-design-edit-5b21054a784701.8199027215288906984927.jpg</iconset>
        </property>
       </widget>
       <widget class="QComboBox" name="recombo">
@@ -817,24 +982,11 @@ background-repeat:none;</string>
         </property>
        </item>
       </widget>
-      <widget class="QPushButton" name="pushButton">
-       <property name="geometry">
-        <rect>
-         <x>70</x>
-         <y>380</y>
-         <width>93</width>
-         <height>28</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>stat</string>
-       </property>
-      </widget>
       <widget class="QLabel" name="label_24">
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>0</y>
+         <y>-30</y>
          <width>821</width>
          <height>581</height>
         </rect>
@@ -858,13 +1010,17 @@ background-repeat:none;</string>
        <property name="geometry">
         <rect>
          <x>170</x>
-         <y>330</y>
+         <y>370</y>
          <width>81</width>
          <height>28</height>
         </rect>
        </property>
        <property name="text">
         <string>importer</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>téléchargé.png</normaloff>téléchargé.png</iconset>
        </property>
       </widget>
       <widget class="QPushButton" name="triercom">
@@ -878,6 +1034,10 @@ background-repeat:none;</string>
        </property>
        <property name="text">
         <string>trier</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>117264.png</normaloff>117264.png</iconset>
        </property>
       </widget>
       <widget class="QRadioButton" name="decend">
@@ -906,6 +1066,141 @@ background-repeat:none;</string>
         <string>ascendant</string>
        </property>
       </widget>
+      <widget class="QLabel" name="label_26">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>100</y>
+         <width>141</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;type de commande&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="combotype">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>100</y>
+         <width>111</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>a emporter</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>sur place</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="label_27">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>340</y>
+         <width>141</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;type de commande&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_3">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>340</y>
+         <width>111</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>a emporter</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>sur place</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QPushButton" name="pushButton">
+       <property name="geometry">
+        <rect>
+         <x>600</x>
+         <y>300</y>
+         <width>93</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Total</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_28">
+       <property name="geometry">
+        <rect>
+         <x>380</x>
+         <y>310</y>
+         <width>56</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;Total&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="total">
+       <property name="geometry">
+        <rect>
+         <x>450</x>
+         <y>310</y>
+         <width>56</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_dt">
+       <property name="geometry">
+        <rect>
+         <x>520</x>
+         <y>310</y>
+         <width>71</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_5">
+       <property name="geometry">
+        <rect>
+         <x>680</x>
+         <y>460</y>
+         <width>93</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>actualier</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>pngtree-cartoon-arrow-icon-download-image_1256957.jpg</normaloff>pngtree-cartoon-arrow-icon-download-image_1256957.jpg</iconset>
+       </property>
+      </widget>
       <zorder>label_24</zorder>
       <zorder>label_15</zorder>
       <zorder>label_17</zorder>
@@ -929,11 +1224,19 @@ background-repeat:none;</string>
       <zorder>nbcom</zorder>
       <zorder>modifiercom</zorder>
       <zorder>recombo</zorder>
-      <zorder>pushButton</zorder>
       <zorder>pushButton_3</zorder>
       <zorder>triercom</zorder>
       <zorder>decend</zorder>
       <zorder>asend</zorder>
+      <zorder>label_26</zorder>
+      <zorder>combotype</zorder>
+      <zorder>label_27</zorder>
+      <zorder>comboBox_3</zorder>
+      <zorder>pushButton</zorder>
+      <zorder>label_28</zorder>
+      <zorder>total</zorder>
+      <zorder>label_dt</zorder>
+      <zorder>pushButton_5</zorder>
      </widget>
     </widget>
    </widget>

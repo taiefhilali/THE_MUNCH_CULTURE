@@ -7,26 +7,28 @@ class Client
 {
 public:
     Client();
-    Client(int,QString,QString,int);
+    Client(int,QString,QString,int,QString);
     int getid_cli();
     QString getnom_cli();
     QString getprenom_cli();
-    int getnombre_com();
+    int getnum_tel();
+    QString getadresse();
     void setid_cli(int);
     void setnom_cli(QString);
     void setprenom_cli(QString);
-    void setnombre_com(int);
+    void setnum_tel(int);
+    void setadresse(QString);
     bool ajouter();
     QSqlQueryModel* afficher();
     bool supprimer(int);
     QSqlQueryModel * recherche_2(int id_cli);
     QSqlQueryModel *Trier(const QString &critere, const QString &mode);
-    bool modifE(int , QString,QString,int);
+    bool modifE(int , QString,QString,int,QString);
 
 private:
     int id_cli;
-    QString nom_cli, prenom_cli;
-    int nombre_com;
+    QString nom_cli, prenom_cli,adresse;
+    int num_tel;
 
 };
 

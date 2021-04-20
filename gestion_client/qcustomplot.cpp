@@ -2344,7 +2344,7 @@ bool QCPDataRange::contains(const QCPDataRange &other) const
   As an example, the following code snippet calculates the average value of a graph's data
   \ref QCPAbstractPlottable::selection "selection":
 
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpdataselection-iterating-1
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpdataselection-iterating-1
 
 */
 
@@ -2985,9 +2985,9 @@ void QCPSelectionRect::draw(QCPPainter *painter)
   \section QCPMarginGroup-example Example
 
   First create a margin group:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpmargingroup-creation-1
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpmargingroup-creation-1
   Then set this group on the layout element sides:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpmargingroup-creation-2
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpmargingroup-creation-2
   Here, we've used the first two axis rects of the plot and synchronized their left margins with
   each other and their right margins with each other.
 */
@@ -5148,7 +5148,7 @@ void QCPLayoutInset::addElement(QCPLayoutElement *element, const QRectF &rect)
 
   Note that due to the overloaded QCPLineEnding constructor, you may directly specify a
   QCPLineEnding::EndingStyle where actually a QCPLineEnding is expected, e.g.
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcplineending-sethead
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcplineending-sethead
 */
 
 /*!
@@ -5878,7 +5878,7 @@ double QCPAxisTicker::cleanMantissa(double input) const
   9:45 of every year.
 
   The ticker can be created and assigned to an axis like this:
-  \snippet documentation/doc-image-generator/mainwindow.cpp axistickerdatetime-creation
+  \snippet documentation/doc-image-generator/Mainwindow.cpp axistickerdatetime-creation
 
   \note If you rather wish to display relative times in terms of days, hours, minutes, seconds and
   milliseconds, and are not interested in the intricacies of real calendar dates with months and
@@ -6167,7 +6167,7 @@ double QCPAxisTickerDateTime::dateTimeToKey(const QDate date)
   zero will carry a leading minus sign.
 
   The ticker can be created and assigned to an axis like this:
-  \snippet documentation/doc-image-generator/mainwindow.cpp axistickertime-creation
+  \snippet documentation/doc-image-generator/Mainwindow.cpp axistickertime-creation
 
   Here is an example of a time axis providing time information in days, hours and minutes. Due to
   the axis range spanning a few days and the wanted tick count (\ref setTickCount), the ticker
@@ -6176,7 +6176,7 @@ double QCPAxisTickerDateTime::dateTimeToKey(const QDate date)
   \image html axisticker-time2.png
 
   The format string for this example is
-  \snippet documentation/doc-image-generator/mainwindow.cpp axistickertime-creation-2
+  \snippet documentation/doc-image-generator/Mainwindow.cpp axistickertime-creation-2
 
   \note If you rather wish to display calendar dates and times, have a look at QCPAxisTickerDateTime
   instead.
@@ -6412,7 +6412,7 @@ void QCPAxisTickerTime::replaceUnit(QString &text, QCPAxisTickerTime::TimeUnit u
   because despite the name it is not limited to only pi symbols/values.
 
   The ticker can be created and assigned to an axis like this:
-  \snippet documentation/doc-image-generator/mainwindow.cpp axistickerfixed-creation
+  \snippet documentation/doc-image-generator/Mainwindow.cpp axistickerfixed-creation
 */
 
 /*!
@@ -6514,7 +6514,7 @@ double QCPAxisTickerFixed::getTickStep(const QCPRange &range)
   QCPAxisTicker, instead of using this one.
 
   The ticker can be created and assigned to an axis like this:
-  \snippet documentation/doc-image-generator/mainwindow.cpp axistickertext-creation
+  \snippet documentation/doc-image-generator/Mainwindow.cpp axistickertext-creation
 */
 
 /* start of documentation of inline functions */
@@ -6723,7 +6723,7 @@ QVector<double> QCPAxisTickerText::createTickVector(double tickStep, const QCPRa
   tick label can be configured with \ref setFractionStyle.
 
   The ticker can be created and assigned to an axis like this:
-  \snippet documentation/doc-image-generator/mainwindow.cpp axistickerpi-creation
+  \snippet documentation/doc-image-generator/Mainwindow.cpp axistickerpi-creation
 */
 
 /*!
@@ -7014,7 +7014,7 @@ QString QCPAxisTickerPi::unicodeSubscript(int number) const
   \image html axisticker-log-powers.png
 
   The ticker can be created and assigned to an axis like this:
-  \snippet documentation/doc-image-generator/mainwindow.cpp axistickerlog-creation
+  \snippet documentation/doc-image-generator/Mainwindow.cpp axistickerlog-creation
 */
 
 /*!
@@ -9839,11 +9839,11 @@ void QCPAxisPainterPrivate::getMaxTickLabelSize(const QFont &font, const QString
   \section QCPScatterStyle-defining Specifying a scatter style
 
   You can set all these configurations either by calling the respective functions on an instance:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpscatterstyle-creation-1
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpscatterstyle-creation-1
 
   Or you can use one of the various constructors that take different parameter combinations, making
   it easy to specify a scatter style in a single call, like so:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpscatterstyle-creation-2
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpscatterstyle-creation-2
 
   \section QCPScatterStyle-undefinedpen Leaving the color/pen up to the plottable
 
@@ -9854,7 +9854,7 @@ void QCPAxisPainterPrivate::getMaxTickLabelSize(const QFont &font, const QString
   color of the graph (\ref QCPGraph::setPen) will be used by the scatter points. This makes
   it very convenient to set up typical scatter settings:
 
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpscatterstyle-shortcreation
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpscatterstyle-shortcreation
 
   Notice that it wasn't even necessary to explicitly call a QCPScatterStyle constructor. This works
   because QCPScatterStyle provides a constructor that can transform a \ref ScatterShape directly
@@ -12074,17 +12074,17 @@ void QCPItemPosition::setPixelPosition(const QPointF &pixelPosition)
   \section items-using Using items
 
   First you instantiate the item you want to use and add it to the plot:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpitemline-creation-1
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpitemline-creation-1
   by default, the positions of the item are bound to the x- and y-Axis of the plot. So we can just
   set the plot coordinates where the line should start/end:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpitemline-creation-2
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpitemline-creation-2
   If we don't want the line to be positioned in plot coordinates but a different coordinate system,
   e.g. absolute pixel positions on the QCustomPlot surface, we need to change the position type like this:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpitemline-creation-3
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpitemline-creation-3
   Then we can set the coordinates, this time in pixels:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpitemline-creation-4
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpitemline-creation-4
   and make the line visible on the entire QCustomPlot, by disabling clipping to the axis rect:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpitemline-creation-5
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpitemline-creation-5
 
   For more advanced plots, it is even possible to set different types and parent anchors per X/Y
   coordinate of an item position, using for example \ref QCPItemPosition::setTypeX or \ref
@@ -14469,7 +14469,7 @@ void QCustomPlot::rescaleAxes(bool onlyVisiblePlottables)
   is advised to set \a exportPen to \ref QCP::epNoCosmetic to avoid losing those cosmetic lines
   (which might be quite many, because cosmetic pens are the default for e.g. axes and tick marks).
   \li If calling this function inside the constructor of the parent of the QCustomPlot widget
-  (i.e. the MainWindow constructor, if QCustomPlot is inside the MainWindow), always provide
+  (i.e. the Mainwindow constructor, if QCustomPlot is inside the Mainwindow), always provide
   explicit non-zero widths and heights. If you leave \a width or \a height as 0 (default), this
   function uses the current width and height of the QCustomPlot widget. However, in Qt, these
   aren't defined yet inside the constructor, so you would get an image that has strange
@@ -14506,12 +14506,12 @@ bool QCustomPlot::savePdf(const QString &fileName, int width, int height, QCP::E
     newHeight = height;
   }
 
-  QPrinter printer(QPrinter::ScreenResolution);
+ /* QPrinter printer(QPrinter::ScreenResolution);
   printer.setOutputFileName(fileName);
   printer.setOutputFormat(QPrinter::PdfFormat);
   printer.setColorMode(QPrinter::Color);
   printer.printEngine()->setProperty(QPrintEngine::PPK_Creator, pdfCreator);
-  printer.printEngine()->setProperty(QPrintEngine::PPK_DocumentName, pdfTitle);
+  printer.printEngine()->setProperty(QPrintEngine::PPK_DocumentName, pdfTitle);*/
   QRect oldViewport = viewport();
   setViewport(QRect(0, 0, newWidth, newHeight));
 #if QT_VERSION < QT_VERSION_CHECK(5, 3, 0)
@@ -14523,9 +14523,9 @@ bool QCustomPlot::savePdf(const QString &fileName, int width, int height, QCP::E
   pageLayout.setOrientation(QPageLayout::Portrait);
   pageLayout.setMargins(QMarginsF(0, 0, 0, 0));
   pageLayout.setPageSize(QPageSize(viewport().size(), QPageSize::Point, QString(), QPageSize::ExactMatch));
-  printer.setPageLayout(pageLayout);
+  //printer.setPageLayout(pageLayout);
 #endif
-  QCPPainter printpainter;
+  /*QCPPainter printpainter;
   if (printpainter.begin(&printer))
   {
     printpainter.setMode(QCPPainter::pmVectorized);
@@ -14540,7 +14540,7 @@ bool QCustomPlot::savePdf(const QString &fileName, int width, int height, QCP::E
     draw(&printpainter);
     printpainter.end();
     success = true;
-  }
+  }*/
   setViewport(oldViewport);
 #endif // QT_NO_PRINTER
   return success;
@@ -14583,7 +14583,7 @@ bool QCustomPlot::savePdf(const QString &fileName, int width, int height, QCP::E
   with no brush (Qt::NoBrush) or a transparent color (Qt::transparent), before saving.
 
   \warning If calling this function inside the constructor of the parent of the QCustomPlot widget
-  (i.e. the MainWindow constructor, if QCustomPlot is inside the MainWindow), always provide
+  (i.e. the Mainwindow constructor, if QCustomPlot is inside the Mainwindow), always provide
   explicit non-zero widths and heights. If you leave \a width or \a height as 0 (default), this
   function uses the current width and height of the QCustomPlot widget. However, in Qt, these
   aren't defined yet inside the constructor, so you would get an image that has strange
@@ -14630,7 +14630,7 @@ bool QCustomPlot::savePng(const QString &fileName, int width, int height, double
   this function.
 
   \warning If calling this function inside the constructor of the parent of the QCustomPlot widget
-  (i.e. the MainWindow constructor, if QCustomPlot is inside the MainWindow), always provide
+  (i.e. the Mainwindow constructor, if QCustomPlot is inside the Mainwindow), always provide
   explicit non-zero widths and heights. If you leave \a width or \a height as 0 (default), this
   function uses the current width and height of the QCustomPlot widget. However, in Qt, these
   aren't defined yet inside the constructor, so you would get an image that has strange
@@ -14674,7 +14674,7 @@ bool QCustomPlot::saveJpg(const QString &fileName, int width, int height, double
   this function.
 
   \warning If calling this function inside the constructor of the parent of the QCustomPlot widget
-  (i.e. the MainWindow constructor, if QCustomPlot is inside the MainWindow), always provide
+  (i.e. the Mainwindow constructor, if QCustomPlot is inside the Mainwindow), always provide
   explicit non-zero widths and heights. If you leave \a width or \a height as 0 (default), this
   function uses the current width and height of the QCustomPlot widget. However, in Qt, these
   aren't defined yet inside the constructor, so you would get an image that has strange
@@ -15747,7 +15747,7 @@ void QCustomPlot::toPainter(QCPPainter *painter, int width, int height)
   The \ref QCPColorGradient(GradientPreset preset) constructor allows directly converting a \ref
   GradientPreset to a QCPColorGradient. This means that you can directly pass \ref GradientPreset
   to all the \a setGradient methods, e.g.:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpcolorgradient-setgradient
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpcolorgradient-setgradient
 
   The total number of levels used in the gradient can be set with \ref setLevelCount. Whether the
   color gradient shall be applied periodically (wrapping around) to data values that lie outside
@@ -18849,7 +18849,7 @@ void QCPLegend::parentPlotInitialized(QCustomPlot *parentPlot)
   \ref setTextColor, and \ref setTextFlags.
 
   A text element can be added as follows:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcptextelement-creation
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcptextelement-creation
 */
 
 /* start documentation of signals */
@@ -19266,17 +19266,17 @@ QColor QCPTextElement::mainTextColor() const
   To have finer control over the number display and axis behaviour, you can directly access the
   \ref axis. See the documentation of QCPAxis for details about configuring axes. For example, if
   you want to change the number of automatically generated ticks, call
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpcolorscale-tickcount
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpcolorscale-tickcount
 
   Placing a color scale next to the main axis rect works like with any other layout element:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpcolorscale-creation
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpcolorscale-creation
   In this case we have placed it to the right of the default axis rect, so it wasn't necessary to
   call \ref setType, since \ref QCPAxis::atRight is already the default. The text next to the color
   scale can be set with \ref setLabel.
 
   For optimum appearance (like in the image above), it may be desirable to line up the axis rect and
   the borders of the color scale. Use a \ref QCPMarginGroup to achieve this:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpcolorscale-margingroup
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpcolorscale-margingroup
 
   Color scales are initialized with a non-zero minimum top and bottom margin (\ref
   setMinimumMargins), because vertical color scales are most common and the minimum top/bottom
@@ -20083,11 +20083,11 @@ QCPGraph::~QCPGraph()
   Since a QSharedPointer is used, multiple QCPGraphs may share the same data container safely.
   Modifying the data in the container will then affect all graphs that share the container. Sharing
   can be achieved by simply exchanging the data containers wrapped in shared pointers:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpgraph-datasharing-1
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpgraph-datasharing-1
 
   If you do not wish to share containers, but create a copy from an existing container, rather use
   the \ref QCPDataContainer<DataType>::set method on the graph's data container directly:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpgraph-datasharing-2
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpgraph-datasharing-2
 
   \see addData
 */
@@ -21777,11 +21777,11 @@ QCPCurveData::QCPCurveData(double t, double key, double value) :
   (QCustomPlot::plottable, QCustomPlot::removePlottable, etc.)
 
   Usually, you first create an instance:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpcurve-creation-1
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpcurve-creation-1
   which registers it with the QCustomPlot instance of the passed axes. Note that this QCustomPlot instance takes
   ownership of the plottable, so do not delete it manually but use QCustomPlot::removePlottable() instead.
   The newly created plottable can be modified, e.g.:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpcurve-creation-2
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpcurve-creation-2
 */
 
 /* start of documentation of inline functions */
@@ -21828,11 +21828,11 @@ QCPCurve::~QCPCurve()
   Since a QSharedPointer is used, multiple QCPCurves may share the same data container safely.
   Modifying the data in the container will then affect all curves that share the container. Sharing
   can be achieved by simply exchanging the data containers wrapped in shared pointers:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpcurve-datasharing-1
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpcurve-datasharing-1
 
   If you do not wish to share containers, but create a copy from an existing container, rather use
   the \ref QCPDataContainer<DataType>::set method on the curve's data container directly:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpcurve-datasharing-2
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpcurve-datasharing-2
 
   \see addData
 */
@@ -23118,7 +23118,7 @@ double QCPCurve::pointDistance(const QPointF &pixelPoint, QCPCurveDataContainer:
 
   To add a QCPBars plottable to the group, create a new group and then add the respective bars
   intances:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpbarsgroup-creation
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpbarsgroup-creation
   Alternatively to appending to the group like shown above, you can also set the group on the
   QCPBars plottable via \ref QCPBars::setBarsGroup.
 
@@ -23135,7 +23135,7 @@ double QCPCurve::pointDistance(const QPointF &pixelPoint, QCPCurveDataContainer:
   \section qcpbarsgroup-example Example
 
   The image above is generated with the following code:
-  \snippet documentation/doc-image-generator/mainwindow.cpp qcpbarsgroup-example
+  \snippet documentation/doc-image-generator/Mainwindow.cpp qcpbarsgroup-example
 */
 
 /* start of documentation of inline functions */
@@ -23543,11 +23543,11 @@ QCPBarsData::QCPBarsData(double key, double value) :
   (QCustomPlot::plottable, QCustomPlot::removePlottable, etc.)
 
   Usually, you first create an instance:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpbars-creation-1
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpbars-creation-1
   which registers it with the QCustomPlot instance of the passed axes. Note that this QCustomPlot instance takes
   ownership of the plottable, so do not delete it manually but use QCustomPlot::removePlottable() instead.
   The newly created plottable can be modified, e.g.:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpbars-creation-2
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpbars-creation-2
 */
 
 /* start of documentation of inline functions */
@@ -23615,11 +23615,11 @@ QCPBars::~QCPBars()
   Since a QSharedPointer is used, multiple QCPBars may share the same data container safely.
   Modifying the data in the container will then affect all bars that share the container. Sharing
   can be achieved by simply exchanging the data containers wrapped in shared pointers:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpbars-datasharing-1
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpbars-datasharing-1
 
   If you do not wish to share containers, but create a copy from an existing container, rather use
   the \ref QCPDataContainer<DataType>::set method on the bar's data container directly:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpbars-datasharing-2
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpbars-datasharing-2
 
   \see addData
 */
@@ -24434,11 +24434,11 @@ QCPStatisticalBoxData::QCPStatisticalBoxData(double key, double minimum, double 
   (QCustomPlot::plottable, QCustomPlot::removePlottable, etc.)
 
   Usually, you first create an instance:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpstatisticalbox-creation-1
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpstatisticalbox-creation-1
   which registers it with the QCustomPlot instance of the passed axes. Note that this QCustomPlot instance takes
   ownership of the plottable, so do not delete it manually but use QCustomPlot::removePlottable() instead.
   The newly created plottable can be modified, e.g.:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpstatisticalbox-creation-2
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpstatisticalbox-creation-2
 */
 
 /* start documentation of inline functions */
@@ -24484,11 +24484,11 @@ QCPStatisticalBox::QCPStatisticalBox(QCPAxis *keyAxis, QCPAxis *valueAxis) :
   safely. Modifying the data in the container will then affect all statistical boxes that share the
   container. Sharing can be achieved by simply exchanging the data containers wrapped in shared
   pointers:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpstatisticalbox-datasharing-1
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpstatisticalbox-datasharing-1
 
   If you do not wish to share containers, but create a copy from an existing container, rather use
   the \ref QCPDataContainer<DataType>::set method on the statistical box data container directly:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpstatisticalbox-datasharing-2
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpstatisticalbox-datasharing-2
 
   \see addData
 */
@@ -25515,11 +25515,11 @@ bool QCPColorMapData::createAlpha(bool initializeOpaque)
   (QCustomPlot::plottable, QCustomPlot::removePlottable, etc.)
 
   Usually, you first create an instance:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpcolormap-creation-1
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpcolormap-creation-1
   which registers it with the QCustomPlot instance of the passed axes. Note that this QCustomPlot instance takes
   ownership of the plottable, so do not delete it manually but use QCustomPlot::removePlottable() instead.
   The newly created plottable can be modified, e.g.:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpcolormap-creation-2
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpcolormap-creation-2
 
   \note The QCPColorMap always displays the data at equal key/value intervals, even if the key or
   value axis is set to a logarithmic scaling. If you want to use QCPColorMap with logarithmic axes,
@@ -26198,12 +26198,12 @@ QCPFinancialData::QCPFinancialData(double key, double open, double high, double 
 
   Usually, you first create an instance:
 
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpfinancial-creation-1
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpfinancial-creation-1
   which registers it with the QCustomPlot instance of the passed axes. Note that this QCustomPlot
   instance takes ownership of the plottable, so do not delete it manually but use
   QCustomPlot::removePlottable() instead. The newly created plottable can be modified, e.g.:
 
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpfinancial-creation-2
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpfinancial-creation-2
   Here we have used the static helper method \ref timeSeriesToOhlc, to turn a time-price data
   series into a 24-hour binned open-high-low-close data series as QCPFinancial uses.
 */
@@ -26254,11 +26254,11 @@ QCPFinancial::~QCPFinancial()
   Since a QSharedPointer is used, multiple QCPFinancials may share the same data container safely.
   Modifying the data in the container will then affect all financials that share the container.
   Sharing can be achieved by simply exchanging the data containers wrapped in shared pointers:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpfinancial-datasharing-1
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpfinancial-datasharing-1
 
   If you do not wish to share containers, but create a copy from an existing container, rather use
   the \ref QCPDataContainer<DataType>::set method on the financial's data container directly:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcpfinancial-datasharing-2
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcpfinancial-datasharing-2
 
   \see addData, timeSeriesToOhlc
 */
@@ -27139,11 +27139,11 @@ QCPErrorBars::~QCPErrorBars()
   container safely. Modifying the data in the container will then affect all \ref QCPErrorBars
   instances that share the container. Sharing can be achieved by simply exchanging the data
   containers wrapped in shared pointers:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcperrorbars-datasharing-1
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcperrorbars-datasharing-1
 
   If you do not wish to share containers, but create a copy from an existing container, assign the
   data containers directly:
-  \snippet documentation/doc-code-snippets/mainwindow.cpp qcperrorbars-datasharing-2
+  \snippet documentation/doc-code-snippets/Mainwindow.cpp qcperrorbars-datasharing-2
   (This uses different notation compared with other plottables, because the \ref QCPErrorBars
   uses a \c QVector<QCPErrorBarsData> as its data container, instead of a \ref QCPDataContainer.)
 
