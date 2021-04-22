@@ -8,7 +8,11 @@
 #include <QFileDialog>
 #include <QTextStream>
 #include <QTextEdit>
-
+#include <QDateTime>
+#include <QCalendarWidget>
+#include <QtPrintSupport/QPrinter>
+#include <QtPrintSupport/QPrintDialog>
+#include <QPrinter>
 youssef::youssef(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::youssef)
@@ -17,7 +21,8 @@ youssef::youssef(QWidget *parent) :
     ui->tab_rev->setModel(R.afficher());
     ui->tab_dep->setModel(D.afficher());
     ui->tab_produit->setModel(P.afficher());
-
+    click = new QMediaPlayer();
+        click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
     makePolt();
 }
 
@@ -28,22 +33,27 @@ youssef::~youssef()
 }
 
 void youssef::on_Ajouter_clicked()
-{
+{click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
+    click->play();
+    qDebug()<<click ->errorString();
     int id_rev=ui->le_id_rev->text().toInt();
     int tot_rev=ui->le_tot_rev->text().toInt();
+    QString type_rev=ui->letyperev->currentText();
+    QString date_rev=ui->date_3->text();
 
-
-Revenu R(id_rev,tot_rev);
+Revenu R(id_rev,tot_rev,type_rev,date_rev);
  bool test=R.ajouter();
  QMessageBox msgBox;
 
  if(test)
    {  msgBox.setText("Ajout avec succes.");
      ui->tab_rev->setModel(R.afficher());
+
  }
  else
      msgBox.setText("Echec d'ajout");
      msgBox.exec();
+
 
 }
 
@@ -53,15 +63,22 @@ void youssef::on_modifier_3_clicked()
 {
     {
         int id_rev,tot_rev;
+                QString type_rev, date_rev;
 
 
         id_rev=ui->le_id_rev_3->text().toInt();
         tot_rev=ui->le_tot_rev_2->text().toInt();
-
+        type_rev=ui->mtyperev->currentText();
+        date_rev=ui->dates->text();
+        click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
+            click->play();
+            qDebug()<<click ->errorString();
         QSqlQuery qry;
-        qry.prepare("update REVENU set id_rev=:id_rev,tot_rev=:tot_rev where id_rev=:id_rev");
+        qry.prepare("update REVENU set id_rev=:id_rev,tot_rev=:tot_rev,type_rev=:type_rev,date_rev=:date_rev where id_rev=:id_rev");
         qry.bindValue(":id_rev",id_rev);
         qry.bindValue(":tot_rev",tot_rev);
+        qry.bindValue(":type_rev",type_rev);
+        qry.bindValue(":date_rev",date_rev);
 
 
         qry.exec();
@@ -76,6 +93,9 @@ void youssef::on_supprimer_3_clicked()
     Revenu R1; R1.setid_rev(ui->le_id_sup->text().toInt());
     bool test=R1.supprimer(R1.getid_rev());
     QMessageBox msgBox;
+    click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
+        click->play();
+        qDebug()<<click ->errorString();
 
     if(test)
        { msgBox.setText("Suppression avec succes.");
@@ -100,16 +120,26 @@ void youssef::on_pushButton_3_clicked()
                }else if (type=="tot_rev"){
                    request.prepare("SELECT * FROM REVENU WHERE tot_rev LIKE:val");
 
+               }else if (type=="type_rev"){
+                   request.prepare("SELECT * FROM REVENU WHERE type_rev LIKE:val");
+               }else if (type=="date_rev"){
+                   request.prepare("SELECT * FROM REVENU WHERE date_rev LIKE:val");
                }
                request.bindValue(":val",val);
                request.exec();
                modal->setQuery(request);
                ui->tab_rev->setModel(modal);
+               click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
+                   click->play();
+                   qDebug()<<click ->errorString();
 
 }
 
 void youssef::on_pushButton_clicked()
 {
+    click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
+    click->play();
+    qDebug()<<click ->errorString();
 
 
     QString critere=ui->cb_recherche_9->currentText();
@@ -124,6 +154,7 @@ void youssef::on_pushButton_clicked()
          }
       ui->tab_rev->setModel(R.Trierrev(critere,mode));
 
+
 }
 
 
@@ -131,7 +162,9 @@ void youssef::on_pushButton_clicked()
 
 
 void youssef::on_EXCEL_clicked()
-{
+{click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
+    click->play();
+    qDebug()<<click ->errorString();
     QTableView *table;
                       table = ui->tab_rev;
                       QString filters("mdb files (*.csv);;All files (*.*)");
@@ -167,12 +200,16 @@ void youssef::on_EXCEL_clicked()
 }
 
 void youssef::on_pushButton_1_clicked()
-{
+{click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
+    click->play();
+    qDebug()<<click ->errorString();
 
     int id_dep=ui->le_id_dep->text().toInt();
    int tot_dep=ui->le_tot_dep->text().toInt();
+   QString type_dep=ui->letypedep->currentText();
+   QString date_dep=ui->date->text();
 
-Depense D(id_dep,tot_dep);
+Depense D(id_dep,tot_dep,type_dep,date_dep);
  bool test=D.ajouter();
  QMessageBox msgBox;
 
@@ -187,7 +224,9 @@ Depense D(id_dep,tot_dep);
 }
 
 void youssef::on_supprimer_6_clicked()
-{
+{click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
+    click->play();
+    qDebug()<<click ->errorString();
     Depense D1; D1.setid_dep(ui->le_id_sup_3->text().toInt());
         bool test=D1.supprimer(D1.getid_dep());
         QMessageBox msgBox;
@@ -204,18 +243,25 @@ void youssef::on_supprimer_6_clicked()
 }
 
 void youssef::on_pushButton_2_clicked()
-{
+{click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
+    click->play();
+    qDebug()<<click ->errorString();
     {
         int id_dep,tot_dep;
+        QString type_dep,date_dep;
 
         id_dep=ui->le_id_dep_5->text().toInt();
         tot_dep=ui->le_tot_dep_2->text().toInt();
+        type_dep=ui->mtypedep->currentText();
+        date_dep=ui->datess->text();
 
 
         QSqlQuery qry;
-        qry.prepare("update DEPENSE set tot_dep=:tot_dep where id_dep=:id_dep");
+        qry.prepare("update DEPENSE set tot_dep=:tot_dep,type_dep=:type_dep, date_dep=:date_dep where id_dep=:id_dep");
         qry.bindValue(":id_dep",id_dep);
         qry.bindValue(":tot_dep",tot_dep);
+        qry.bindValue(":type_dep",type_dep);
+        qry.bindValue(":date_dep",date_dep);
 
 
 
@@ -228,7 +274,9 @@ void youssef::on_pushButton_2_clicked()
 }
 
 void youssef::on_pushButton_7_clicked()
-{
+{click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
+    click->play();
+    qDebug()<<click ->errorString();
     QSqlQueryModel *modal=new QSqlQueryModel();
                 QSqlQuery request;
                QString type=ui->cb_recherche_8->currentText();
@@ -239,6 +287,10 @@ void youssef::on_pushButton_7_clicked()
                }else if (type=="tot_dep"){
                    request.prepare("SELECT * FROM DEPENSE WHERE tot_dep LIKE:val");
 
+               }else if (type=="type_dep"){
+                   request.prepare("SELECT * FROM DEPENSE WHERE type_dep LIKE:val");
+               }else if (type=="date_dep"){
+                   request.prepare("SELECT * FROM DEPENSE WHERE date_dep LIKE:val");
                }
                request.bindValue(":val",val);
                request.exec();
@@ -248,7 +300,9 @@ void youssef::on_pushButton_7_clicked()
 }
 
 void youssef::on_pushButton_8_clicked()
-{
+{click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
+    click->play();
+    qDebug()<<click ->errorString();
 
     QString critere=ui->cb_recherche_10->currentText();
         QString mode;
@@ -265,7 +319,9 @@ void youssef::on_pushButton_8_clicked()
 }
 
 void youssef::on_EXCEL_4_clicked()
-{
+{click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
+    click->play();
+    qDebug()<<click ->errorString();
     QTableView *table;
         table = ui->tab_dep;
         QString filters("mdb files (*.csv);;All files (*.*)");
@@ -301,7 +357,9 @@ void youssef::on_EXCEL_4_clicked()
 }
 
 void youssef::on_ajouter1_clicked()
-{
+{click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
+    click->play();
+    qDebug()<<click ->errorString();
 
     int id_produit=ui->le_id_produit->text().toInt();
     QString nom_produit=ui->le_nom_produit->text();
@@ -325,7 +383,9 @@ Produit P(id_produit,nom_produit,type_produit,tot_produit,produit_rester);
 }
 
 void youssef::on_supprimer_2_clicked()
-{
+{click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
+    click->play();
+    qDebug()<<click ->errorString();
     Produit P1; P1.setid_produit(ui->le_id_supprimer->text().toInt());
     bool test=P1.supprimer(P1.getid_produit());
     QMessageBox msgBox;
@@ -341,7 +401,9 @@ void youssef::on_supprimer_2_clicked()
 }
 
 void youssef::on_modifier3_2_clicked()
-{
+{click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
+    click->play();
+    qDebug()<<click ->errorString();
    {
         int id_produit,tot_produit;
                 QString nom_produit,type_produit,produit_rester;
@@ -376,7 +438,9 @@ void youssef::on_modifier3_2_clicked()
 
 void youssef::on_pushButton_9_clicked()
 {
-
+    click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
+        click->play();
+        qDebug()<<click ->errorString();
     QString critere=ui->trieprod->currentText();
         QString mode;
         if (ui->asc2->isChecked()==true)
@@ -392,7 +456,9 @@ void youssef::on_pushButton_9_clicked()
 }
 
 void youssef::on_pushButton_4_clicked()
-{
+{click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
+    click->play();
+    qDebug()<<click ->errorString();
     QSqlQueryModel *modal=new QSqlQueryModel();
                 QSqlQuery request;
                QString type=ui->cb_recherche_4->currentText();
@@ -418,7 +484,9 @@ void youssef::on_pushButton_4_clicked()
 
 }
 void youssef::on_EXCEL_3_clicked()
-{
+{click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
+    click->play();
+    qDebug()<<click ->errorString();
     QTableView *table;
         table = ui->tab_produit;
         QString filters("mdb files (*.csv);;All files (*.*)");
@@ -565,7 +633,9 @@ void youssef::makePolt()
 
 
 void youssef::on_pushButton_5_clicked()
-{
+{click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
+    click->play();
+    qDebug()<<click ->errorString();
  int col = ui->tab_produit->currentIndex().column();
     int row = ui->tab_produit->currentIndex().row();
 
@@ -587,7 +657,9 @@ void youssef::on_pushButton_5_clicked()
 
 
 void youssef::on_pushButton_6_clicked()
-{
+{click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
+    click->play();
+    qDebug()<<click ->errorString();
     int col = ui->tab_dep->currentIndex().column();
        int row = ui->tab_dep->currentIndex().row();
 
@@ -599,10 +671,21 @@ void youssef::on_pushButton_6_clicked()
        }
        ui->le_id_dep_5->setText(D.afficher()->index(row,0).data().toString());
        ui->le_tot_dep_2->setText(D.afficher()->index(row,1).data().toString());
+       //ui->mtypedep->setCurrentText(D.afficher()->index(row,2).data().toString());
+
+
+
+
+
+
+              // le_date_dep_2->setText(D.afficher()->index(row,3).data().toString());
+
     }
 
 void youssef::on_pushButton_10_clicked()
-{
+{click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
+    click->play();
+    qDebug()<<click ->errorString();
     int col = ui->tab_rev->currentIndex().column();
        int row = ui->tab_rev->currentIndex().row();
 
@@ -610,9 +693,296 @@ void youssef::on_pushButton_10_clicked()
        {
            int id=R.afficher()->index(row,col).data().toInt();
            QString sql=QString("SELECT * FROM REVENU WHERE id_rev=:id").arg(id);
-
+          //QString dat_rev=R.afficher()->index(row, 3).data().toString();
        }
        ui->le_id_rev_3->setText(R.afficher()->index(row,0).data().toString());
        ui->le_tot_rev_2->setText(R.afficher()->index(row,1).data().toString());
+       ui->mtyperev->setCurrentText(R.afficher()->index(row,2).data().toString());
+       //ui->dates->setText(R.afficher()->index(row, 3).data().toString());
+        //ui->datee->setSelectedDate(QDate::fromString(date_rev,"dd/MM/yyyy"));
     }
+
+
+
+void youssef::on_impression_clicked()   //imprimer revenu
+{click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
+    click->play();
+    qDebug()<<click ->errorString();
+    QString strStream;
+                   QTextStream out(&strStream);
+                   const int rowCount = ui->tab_rev->model()->rowCount();
+                   const int columnCount = ui->tab_rev->model()->columnCount();
+                   for (int column = 0; column < columnCount; column++)
+                       if (!ui->tab_rev->isColumnHidden(column)){
+                           out << QString("<td>\t\t\t%1\t\t\t</td>").arg(ui->tab_rev->model()->headerData(column, Qt::Horizontal).toString());}
+                   for (int row = 0; row < rowCount; row++) {
+                       out << "<tr>";
+                       for (int column = 0; column < columnCount; column++) {
+                           if (!ui->tab_rev->isColumnHidden(column)) {
+                               QString data =ui->tab_rev->model()->data(ui->tab_rev->model()->index(row, column)).toString().simplified();
+                               out << QString("<td bkcolor=10>\t\t\t%1\t\t\t</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+                           }
+                       }
+                   }
+                   QTextDocument *document = new QTextDocument();
+                   document->setHtml(strStream);
+           QPrinter printer ;
+                  QPrintDialog *daddy = new QPrintDialog(&printer, NULL);
+                   if (daddy->exec() == QDialog::Accepted) {
+                       document->print(&printer);
+                   }
+                   delete document;
+
+}
+
+
+
+
+
+
+
+
+void youssef::on_pdf_clicked()  //pdf revenu
+{click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
+    click->play();
+    qDebug()<<click ->errorString();
+    QString strStream;
+                          QTextStream out(&strStream);
+
+                          const int rowCount = ui->tab_rev->model()->rowCount();
+                          const int columnCount = ui->tab_rev->model()->columnCount();
+
+                          out <<  "<html>\n"
+                              "<head>\n"
+                              "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+                              <<  QString("<title>%1</title>\n").arg("strTitle")
+                              <<  "</head>\n"
+                              "<body bgcolor=#ffffff link=#5000A0>\n"
+
+                             //     "<align='right'> " << datefich << "</align>"
+                              "<center> <H1>Liste des revenus </H1></br></br><table border=1 cellspacing=0 cellpadding=2>\n";
+
+                          // headers
+                          out << "<thead><tr bgcolor=#f0f0f0> <th>Numero</th>";
+                          for (int column = 0; column < columnCount; column++)
+                              if (!ui->tab_rev->isColumnHidden(column))
+                                  out << QString("<th>%1</th>").arg(ui->tab_rev->model()->headerData(column, Qt::Horizontal).toString());
+                          out << "</tr></thead>\n";
+
+                          // data table
+                          for (int row = 0; row < rowCount; row++) {
+                              out << "<tr> <td bkcolor=0>" << row+1 <<"</td>";
+                              for (int column = 0; column < columnCount; column++) {
+                                  if (!ui->tab_rev->isColumnHidden(column)) {
+                                      QString data = ui->tab_rev->model()->data(ui->tab_rev->model()->index(row, column)).toString().simplified();
+                                      out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+                                  }
+                              }
+                              out << "</tr>\n";
+                          }
+                          out <<  "</table> </center>\n"
+                              "</body>\n"
+                              "</html>\n";
+
+                    QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Sauvegarder en PDF", QString(), "*.pdf");
+                      if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append(".pdf"); }
+
+                     QPrinter printer (QPrinter::PrinterResolution);
+                      printer.setOutputFormat(QPrinter::PdfFormat);
+                     printer.setPaperSize(QPrinter::A4);
+                    printer.setOutputFileName(fileName);
+
+                     QTextDocument doc;
+                      doc.setHtml(strStream);
+                      doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
+                      doc.print(&printer);
+}
+
+void youssef::on_impression_2_clicked() //imprimer depense
+{click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
+    click->play();
+    qDebug()<<click ->errorString();
+    QString strStream;
+    QTextStream out(&strStream);
+    const int rowCount = ui->tab_dep->model()->rowCount();
+    const int columnCount = ui->tab_dep->model()->columnCount();
+    for (int column = 0; column < columnCount; column++)
+        if (!ui->tab_dep->isColumnHidden(column)){
+            out << QString("<td>\t\t\t%1\t\t\t</td>").arg(ui->tab_dep->model()->headerData(column, Qt::Horizontal).toString());}
+    for (int row = 0; row < rowCount; row++) {
+        out << "<tr>";
+        for (int column = 0; column < columnCount; column++) {
+            if (!ui->tab_dep->isColumnHidden(column)) {
+                QString data =ui->tab_dep->model()->data(ui->tab_dep->model()->index(row, column)).toString().simplified();
+                out << QString("<td bkcolor=10>\t\t\t%1\t\t\t</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+            }
+        }
+    }
+    QTextDocument *document = new QTextDocument();
+    document->setHtml(strStream);
+QPrinter printer ;
+   QPrintDialog *daddy = new QPrintDialog(&printer, NULL);
+    if (daddy->exec() == QDialog::Accepted) {
+        document->print(&printer);
+    }
+    delete document;
+
+}
+
+
+
+void youssef::on_pdff_clicked() //pdf depense
+{click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
+    click->play();
+    qDebug()<<click ->errorString();
+    QString strStream;
+    QTextStream out(&strStream);
+
+    const int rowCount = ui->tab_dep->model()->rowCount();
+    const int columnCount = ui->tab_dep->model()->columnCount();
+
+    out <<  "<html>\n"
+        "<head>\n"
+        "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+        <<  QString("<title>%1</title>\n").arg("strTitle")
+        <<  "</head>\n"
+        "<body bgcolor=#ffffff link=#5000A0>\n"
+
+       //     "<align='right'> " << datefich << "</align>"
+        "<center> <H1>Liste des depenses </H1></br></br><table border=1 cellspacing=0 cellpadding=2>\n";
+
+    // headers
+    out << "<thead><tr bgcolor=#f0f0f0> <th>Numero</th>";
+    for (int column = 0; column < columnCount; column++)
+        if (!ui->tab_rev->isColumnHidden(column))
+            out << QString("<th>%1</th>").arg(ui->tab_dep->model()->headerData(column, Qt::Horizontal).toString());
+    out << "</tr></thead>\n";
+
+    // data table
+    for (int row = 0; row < rowCount; row++) {
+        out << "<tr> <td bkcolor=0>" << row+1 <<"</td>";
+        for (int column = 0; column < columnCount; column++) {
+            if (!ui->tab_dep->isColumnHidden(column)) {
+                QString data = ui->tab_dep->model()->data(ui->tab_dep->model()->index(row, column)).toString().simplified();
+                out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+            }
+        }
+        out << "</tr>\n";
+    }
+    out <<  "</table> </center>\n"
+        "</body>\n"
+        "</html>\n";
+
+QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Sauvegarder en PDF", QString(), "*.pdf");
+if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append(".pdf"); }
+
+QPrinter printer (QPrinter::PrinterResolution);
+printer.setOutputFormat(QPrinter::PdfFormat);
+printer.setPaperSize(QPrinter::A4);
+printer.setOutputFileName(fileName);
+
+QTextDocument doc;
+doc.setHtml(strStream);
+doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
+doc.print(&printer);
+
+}
+
+
+
+
+
+void youssef::on_impression_3_clicked()  //imprimer produit
+{click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
+    click->play();
+    qDebug()<<click ->errorString();
+    QString strStream;
+        QTextStream out(&strStream);
+        const int rowCount = ui->tab_produit->model()->rowCount();
+        const int columnCount = ui->tab_produit->model()->columnCount();
+        for (int column = 0; column < columnCount; column++)
+            if (!ui->tab_produit->isColumnHidden(column)){
+                out << QString("<td>\t\t\t%1\t\t\t</td>").arg(ui->tab_produit->model()->headerData(column, Qt::Horizontal).toString());}
+        for (int row = 0; row < rowCount; row++) {
+            out << "<tr>";
+            for (int column = 0; column < columnCount; column++) {
+                if (!ui->tab_produit->isColumnHidden(column)) {
+                    QString data =ui->tab_produit->model()->data(ui->tab_produit->model()->index(row, column)).toString().simplified();
+                    out << QString("<td bkcolor=10>\t\t\t%1\t\t\t</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+                }
+            }
+        }
+        QTextDocument *document = new QTextDocument();
+        document->setHtml(strStream);
+    QPrinter printer ;
+       QPrintDialog *daddy = new QPrintDialog(&printer, NULL);
+        if (daddy->exec() == QDialog::Accepted) {
+            document->print(&printer);
+        }
+        delete document;
+}
+
+void youssef::on_pdfff_clicked()   //pdf produit
+{click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
+    click->play();
+    qDebug()<<click ->errorString();
+    QString strStream;
+    QTextStream out(&strStream);
+
+    const int rowCount = ui->tab_produit->model()->rowCount();
+    const int columnCount = ui->tab_produit->model()->columnCount();
+
+    out <<  "<html>\n"
+        "<head>\n"
+        "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+        <<  QString("<title>%1</title>\n").arg("strTitle")
+        <<  "</head>\n"
+        "<body bgcolor=#ffffff link=#5000A0>\n"
+
+       //     "<align='right'> " << datefich << "</align>"
+        "<center> <H1>Liste des produits </H1></br></br><table border=1 cellspacing=0 cellpadding=2>\n";
+
+    // headers
+    out << "<thead><tr bgcolor=#f0f0f0> <th>Numero</th>";
+    for (int column = 0; column < columnCount; column++)
+        if (!ui->tab_rev->isColumnHidden(column))
+            out << QString("<th>%1</th>").arg(ui->tab_produit->model()->headerData(column, Qt::Horizontal).toString());
+    out << "</tr></thead>\n";
+
+    // data table
+    for (int row = 0; row < rowCount; row++) {
+        out << "<tr> <td bkcolor=0>" << row+1 <<"</td>";
+        for (int column = 0; column < columnCount; column++) {
+            if (!ui->tab_produit->isColumnHidden(column)) {
+                QString data = ui->tab_produit->model()->data(ui->tab_produit->model()->index(row, column)).toString().simplified();
+                out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+            }
+        }
+        out << "</tr>\n";
+    }
+    out <<  "</table> </center>\n"
+        "</body>\n"
+        "</html>\n";
+
+QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Sauvegarder en PDF", QString(), "*.pdf");
+if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append(".pdf"); }
+
+QPrinter printer (QPrinter::PrinterResolution);
+printer.setOutputFormat(QPrinter::PdfFormat);
+printer.setPaperSize(QPrinter::A4);
+printer.setOutputFileName(fileName);
+
+QTextDocument doc;
+doc.setHtml(strStream);
+doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
+doc.print(&printer);
+
+
+}
+
+
+
+
+
+
 

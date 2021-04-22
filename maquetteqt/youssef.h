@@ -4,7 +4,10 @@
 #include "depense.h"
 #include "revenu.h"
 #include <QDialog>
-
+#include <QtPrintSupport/QPrinter>
+#include <QtPrintSupport/QPrintDialog>
+#include <QMediaPlayer>
+#include <QMediaPlaylist>
 
 namespace Ui {
 class youssef;
@@ -57,7 +60,6 @@ private slots:
 
     void makePolt();
 
-    void on_le_type_produit_2_cursorPositionChanged(int arg1, int arg2);
 
     void on_pushButton_5_clicked();
 
@@ -65,7 +67,23 @@ private slots:
 
     void on_pushButton_10_clicked();
 
-    void on_pushButton_11_clicked();
+
+    void on_impression_clicked();
+
+    void on_pdf_clicked();
+
+    void on_impression_2_clicked();
+
+    void on_pdff_clicked();
+
+    void on_impression_3_clicked();
+
+    void on_pdfff_clicked();
+
+
+
+
+
 
 private:
     Ui::youssef *ui;
@@ -73,6 +91,7 @@ private:
     Revenu R;
     Produit P;
     Depense D;
+    QMediaPlayer *click;
 
 };
 

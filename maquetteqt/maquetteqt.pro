@@ -1,4 +1,6 @@
 QT       += core gui
+QT += printsupport
+QT       += core gui multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += sql widgets
 
@@ -42,3 +44,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     design.qrc
+
+DISTFILES +=
