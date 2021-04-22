@@ -1,8 +1,10 @@
 #include "gsf.h"
 #include "ui_gsf.h"
+#include "mainwindowvideo.h"
 #include <QMessageBox>
 #include <QIntValidator>
 #include <QTabWidget>
+#include <QTranslator>
 #include <QMessageBox>
 #include <QString>
 #include <QFile>
@@ -40,7 +42,18 @@ gsf::gsf(QWidget *parent) :
     ui(new Ui::gsf)
 {
     ui->setupUi(this);
+    int ret = A.connect_arduino();
+            switch (ret)
+            {
+                case(0):qDebug()<<"arduino is available and connected to :" << A.getarduino_port_name();
+                break;
+                case(1):qDebug()<<"arduino is available but not connected to :" << A.getarduino_port_name();
+                break;
+                case(-1):qDebug()<<"arduino is not available";
+                break;
 
+            }
+            QObject::connect(A.getserial(), SIGNAL(readyRead()), this, SLOT(update_label()));
    /* qTimer=new QTimer(this);
     connect(qTimer,SIGNAL(timeout()),this,SLOT(clockTimer()));
     qTimer->start(100);*/
@@ -643,6 +656,28 @@ void gsf::on_pushButton_3_clicked()
         QPrinter printer ;
                QPrintDialog *daddy = new QPrintDialog(&printer, NULL);
                 if (daddy->exec() == QDialog::Accepted) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     document->print(&printer);
                 }
                 delete document;
@@ -1087,4 +1122,31 @@ void gsf::on_pushButton_9_clicked()
     }
 
 
+}
+void gsf::update_label()
+{
+     data =A.read_from_arduino();
+     QString DataAsString = QString(data);
+         qDebug()<< data;
+    if (data =="1")
+    {ui->label->setText("alarme activée");
+        ui->label_3->setText("alarm activée");}
+    else if (data =="0")
+    {ui->label->setText("alarme désactivée");
+        ui->label_3->setText("alarme désactivée");}
+}
+
+
+
+void gsf::on_sonore_clicked()
+{
+
+    A.write_to_arduino("0");
+    qDebug() << "alarme désactivée" <<endl;
+}
+
+void gsf::on_VIDEO_clicked()
+{
+    video=new MainWindowvideo(this);
+     video->show();
 }

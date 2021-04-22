@@ -5,6 +5,8 @@
 #include "stocks.h"
 #include "fourn.h"
 #include "pdf.h"
+#include "mainwindowvideo.h"
+#include "arduino.h"
 #include <QTimer>
 #include <QSound>
 namespace Ui {
@@ -18,6 +20,7 @@ class gsf : public QDialog
 public:
     explicit gsf(QWidget *parent = nullptr);
     ~gsf();
+    void update_label();
 public slots:
    // void clockTimer();
 private slots:
@@ -127,6 +130,10 @@ private slots:
 
         void on_pushButton_9_clicked();
 
+        void on_sonore_clicked();
+
+        void on_VIDEO_clicked();
+
 private:
     Ui::gsf *ui;
     stocks S;
@@ -138,7 +145,9 @@ private:
     QTimer *qTimer;
     QString*code;
     QString filename;
-
+    Arduino A;
+    QByteArray data;
+    MainWindowvideo*video;
 };
 
 #endif // GSF_H
