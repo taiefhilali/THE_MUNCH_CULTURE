@@ -54,9 +54,9 @@ gsf::gsf(QWidget *parent) :
 
             }
             QObject::connect(A.getserial(), SIGNAL(readyRead()), this, SLOT(update_label()));
-   /* qTimer=new QTimer(this);
+  qTimer=new QTimer(this);
     connect(qTimer,SIGNAL(timeout()),this,SLOT(clockTimer()));
-    qTimer->start(100);*/
+    qTimer->start(100);
     //***************************************controles de saisie********************
         ui->prix->setValidator(new QIntValidator(0, 9999999, this));
         ui->quantite->setValidator(new QIntValidator(0, 9999999, this));
@@ -113,14 +113,14 @@ gsf::~gsf()
     delete ui;
 }
 //------------ajout1-------//
-/*void gsf::clockTimer()
+void gsf::clockTimer()
 {
     QTime clockTime=QTime::currentTime();
-    ui->clock->setText(clockTime.toString(" hh : mm : ss"));
+    ui->Clocklabel->setText(clockTime.toString(" hh : mm : ss"));
     QString date = QDate::currentDate().toString();
     ui->date->setText(date);
 
-}*/
+}
 //********************************AJOUTER STOCK*******************
 void gsf::on_Ajouter_clicked()
 {  son->play();
@@ -1100,19 +1100,32 @@ void gsf::binary_operation_pressed()
 {
     QPushButton * button = (QPushButton *)sender();
 
+
     firstNum = ui->label_15->text().toDouble();
     button->setChecked(true);
 }
 //******************************UPLOAD IMAGE******************************//
 void gsf::on_pushButton_9_clicked()
-{   filename=QFileDialog::getOpenFileName(this,tr("choose"), "",tr("Images(*.png *.jpg *.jpeg *.bmp *.gif)"));
+{  int i=0;
+    filename=QFileDialog::getOpenFileName(this,tr("choose"), "",tr("Images(*.png *.jpg *.jpeg *.bmp *.gif)"));
     if (QString::compare(filename,QString()) !=0)
     {
         QImage image;
         bool valid=image.load(filename);
         if (valid)
         {
-            image=image.scaledToWidth(ui->img->width(), Qt::SmoothTransformation);
+            image=image.scaledToWidth( ui->img->width(), Qt::SmoothTransformation);
+            while (i<101) {
+                       ui->progressBar->setValue(i);
+                       QTimer timer;
+                       //        timer.setSingleShot(true);
+                       timer.setInterval(10);
+                       QEventLoop loop;
+                       connect(&timer, SIGNAL(timeout()), &loop, SLOT(quit()));
+                       timer.start();
+                       loop.exec();
+                       i++;
+                   }
             ui->img->setPixmap(QPixmap::fromImage(image));
         }
         else
@@ -1121,7 +1134,7 @@ void gsf::on_pushButton_9_clicked()
         }
     }
 
-
+    ui->progressBar->setValue(0);
 }
 void gsf::update_label()
 {
