@@ -1163,3 +1163,18 @@ void gsf::on_VIDEO_clicked()
     video=new MainWindowvideo(this);
      video->show();
 }
+
+void gsf::on_total_clicked()
+{
+    son->play();
+       ui->total_2->setNum(f.get_total());
+       ui->total_3->setText("fourn");
+   }
+
+
+void gsf::on_prix_tott_clicked()
+{
+    son->play();
+       ui->nom_3->setNum(S.get_total());
+       ui->nom_4->setText("stock");
+}

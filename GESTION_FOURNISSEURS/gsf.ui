@@ -84,7 +84,7 @@
       <string notr="true">background-image: url(&quot;taief.jpg&quot;);</string>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab_5">
       <attribute name="title">
@@ -1678,6 +1678,45 @@ transition: all 0.4s ease 0s;
         <string>desactiver alarme</string>
        </property>
       </widget>
+      <widget class="QLabel" name="nom_3">
+       <property name="geometry">
+        <rect>
+         <x>500</x>
+         <y>410</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="nom_4">
+       <property name="geometry">
+        <rect>
+         <x>600</x>
+         <y>410</y>
+         <width>71</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="prix_tott">
+       <property name="geometry">
+        <rect>
+         <x>354</x>
+         <y>392</y>
+         <width>121</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>PRIX TOTALE(dt)</string>
+       </property>
+      </widget>
       <zorder>tableWidget</zorder>
       <zorder>label_11</zorder>
       <zorder>tab_stk_2</zorder>
@@ -1736,6 +1775,9 @@ transition: all 0.4s ease 0s;
       <zorder>label_43</zorder>
       <zorder>type_2</zorder>
       <zorder>sonore</zorder>
+      <zorder>nom_3</zorder>
+      <zorder>nom_4</zorder>
+      <zorder>prix_tott</zorder>
      </widget>
      <widget class="QWidget" name="tab">
       <attribute name="title">
@@ -2713,8 +2755,8 @@ background-repeat:none;</string>
       <widget class="QLabel" name="label_13">
        <property name="geometry">
         <rect>
-         <x>-130</x>
-         <y>-110</y>
+         <x>-50</x>
+         <y>-80</y>
          <width>1200</width>
          <height>1101</height>
         </rect>
@@ -3016,6 +3058,45 @@ background-repeat:none;
         <number>24</number>
        </property>
       </widget>
+      <widget class="QPushButton" name="total">
+       <property name="geometry">
+        <rect>
+         <x>600</x>
+         <y>350</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>TOTAL</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="total_2">
+       <property name="geometry">
+        <rect>
+         <x>526</x>
+         <y>384</y>
+         <width>61</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="total_3">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>420</y>
+         <width>61</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
       <zorder>label_13</zorder>
       <zorder>tab_fourn_2</zorder>
       <zorder>combo_2</zorder>
@@ -3059,6 +3140,9 @@ background-repeat:none;
       <zorder>img</zorder>
       <zorder>VIDEO</zorder>
       <zorder>progressBar</zorder>
+      <zorder>total</zorder>
+      <zorder>total_2</zorder>
+      <zorder>total_3</zorder>
      </widget>
     </widget>
    </widget>

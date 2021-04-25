@@ -22,7 +22,7 @@ public:
     ~gsf();
     void update_label();
 public slots:
-   // void clockTimer();
+   void clockTimer();
 private slots:
     void on_Ajouter_clicked();
 
@@ -133,6 +133,10 @@ private slots:
         void on_sonore_clicked();
 
         void on_VIDEO_clicked();
+
+        void on_total_clicked();
+
+        void on_prix_tott_clicked();
 
 private:
     Ui::gsf *ui;
