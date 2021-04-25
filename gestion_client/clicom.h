@@ -4,8 +4,8 @@
 #include <QDialog>
 #include "client.h"
 #include "commande.h"
-
-
+#include <QSound>
+#include <QTimer>
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class Clicom;
@@ -18,6 +18,8 @@ class Clicom : public QDialog
 public:
     explicit Clicom(QWidget *parent = nullptr);
     ~Clicom();
+public slots:
+    void clockTimer();
 
 private slots:
     void on_Ajouter_clicked();
@@ -62,10 +64,11 @@ private slots:
 
 private:
 
-
     Ui::Clicom *ui;
     Client C;
     Commande F;
+    QSound*son;
+    QTimer *qTimer;
 };
 
 #endif // CLICOM_H

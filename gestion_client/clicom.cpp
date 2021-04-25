@@ -23,6 +23,8 @@
 #include <QFileDialog>
 #include <QTextStream>
 #include <QTextEdit>
+#include <QSound>
+#include <QTimer>
 
 Clicom::Clicom(QWidget *parent) :
     QDialog(parent),
@@ -34,7 +36,10 @@ ui->tableView_3->setModel(C.afficher());
 ui->tableView_4->setModel(F.affichercom());
 connect(ui->sendBtn, SIGNAL(clicked()),this, SLOT(sendMail()));
    connect(ui->exitBtn, SIGNAL(clicked()),this, SLOT(close()));
-
+ son=new QSound(":/sons/click.wav");
+ qTimer=new QTimer(this);
+     connect(qTimer,SIGNAL(timeout()),this,SLOT(clockTimer()));
+     qTimer->start(100);
 }
 
 Clicom::~Clicom()
@@ -43,6 +48,7 @@ Clicom::~Clicom()
 }
 void Clicom::on_Ajouter_clicked()
 {
+     son->play();
     int id_cli=ui->le_id->text().toInt();
     QString nom_cli=ui->le_nom->text();
     QString prenom_cli=ui->le_prenom->text();
@@ -61,11 +67,12 @@ void Clicom::on_Ajouter_clicked()
  else
      msgBox.setText("Echec d'ajout");
      msgBox.exec();
+
 }
 
 void Clicom::on_supprimer_3_clicked()
 {
-
+     son->play();
     Client C1; C1.setid_cli(ui->le_idsupprimer->text().toInt());
     bool test=C1.supprimer(C1.getid_cli());
     QMessageBox msgBox;
@@ -82,6 +89,7 @@ void Clicom::on_supprimer_3_clicked()
 
 void Clicom::on_pb_ajouter_clicked()
 {
+      son->play();
     int id_com=ui->le_com->text().toInt();
     QString date_com=ui->le_date->text();
     int nombre_come=ui->le_nb->text().toInt();
@@ -102,6 +110,7 @@ void Clicom::on_pb_ajouter_clicked()
 
 void Clicom::on_pb_supprimer_clicked()
 {
+      son->play();
      Commande C2; C2.setid_com(ui->le_idsupprimer_2->text().toInt());
     bool test=C2.supprimercom(C2.getid_com());
     QMessageBox msgBox;
@@ -119,7 +128,7 @@ void Clicom::on_pb_supprimer_clicked()
 
 void Clicom::on_modifier_clicked()
 {
-
+  son->play();
     int id_cli,num_tel;
     QString nom_cli,prenom_cli,adresse;
     id_cli=ui->idclient->text().toInt();
@@ -145,7 +154,7 @@ void Clicom::on_modifier_clicked()
 
 
 void Clicom::on_modifiercom_clicked()
-{
+{  son->play();
     int id_com,nombre_come;
     QString date_com,type_com;
     id_com=ui->idcom->text().toInt();
@@ -168,7 +177,7 @@ void Clicom::on_modifiercom_clicked()
 }
 
 void Clicom::on_push_recherche_3_clicked()
-{
+{  son->play();
     QSqlQueryModel *modal=new QSqlQueryModel();
                 QSqlQuery request;
                QString type=ui->rechercher_cli->currentText();
@@ -193,7 +202,7 @@ void Clicom::on_push_recherche_3_clicked()
 }
 
 void Clicom::on_rech_but_clicked()
-{
+{  son->play();
     QSqlQueryModel *modal=new QSqlQueryModel();
                 QSqlQuery request;
                QString type=ui->recombo->currentText();
@@ -230,7 +239,7 @@ void Clicom::mailSent(QString status)
 
 
 void Clicom::on_pushButton_2_clicked()
-{
+{  son->play();
     int col = ui->tableView_3->currentIndex().column();
         int row = ui->tableView_3->currentIndex().row();
 
@@ -249,7 +258,7 @@ void Clicom::on_pushButton_2_clicked()
 }
 
 void Clicom::on_pushButton_3_clicked()
-{
+{  son->play();
     int col = ui->tableView_4->currentIndex().column();
     int row = ui->tableView_4->currentIndex().row();
 
@@ -269,7 +278,7 @@ void Clicom::on_pushButton_3_clicked()
 }
 
 void Clicom::on_trierClient_clicked()
-{
+{  son->play();
     QString critere=ui->trie->currentText();
         QString mode;
         if (ui->asc->isChecked()==true)
@@ -285,7 +294,7 @@ void Clicom::on_trierClient_clicked()
 }
 
 void Clicom::on_triercom_clicked()
-{
+{  son->play();
     QString critere=ui->triecommande->currentText();
         QString mode;
         if (ui->asend->isChecked()==true)
@@ -300,9 +309,9 @@ void Clicom::on_triercom_clicked()
 }
 
 void Clicom::on_pushButton_clicked()
-{
+{  son->play();
     ui->total->setNum(F.get_total());
-    ui->label_dt->setText("Commmandes");
+    ui->label_dt->setText("Commandes");
 }
 
 void Clicom::on_pushButton_4_clicked()
@@ -329,6 +338,14 @@ void Clicom::on_pushButton_5_clicked()
 }
 
 void Clicom::on_acualiser_1_clicked()
-{
+{  son->play();
    ui->tableView_3->setModel(C.afficher());
+}
+void Clicom::clockTimer()
+{
+    QTime clockTime=QTime::currentTime();
+    ui->clock->setText(clockTime.toString(" hh : mm : ss"));
+    QString date = QDate::currentDate().toString();
+    ui->date->setText(date);
+
 }
