@@ -62,6 +62,16 @@ private slots:
 
     void on_acualiser_1_clicked();
 
+    void on_excel_clicked();
+
+    void on_exel_client_clicked();
+
+    void on_pdf_clicked();
+
+    void on_satist_clicked();
+
+    void on_pdf_com_clicked();
+
 private:
 
     Ui::Clicom *ui;

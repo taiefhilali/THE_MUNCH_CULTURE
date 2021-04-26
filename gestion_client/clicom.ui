@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>10</y>
+     <y>0</y>
      <width>881</width>
      <height>701</height>
     </rect>
@@ -590,6 +590,32 @@ background-repeat:none;</string>
         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;clock&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
+      <widget class="QPushButton" name="exel_client">
+       <property name="geometry">
+        <rect>
+         <x>700</x>
+         <y>410</y>
+         <width>101</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>exel</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pdf">
+       <property name="geometry">
+        <rect>
+         <x>700</x>
+         <y>380</y>
+         <width>101</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>pdf</string>
+       </property>
+      </widget>
       <zorder>label_23</zorder>
       <zorder>label</zorder>
       <zorder>label_2</zorder>
@@ -628,6 +654,8 @@ background-repeat:none;</string>
       <zorder>acualiser_1</zorder>
       <zorder>date</zorder>
       <zorder>clock</zorder>
+      <zorder>exel_client</zorder>
+      <zorder>pdf</zorder>
      </widget>
     </widget>
    </widget>
@@ -741,9 +769,9 @@ background-repeat:none;</string>
        <property name="geometry">
         <rect>
          <x>300</x>
-         <y>60</y>
-         <width>471</width>
-         <height>241</height>
+         <y>50</y>
+         <width>501</width>
+         <height>251</height>
         </rect>
        </property>
       </widget>
@@ -1234,6 +1262,45 @@ background-repeat:none;</string>
         <string/>
        </property>
       </widget>
+      <widget class="QPushButton" name="excel">
+       <property name="geometry">
+        <rect>
+         <x>690</x>
+         <y>500</y>
+         <width>93</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>excel</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="satist">
+       <property name="geometry">
+        <rect>
+         <x>580</x>
+         <y>500</y>
+         <width>93</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>staistique</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pdf_com">
+       <property name="geometry">
+        <rect>
+         <x>680</x>
+         <y>420</y>
+         <width>93</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>pdf</string>
+       </property>
+      </widget>
       <zorder>label_24</zorder>
       <zorder>label_15</zorder>
       <zorder>label_17</zorder>
@@ -1272,6 +1339,9 @@ background-repeat:none;</string>
       <zorder>pushButton_5</zorder>
       <zorder>clock_2</zorder>
       <zorder>date_2</zorder>
+      <zorder>excel</zorder>
+      <zorder>satist</zorder>
+      <zorder>pdf_com</zorder>
      </widget>
     </widget>
    </widget>

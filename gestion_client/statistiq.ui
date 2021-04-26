@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>stato</class>
- <widget class="QDialog" name="stato">
+ <class>statistiq</class>
+ <widget class="QDialog" name="statistiq">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -16,10 +16,10 @@
   <widget class="QCustomPlot" name="customPlot" native="true">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>40</x>
      <y>10</y>
-     <width>741</width>
-     <height>461</height>
+     <width>711</width>
+     <height>441</height>
     </rect>
    </property>
   </widget>

@@ -1,5 +1,5 @@
-#ifndef STATO_H
-#define STATO_H
+#ifndef STATISTIQ_H
+#define STATISTIQ_H
 
 #include <QDialog>
 #include "qcustomplot.h"
@@ -8,23 +8,23 @@
 #include <QMainWindow>
 
 namespace Ui {
-class stato;
+class statistiq;
 }
 
-class stato : public QDialog
+class statistiq : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit stato(QWidget *parent = nullptr);
-    ~stato();
+    explicit statistiq(QWidget *parent = nullptr);
+    ~statistiq();
     void makePolt();
 
 private slots:
   //  void on_deconecterr_clicked();
 
 private:
-    Ui::stato *ui;
+    Ui::statistiq *ui;
 };
 
 #endif // STATISTIQ_H
