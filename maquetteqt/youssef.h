@@ -59,6 +59,8 @@ private slots:
     void on_EXCEL_3_clicked();
 
     void makePolt();
+    void makePolt_2();
+    void makePolt_3();
 
 
     void on_pushButton_5_clicked();
@@ -83,6 +85,15 @@ private slots:
 
 
 
+
+
+
+
+
+
+    void on_calendarWidget_clicked(const QDate &date1);
+
+    void on_calendarWidget_2_clicked(const QDate &date1);
 
 
 private:

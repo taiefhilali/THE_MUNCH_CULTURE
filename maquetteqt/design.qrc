@@ -5,6 +5,7 @@
         <file>1.jpg</file>
         <file>ajouter.jpg</file>
         <file>excel.jpg</file>
+        <file>stat.jpg</file>
     </qresource>
     <qresource prefix="/">
         <file>../../../Downloads/try/try/Click.mp3</file>
