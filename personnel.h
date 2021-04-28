@@ -24,9 +24,15 @@ public:
     void settype(QString) ;
     bool ajouter();
     QSqlQueryModel* afficher();
+     QSqlQueryModel* afficherselonid();
+     void  AjoutImage(QString );
+
     bool supprimer(QString);
-    void modifier(QString) ;
+    bool modifier(QString nom, QString prenom, QString mdp, QString date_emb, QString salaire, QString type, QString id);
+    QByteArray GetImage();
+    QSqlQueryModel *rechercheid(QString id);
 private:
+    QByteArray image;
 
     QString nom, prenom,mdp,date_emb,salaire,type,id;
 

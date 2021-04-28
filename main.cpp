@@ -4,12 +4,19 @@
 #include <QMessageBox>
 #include <QDebug>
 #include "connexion.h"
+#include "menu.h"
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     Connexion c;
     bool test=c.ouvrirConnexion();
     MainWindow w;
+    //menu w;
+    QFile styleSheetFile(":/StyleSheet/MacOS.qss");
+                 styleSheetFile.open(QFile::ReadOnly);
+                 QString styleSheet = QLatin1String(styleSheetFile.readAll());
+                 a.setStyleSheet(styleSheet);
          if(test)
          {
 

@@ -4,7 +4,12 @@
 #include <QDialog>
 #include"personnel.h"
 #include"profil.h"
-
+#include <QtWidgets/QMessageBox>
+#include<QPainter>
+#include<QPdfWriter>
+#include<QDesktopServices>
+#include<QUrl>
+#include<QSqlTableModel>
 namespace Ui {
 class menu;
 }
@@ -22,12 +27,47 @@ private slots:
 
     void on_ajouter1_clicked();
 
+
+    void on_supprimer_employee_clicked();
+
+    void on_modifier_employee_clicked();
+
+    void on_supprimer_profil_clicked();
+
+    void on_modifier_profil_clicked();
+
+    void on_tri_employee_clicked();
+
+
+
+
+    void on_colone_tri_textActivated(const QString &arg1);
+//    void recherche_personnel();
+
+
     void on_pushButton_3_clicked();
+
+    void on_table_personnel_activated(const QModelIndex &index);
+
+    void on_le_recherche_cursorPositionChanged(int arg1, int arg2);
+
+    void on_supprimer_clicked();
+
+    void on_modifier_2_clicked();
+
+    void on_button_tri_2_clicked();
+
+    void on_pdf_clicked();
+
+    void on_pushButton_clicked();
 
 private:
     Ui::menu *ui;
-    personnel p ;
-    profil e ;
+    personnel tmp_personnel ;
+    profil tmp_profil ;
+    QString fileNameImage ;
+    QPixmap photo ;
+    QByteArray image;
 };
 
 #endif // MENU_H

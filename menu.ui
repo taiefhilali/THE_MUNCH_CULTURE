@@ -16,14 +16,14 @@
   <widget class="QTabWidget" name="temprature">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>20</x>
      <y>0</y>
      <width>841</width>
      <height>701</height>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab_4">
     <attribute name="title">
@@ -73,6 +73,32 @@
       <string>GESTION PROFILS</string>
      </property>
     </widget>
+    <widget class="QLabel" name="label_23">
+     <property name="geometry">
+      <rect>
+       <x>4</x>
+       <y>5</y>
+       <width>831</width>
+       <height>591</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:tranparent;
+
+border-image:url(:/StyleSheet/couverture.jfif);
+
+background:none;
+
+border:none;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <zorder>label_23</zorder>
+    <zorder>MUNCHCULTURE</zorder>
+    <zorder>pushButton</zorder>
+    <zorder>pushButton_2</zorder>
    </widget>
    <widget class="QWidget" name="tab1">
     <attribute name="title">
@@ -91,7 +117,7 @@
       <string notr="true">tabWidget_2 = new QWidget(this); m_myWidget-&gt;setGeometry(0, 0, 300, 100)</string>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab_3">
       <attribute name="title">
@@ -107,7 +133,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>date_emb</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;date_emb&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_2">
@@ -120,7 +146,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>Id_employee</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Id_employee&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_3">
@@ -133,7 +159,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>salaire</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;salaire&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_4">
@@ -146,7 +172,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>type</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;type&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="id">
@@ -225,7 +251,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>nom</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;nom&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_6">
@@ -238,7 +264,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>prenom</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;prenom&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="prenom">
@@ -261,7 +287,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>mdp</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;mdp&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="mdp">
@@ -274,12 +300,98 @@
         </rect>
        </property>
       </widget>
+      <widget class="QLabel" name="label_photo">
+       <property name="geometry">
+        <rect>
+         <x>510</x>
+         <y>50</y>
+         <width>111</width>
+         <height>111</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>C:/Users/msi/Pictures/interfacefinal/salariess.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_3">
+       <property name="geometry">
+        <rect>
+         <x>520</x>
+         <y>170</y>
+         <width>93</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>ajouter image</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_14">
+       <property name="geometry">
+        <rect>
+         <x>325</x>
+         <y>505</y>
+         <width>20</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_18">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>5</y>
+         <width>771</width>
+         <height>561</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:tranparent;
+
+border-image:url(:/StyleSheet/couverture.jfif);
+
+background:none;
+
+border:none;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <zorder>label_18</zorder>
+      <zorder>label</zorder>
+      <zorder>label_2</zorder>
+      <zorder>label_3</zorder>
+      <zorder>label_4</zorder>
+      <zorder>id</zorder>
+      <zorder>salaire</zorder>
+      <zorder>type</zorder>
+      <zorder>Ajouter</zorder>
+      <zorder>date_emb</zorder>
+      <zorder>nom</zorder>
+      <zorder>label_5</zorder>
+      <zorder>label_6</zorder>
+      <zorder>prenom</zorder>
+      <zorder>label_7</zorder>
+      <zorder>mdp</zorder>
+      <zorder>label_photo</zorder>
+      <zorder>pushButton_3</zorder>
+      <zorder>label_14</zorder>
      </widget>
      <widget class="QWidget" name="tab_5">
       <attribute name="title">
        <string>Affichage</string>
       </attribute>
-      <widget class="QTableView" name="tableView">
+      <widget class="QTableView" name="table_personnel">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -332,7 +444,7 @@
         <string>Rechercher</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="le_supprimer">
+      <widget class="QLineEdit" name="i_stock">
        <property name="geometry">
         <rect>
          <x>510</x>
@@ -345,7 +457,7 @@
         <string>id_stock</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="supprimer">
+      <widget class="QPushButton" name="supprimer_employee">
        <property name="geometry">
         <rect>
          <x>690</x>
@@ -358,20 +470,7 @@
         <string>Supprimer</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_21">
-       <property name="geometry">
-        <rect>
-         <x>90</x>
-         <y>400</y>
-         <width>121</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>date naiss employee</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="num_com_2">
+      <widget class="QLineEdit" name="id_employee">
        <property name="geometry">
         <rect>
          <x>220</x>
@@ -384,32 +483,6 @@
         <string notr="true">m_myWidget = new QWidget(this); m_myWidget-&gt;setGeometry(0, 0, 300, 100); QPalette pal = palette();</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_34">
-       <property name="geometry">
-        <rect>
-         <x>90</x>
-         <y>460</y>
-         <width>121</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>numero tel </string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_36">
-       <property name="geometry">
-        <rect>
-         <x>90</x>
-         <y>520</y>
-         <width>71</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Date d'arrivee</string>
-       </property>
-      </widget>
       <widget class="QLabel" name="label_37">
        <property name="geometry">
         <rect>
@@ -420,33 +493,10 @@
         </rect>
        </property>
        <property name="text">
-        <string>Id_employee</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Id_employee&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="quantite_2">
-       <property name="geometry">
-        <rect>
-         <x>220</x>
-         <y>430</y>
-         <width>113</width>
-         <height>20</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_38">
-       <property name="geometry">
-        <rect>
-         <x>90</x>
-         <y>430</y>
-         <width>71</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>adresse </string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="modifier_2">
+      <widget class="QPushButton" name="modifier_employee">
        <property name="geometry">
         <rect>
          <x>390</x>
@@ -509,7 +559,7 @@
         </property>
        </item>
       </widget>
-      <widget class="QPushButton" name="button_tri">
+      <widget class="QPushButton" name="mailing">
        <property name="geometry">
         <rect>
          <x>690</x>
@@ -522,7 +572,7 @@
         <string>mailing</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="PDF">
+      <widget class="QPushButton" name="tri_employee">
        <property name="geometry">
         <rect>
          <x>690</x>
@@ -532,30 +582,69 @@
         </rect>
        </property>
        <property name="text">
-        <string>tri</string>
+        <string>tri selon id</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="produit_2">
+      <widget class="QLineEdit" name="nom_2">
        <property name="geometry">
         <rect>
          <x>220</x>
-         <y>400</y>
+         <y>490</y>
          <width>113</width>
-         <height>20</height>
+         <height>22</height>
         </rect>
        </property>
       </widget>
-      <widget class="QLineEdit" name="date_arrivee_2">
+      <widget class="QLineEdit" name="prenom_2">
        <property name="geometry">
         <rect>
          <x>220</x>
          <y>520</y>
          <width>113</width>
-         <height>20</height>
+         <height>22</height>
         </rect>
        </property>
       </widget>
-      <widget class="QLineEdit" name="quantite_3">
+      <widget class="QLabel" name="label_8">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>462</y>
+         <width>71</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>type</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>430</y>
+         <width>101</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;salaire&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_10">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>530</y>
+         <width>55</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>prenom</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="type_2">
        <property name="geometry">
         <rect>
          <x>220</x>
@@ -565,6 +654,150 @@
         </rect>
        </property>
       </widget>
+      <widget class="QLabel" name="label_11">
+       <property name="geometry">
+        <rect>
+         <x>500</x>
+         <y>590</y>
+         <width>55</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>mdp</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="date_emb_2">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>400</y>
+         <width>113</width>
+         <height>20</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_12">
+       <property name="geometry">
+        <rect>
+         <x>87</x>
+         <y>400</y>
+         <width>121</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;date_emb&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="salaire_2">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>430</y>
+         <width>113</width>
+         <height>20</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_13">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>500</y>
+         <width>55</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>nom</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="mdp_3">
+       <property name="geometry">
+        <rect>
+         <x>630</x>
+         <y>580</y>
+         <width>113</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_19">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>5</y>
+         <width>771</width>
+         <height>551</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:tranparent;
+
+border-image:url(:/StyleSheet/couverture.jfif);
+
+background:none;
+
+border:none;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_image">
+       <property name="geometry">
+        <rect>
+         <x>570</x>
+         <y>240</y>
+         <width>131</width>
+         <height>171</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pdf">
+       <property name="geometry">
+        <rect>
+         <x>670</x>
+         <y>230</y>
+         <width>93</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>pdf</string>
+       </property>
+      </widget>
+      <zorder>label_19</zorder>
+      <zorder>table_personnel</zorder>
+      <zorder>cb_recherche</zorder>
+      <zorder>le_recherche</zorder>
+      <zorder>i_stock</zorder>
+      <zorder>supprimer_employee</zorder>
+      <zorder>id_employee</zorder>
+      <zorder>label_37</zorder>
+      <zorder>modifier_employee</zorder>
+      <zorder>colone_tri</zorder>
+      <zorder>ordre_tri</zorder>
+      <zorder>mailing</zorder>
+      <zorder>tri_employee</zorder>
+      <zorder>nom_2</zorder>
+      <zorder>prenom_2</zorder>
+      <zorder>label_8</zorder>
+      <zorder>label_9</zorder>
+      <zorder>label_10</zorder>
+      <zorder>type_2</zorder>
+      <zorder>label_11</zorder>
+      <zorder>date_emb_2</zorder>
+      <zorder>label_12</zorder>
+      <zorder>salaire_2</zorder>
+      <zorder>label_13</zorder>
+      <zorder>mdp_3</zorder>
+      <zorder>label_image</zorder>
+      <zorder>pdf</zorder>
      </widget>
     </widget>
    </widget>
@@ -598,7 +831,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>login</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;login&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_16">
@@ -611,7 +844,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>ID_profil</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;ID_profil&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_17">
@@ -624,20 +857,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>mdp</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_18">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>100</y>
-         <width>91</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>numero</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;mdp&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="id_profil">
@@ -655,16 +875,6 @@
         <rect>
          <x>150</x>
          <y>70</y>
-         <width>113</width>
-         <height>20</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="ID">
-       <property name="geometry">
-        <rect>
-         <x>150</x>
-         <y>100</y>
          <width>113</width>
          <height>20</height>
         </rect>
@@ -693,12 +903,42 @@
         </rect>
        </property>
       </widget>
+      <widget class="QLabel" name="label_22">
+       <property name="geometry">
+        <rect>
+         <x>4</x>
+         <y>5</y>
+         <width>761</width>
+         <height>551</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:tranparent;
+
+border-image:url(:/StyleSheet/couverture.jfif);
+
+background:none;
+
+border:none;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <zorder>label_22</zorder>
+      <zorder>label_15</zorder>
+      <zorder>label_16</zorder>
+      <zorder>label_17</zorder>
+      <zorder>id_profil</zorder>
+      <zorder>mdp_2</zorder>
+      <zorder>ajouter1</zorder>
+      <zorder>login</zorder>
      </widget>
      <widget class="QWidget" name="tab_12">
       <attribute name="title">
        <string>Affichage</string>
       </attribute>
-      <widget class="QTableView" name="tableView_2">
+      <widget class="QTableView" name="table_profil">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -827,7 +1067,7 @@
         <string>mailing</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="le_supprimer_2">
+      <widget class="QLineEdit" name="id_profil_3">
        <property name="geometry">
         <rect>
          <x>480</x>
@@ -850,7 +1090,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>id_profil</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;id_profil&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_40">
@@ -863,7 +1103,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>date de naissance</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;login &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_41">
@@ -876,23 +1116,10 @@
         </rect>
        </property>
        <property name="text">
-        <string>adresse</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;mdp&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_42">
-       <property name="geometry">
-        <rect>
-         <x>80</x>
-         <y>390</y>
-         <width>91</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>numero de tel</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="numventemodif">
+      <widget class="QLineEdit" name="id_employee_2">
        <property name="geometry">
         <rect>
          <x>220</x>
@@ -902,7 +1129,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QLineEdit" name="quantmodif">
+      <widget class="QLineEdit" name="mdp_5">
        <property name="geometry">
         <rect>
          <x>220</x>
@@ -912,21 +1139,11 @@
         </rect>
        </property>
       </widget>
-      <widget class="QLineEdit" name="idmodif">
+      <widget class="QPushButton" name="modifier_profil">
        <property name="geometry">
         <rect>
-         <x>220</x>
-         <y>390</y>
-         <width>113</width>
-         <height>20</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="modifier3">
-       <property name="geometry">
-        <rect>
-         <x>380</x>
-         <y>370</y>
+         <x>370</x>
+         <y>330</y>
          <width>75</width>
          <height>23</height>
         </rect>
@@ -935,7 +1152,7 @@
         <string>Modifier</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="prod_modif">
+      <widget class="QLineEdit" name="login_3">
        <property name="geometry">
         <rect>
          <x>220</x>
@@ -945,7 +1162,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QPushButton" name="supprimer_profil">
        <property name="geometry">
         <rect>
          <x>620</x>
@@ -958,6 +1175,45 @@
         <string>supprimer</string>
        </property>
       </widget>
+      <widget class="QLabel" name="label_20">
+       <property name="geometry">
+        <rect>
+         <x>4</x>
+         <y>5</y>
+         <width>811</width>
+         <height>541</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:tranparent;
+
+border-image:url(:/StyleSheet/couverture.jfif);
+
+background:none;
+
+border:none;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <zorder>label_20</zorder>
+      <zorder>table_profil</zorder>
+      <zorder>cb_recherche_2</zorder>
+      <zorder>le_recherche_2</zorder>
+      <zorder>colone_tri_2</zorder>
+      <zorder>ordre_tri_2</zorder>
+      <zorder>button_tri_2</zorder>
+      <zorder>supprimer_2</zorder>
+      <zorder>id_profil_3</zorder>
+      <zorder>label_39</zorder>
+      <zorder>label_40</zorder>
+      <zorder>label_41</zorder>
+      <zorder>id_employee_2</zorder>
+      <zorder>mdp_5</zorder>
+      <zorder>modifier_profil</zorder>
+      <zorder>login_3</zorder>
+      <zorder>supprimer_profil</zorder>
      </widget>
     </widget>
    </widget>

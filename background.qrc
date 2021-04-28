@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/StyleSheet">
+        <file>MacOS.qss</file>
+        <file>couverture.jfif</file>
+    </qresource>
+</RCC>

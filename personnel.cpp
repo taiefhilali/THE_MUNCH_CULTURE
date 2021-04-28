@@ -3,7 +3,9 @@
 #include <QtDebug>
 #include <QObject>
 #include <QString>
-
+#include <QBuffer>
+#include <cstdlib>
+#include <QImage>
 
 personnel::personnel()
 {
@@ -61,8 +63,8 @@ bool personnel::ajouter()
 {
 
     QSqlQuery query;
-         query.prepare("INSERT INTO personnel (id, nom, prenom,mdp,date_emb,salaire,type) "
-                       "VALUES (:id, :nom, :prenom,:mdp,:date_emb,:salaire,:type)");
+         query.prepare("INSERT INTO personnel (id, nom, prenom,mdp,date_emb,salaire,type,image) "
+                       "VALUES (:id, :nom, :prenom,:mdp,:date_emb,:salaire,:type,:image)");
          query.bindValue(":id",id);
          query.bindValue(":nom", nom);
          query.bindValue(":prenom", prenom);
@@ -70,6 +72,7 @@ bool personnel::ajouter()
          query.bindValue(":date_emb", date_emb);
          query.bindValue(":salaire", salaire);
          query.bindValue(":type", type);
+         query.bindValue(":image", image, QSql::Binary);
 
         return query.exec();
 
@@ -99,4 +102,100 @@ QSqlQueryModel* personnel::afficher()
    model->setHeaderData(6, Qt::Horizontal, QObject::tr("type"));
 
   return  model;
+}
+bool personnel:: modifier(QString nom,QString prenom,QString mdp,QString date_emb,QString salaire,QString type,QString id )
+{       QSqlQuery query;
+         query.prepare("UPDATE personnel set ID=:id,nom=:nom,PRENOM=:prenom ,MDP=:mdp,date_emb=:date_emb,SALAIRE=:salaire,TYPE=:type where ID= :id ");
+         query.bindValue(":id",id);
+         query.bindValue(":nom", nom);
+         query.bindValue(":prenom", prenom);
+         query.bindValue(":mdp",mdp);
+         query.bindValue(":date_emb", date_emb);
+         query.bindValue(":salaire", salaire);
+         query.bindValue(":type", type);
+
+        return    query.exec();
+
+}
+
+
+QSqlQueryModel* personnel::afficherselonid()// tri
+
+{
+    QSqlQueryModel* model=new QSqlQueryModel() ;
+   QSqlQuery *query=new QSqlQuery;
+   query->prepare("select * from personnel ORDER BY ID  ") ;
+   query->exec() ;
+   model->setQuery(*query) ;
+
+
+
+return model;
+
+}
+QSqlQueryModel * personnel::rechercheid(QString id)
+
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+    QSqlQuery query;
+
+    query.prepare("select * from personnel where ID=:ID");
+    query.bindValue(":ID", id);
+
+
+    query.exec();
+    model->setQuery(query);
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id personnel"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom personnel"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom personnel"));
+    //  model->setHeaderData(3, Qt::Horizontal, QObject::tr("comboBox_personnel"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("mdp personnel"));
+    model->setHeaderData(5, Qt::Horizontal, QObject::tr("date_emb personnel"));
+    model->setHeaderData(6, Qt::Horizontal, QObject::tr("salaire personnel"));
+    model->setHeaderData(7, Qt::Horizontal, QObject::tr("type personnel"));
+
+       return model;
+
+}
+//QSqlQueryModel * personnel::rechercher_personnel(QString valeur)
+//{
+//    QSqlQueryModel * model= new QSqlQueryModel();
+//    model->setQuery("select * from personnelS where nom_personnel='"+valeur+"' ");
+
+//    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id personnel"));
+//    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom personnel"));
+//    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom personnel"));
+//    //  model->setHeaderData(3, Qt::Horizontal, QObject::tr("comboBox_personnel"));
+//    model->setHeaderData(4, Qt::Horizontal, QObject::tr("mdp personnel"));
+//    model->setHeaderData(5, Qt::Horizontal, QObject::tr("date_emb personnel"));
+//    model->setHeaderData(6, Qt::Horizontal, QObject::tr("salaire personnel"));
+//    model->setHeaderData(7, Qt::Horizontal, QObject::tr("type personnel"));
+
+//        return model;
+//}
+
+QByteArray personnel:: GetImage()
+{
+    return this->image;
+}
+
+void  personnel::AjoutImage(QString fileName){
+
+
+    if (fileName.isEmpty())
+    {
+        qDebug()<<"EMPTY EMPTY !!!!!";
+
+        fileName="personnel-image_standard.png";
+
+    }
+    QImage imageTMP(fileName);
+
+    QByteArray byteArray;
+
+    QBuffer buffer(&byteArray);
+
+    imageTMP.save(&buffer, "PNG");
+
+    image=byteArray;
 }

@@ -1,0 +1,12 @@
+INPUT(
+./debug/connexion.o
+./debug/main.o
+./debug/mainwindow.o
+./debug/menu.o
+./debug/personnel.o
+./debug/profil.o
+./debug/smtp.o
+./debug/moc_mainwindow.o
+./debug/moc_menu.o
+./debug/moc_smtp.o
+);

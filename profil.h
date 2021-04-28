@@ -21,7 +21,8 @@ public:
     bool ajouter();
     QSqlQueryModel* afficher();
     bool supprimer(QString);
-    void modifier(QString) ;
+    bool modifier(QString id, QString login, QString mdp);
+    QSqlQueryModel *afficherselonid();
 private:
 
     QString id,login,mdp;

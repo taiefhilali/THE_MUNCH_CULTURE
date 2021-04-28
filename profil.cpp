@@ -7,15 +7,15 @@
 
 profil::profil()
 {
-id="";
-login=" ";
-mdp="";
-mdp="" ;}
+    id="";
+    login=" ";
+    mdp="";
+}
 
 profil::profil(QString id,QString login,QString mdp)
 {this->id=id;
-this->login=login;
-this->mdp=mdp;
+    this->login=login;
+    this->mdp=mdp;
 
 }
 QString profil::getid(){return id;}
@@ -37,36 +37,61 @@ bool profil::ajouter()
 {
 
     QSqlQuery query;
-         query.prepare("INSERT INTO profil (id, login, mdp) "
+    query.prepare("INSERT INTO profil (id, login, mdp) "
                        "VALUES (:id, :login, :mdp)");
-         query.bindValue(":id",id);
-         query.bindValue(":login", login);
-         query.bindValue(":mdp", mdp);
+    query.bindValue(":id",id);
+    query.bindValue(":login", login);
+    query.bindValue(":mdp", mdp);
 
 
-        return query.exec();
+    return query.exec();
 
 }
 bool profil::supprimer(QString id)
 {
     QSqlQuery query;
-         query.prepare(" Delete from profil where id=:id");
-         query.bindValue(0, id);
+    query.prepare(" Delete from profil where id=:id");
+    query.bindValue(0, id);
 
-        return query.exec();
+    return query.exec();
 
 
 }
 QSqlQueryModel* profil::afficher()
 {
-  QSqlQueryModel* model=new QSqlQueryModel();
+    QSqlQueryModel* model=new QSqlQueryModel();
 
 
-   model->setQuery("SELECT* FROM profil");
-   model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
-   model->setHeaderData(1, Qt::Horizontal, QObject::tr("login"));
-   model->setHeaderData(2, Qt::Horizontal, QObject::tr("mdp"));
+    model->setQuery("SELECT* FROM profil");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("login"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("mdp"));
 
 
-  return  model;
+    return  model;
+}
+bool profil:: modifier(QString id,QString login,QString mdp )
+{       QSqlQuery query;
+        query.prepare("UPDATE profil set ID=:id,LOGIN=:login,MDP=:mdp where ID= :id ");
+            query.bindValue(":id",id);
+                query.bindValue(":login", login);
+                    query.bindValue(":mdp",mdp);
+
+
+                        return    query.exec();
+
+}
+QSqlQueryModel* profil::afficherselonid()// tri
+
+{
+    QSqlQueryModel* model=new QSqlQueryModel() ;
+   QSqlQuery *query=new QSqlQuery;
+   query->prepare("select * from profil ORDER BY ID  ") ;
+   query->exec() ;
+   model->setQuery(*query) ;
+
+
+
+return model;
+
 }
