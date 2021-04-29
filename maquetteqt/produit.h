@@ -13,13 +13,13 @@ public:
     QString getnom_produit();
     QString gettype_produit();
     int gettot_produit();
-    QString getproduit_rester();
+    QString getdate_produit();
 
     void setid_produit(int);
     void setnom_produit(int);
     void settype_produit(QString);
     void settot_produit(int);
-    void setproduit_rester(QString);
+    void setdate_produit(QString);
 
 
     bool ajouter();
@@ -31,7 +31,7 @@ public:
 
 private:
     int id_produit,tot_produit;
-    QString nom_produit,type_produit,produit_rester;
+    QString nom_produit,type_produit,date_produit;
 };
 
 #endif //Produit.H

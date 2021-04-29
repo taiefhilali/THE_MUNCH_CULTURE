@@ -16,8 +16,8 @@
   <widget class="QTabWidget" name="temprature">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>10</y>
+     <x>40</x>
+     <y>60</y>
      <width>1041</width>
      <height>581</height>
     </rect>
@@ -686,7 +686,7 @@ background-repeat:none;</string>
        <property name="geometry">
         <rect>
          <x>120</x>
-         <y>130</y>
+         <y>120</y>
          <width>110</width>
          <height>22</height>
         </rect>
@@ -705,7 +705,7 @@ background-repeat:none;</string>
       <widget class="QProgressBar" name="progressBar">
        <property name="geometry">
         <rect>
-         <x>580</x>
+         <x>630</x>
          <y>370</y>
          <width>231</width>
          <height>23</height>
@@ -718,14 +718,81 @@ background-repeat:none;</string>
       <widget class="QLabel" name="label_36">
        <property name="geometry">
         <rect>
-         <x>90</x>
-         <y>10</y>
-         <width>56</width>
-         <height>16</height>
+         <x>80</x>
+         <y>0</y>
+         <width>91</width>
+         <height>21</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
        </property>
        <property name="text">
         <string>ajouter</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_37">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>150</y>
+         <width>91</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>modifier</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_38">
+       <property name="geometry">
+        <rect>
+         <x>320</x>
+         <y>150</y>
+         <width>91</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>suprimer</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_39">
+       <property name="geometry">
+        <rect>
+         <x>680</x>
+         <y>400</y>
+         <width>91</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>rechercher</string>
        </property>
       </widget>
       <zorder>label_8</zorder>
@@ -766,6 +833,9 @@ background-repeat:none;</string>
       <zorder>dates</zorder>
       <zorder>progressBar</zorder>
       <zorder>label_36</zorder>
+      <zorder>label_37</zorder>
+      <zorder>label_38</zorder>
+      <zorder>label_39</zorder>
      </widget>
     </widget>
    </widget>
@@ -1047,9 +1117,9 @@ background-repeat:none;</string>
     <widget class="QTableView" name="tab_dep">
      <property name="geometry">
       <rect>
-       <x>520</x>
+       <x>470</x>
        <y>20</y>
-       <width>481</width>
+       <width>531</width>
        <height>321</height>
       </rect>
      </property>
@@ -1389,6 +1459,86 @@ background-repeat:none;</string>
       <number>0</number>
      </property>
     </widget>
+    <widget class="QLabel" name="label_40">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>6</y>
+       <width>81</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>ajouter</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_43">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>150</y>
+       <width>91</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>modifier</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_44">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>200</y>
+       <width>91</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>suprimer</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_45">
+     <property name="geometry">
+      <rect>
+       <x>690</x>
+       <y>380</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>rechercher</string>
+     </property>
+    </widget>
     <zorder>label_31</zorder>
     <zorder>label_7</zorder>
     <zorder>label_10</zorder>
@@ -1425,6 +1575,10 @@ background-repeat:none;</string>
     <zorder>datess</zorder>
     <zorder>calendarWidget_2</zorder>
     <zorder>progressBar_2</zorder>
+    <zorder>label_40</zorder>
+    <zorder>label_43</zorder>
+    <zorder>label_44</zorder>
+    <zorder>label_45</zorder>
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
@@ -1491,7 +1645,7 @@ background-repeat:none;</string>
       <widget class="QTableView" name="tab_produit">
        <property name="geometry">
         <rect>
-         <x>410</x>
+         <x>370</x>
          <y>20</y>
          <width>581</width>
          <height>311</height>
@@ -1677,8 +1831,8 @@ background-repeat:none;</string>
       <widget class="QComboBox" name="cb_recherche_4">
        <property name="geometry">
         <rect>
-         <x>560</x>
-         <y>400</y>
+         <x>580</x>
+         <y>410</y>
          <width>141</width>
          <height>22</height>
         </rect>
@@ -1712,8 +1866,8 @@ background-repeat:none;</string>
       <widget class="QLineEdit" name="le_recherche_4">
        <property name="geometry">
         <rect>
-         <x>730</x>
-         <y>400</y>
+         <x>740</x>
+         <y>410</y>
          <width>113</width>
          <height>20</height>
         </rect>
@@ -1726,7 +1880,7 @@ background-repeat:none;</string>
        <property name="geometry">
         <rect>
          <x>670</x>
-         <y>430</y>
+         <y>440</y>
          <width>93</width>
          <height>28</height>
         </rect>
@@ -1847,7 +2001,7 @@ background-repeat:none;</string>
       <widget class="QLabel" name="label_30">
        <property name="geometry">
         <rect>
-         <x>0</x>
+         <x>-10</x>
          <y>0</y>
          <width>1001</width>
          <height>541</height>
@@ -2025,31 +2179,6 @@ background-repeat:none;</string>
         </rect>
        </property>
       </widget>
-      <widget class="QComboBox" name="leproduitrester">
-       <property name="geometry">
-        <rect>
-         <x>120</x>
-         <y>160</y>
-         <width>111</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>fastfood</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>heathyfood</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>others</string>
-        </property>
-       </item>
-      </widget>
       <widget class="QLabel" name="label_16">
        <property name="geometry">
         <rect>
@@ -2071,7 +2200,7 @@ border:none;
 background-repeat:none;</string>
        </property>
        <property name="text">
-        <string>produit_rester</string>
+        <string>date_produit</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_17">
@@ -2131,33 +2260,8 @@ background-repeat:none;
 </string>
        </property>
        <property name="text">
-        <string>produit_rester</string>
+        <string>date_produit</string>
        </property>
-      </widget>
-      <widget class="QComboBox" name="mproduitrester">
-       <property name="geometry">
-        <rect>
-         <x>110</x>
-         <y>350</y>
-         <width>111</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>fastfood</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>healthyfood</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>others</string>
-        </property>
-       </item>
       </widget>
       <widget class="QPushButton" name="impression_3">
        <property name="geometry">
@@ -2189,13 +2293,113 @@ background-repeat:none;
        <property name="geometry">
         <rect>
          <x>520</x>
-         <y>350</y>
-         <width>251</width>
+         <y>340</y>
+         <width>341</width>
          <height>23</height>
         </rect>
        </property>
        <property name="value">
         <number>0</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_46">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>15</y>
+         <width>71</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>ajouter</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_47">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>200</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>modifier</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_48">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>460</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>suprimer</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_49">
+       <property name="geometry">
+        <rect>
+         <x>630</x>
+         <y>380</y>
+         <width>101</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>rechercher</string>
+       </property>
+      </widget>
+      <widget class="QDateEdit" name="ledateproduit">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>160</y>
+         <width>110</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QDateEdit" name="mdateproduit">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>350</y>
+         <width>110</width>
+         <height>22</height>
+        </rect>
        </property>
       </widget>
       <zorder>label_30</zorder>
@@ -2229,15 +2433,19 @@ background-repeat:none;
       <zorder>label_14</zorder>
       <zorder>label_15</zorder>
       <zorder>le_nom_produit</zorder>
-      <zorder>leproduitrester</zorder>
       <zorder>label_16</zorder>
       <zorder>label_17</zorder>
       <zorder>le_nom_produit_3</zorder>
       <zorder>label_18</zorder>
-      <zorder>mproduitrester</zorder>
       <zorder>impression_3</zorder>
       <zorder>pdfff</zorder>
       <zorder>progressBar_3</zorder>
+      <zorder>label_46</zorder>
+      <zorder>label_47</zorder>
+      <zorder>label_48</zorder>
+      <zorder>label_49</zorder>
+      <zorder>ledateproduit</zorder>
+      <zorder>mdateproduit</zorder>
      </widget>
     </widget>
    </widget>
@@ -2351,6 +2559,32 @@ background-repeat:none;</string>
       </rect>
      </property>
     </widget>
+    <widget class="QLabel" name="label_50">
+     <property name="geometry">
+      <rect>
+       <x>-5</x>
+       <y>-5</y>
+       <width>981</width>
+       <height>571</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:tranparent;
+
+border-image:url(:/StyleSheet/1.jpg);
+
+background:none;
+
+border:none;
+
+background-repeat:none;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <zorder>label_50</zorder>
+    <zorder>customPlot</zorder>
    </widget>
   </widget>
  </widget>

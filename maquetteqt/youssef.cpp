@@ -484,6 +484,7 @@ void youssef::on_EXCEL_4_clicked()
 
 }
 
+
 void youssef::on_ajouter1_clicked()
 {int i=0;
     click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
@@ -494,11 +495,11 @@ void youssef::on_ajouter1_clicked()
     QString nom_produit=ui->le_nom_produit->text();
     QString type_produit=ui->letypeproduit->currentText();
     int tot_produit=ui->le_tot_produit->text().toInt();
-    QString produit_rester=ui->leproduitrester->currentText();
+    QString date_produit=ui->ledateproduit->text();
 
 
 
-Produit P(id_produit,nom_produit,type_produit,tot_produit,produit_rester);
+Produit P(id_produit,nom_produit,type_produit,tot_produit,date_produit);
  bool test=P.ajouter();
  QMessageBox msgBox;
 
@@ -560,13 +561,13 @@ void youssef::on_modifier3_2_clicked()
     qDebug()<<click ->errorString();
    {
         int id_produit,tot_produit;
-                QString nom_produit,type_produit,produit_rester;
+                QString nom_produit,type_produit,date_produit;
 
         id_produit=ui->le_id_produit_3->text().toInt();
         nom_produit=ui->le_nom_produit_3->text();
         type_produit=ui->mtypeproduit->currentText();
         tot_produit=ui->le_tot_produit_3->text().toInt();
-        produit_rester=ui->mproduitrester->currentText();
+        date_produit=ui->mdateproduit->text();
 
         {while (i<101) {
                     ui->progressBar_3->setValue(i);
@@ -581,14 +582,14 @@ void youssef::on_modifier3_2_clicked()
                 }
         }
         QSqlQuery qry;
-        qry.prepare("update PRODUIT set nom_produit=:nom_produit,type_produit=:type_produit,tot_produit=:tot_produit,produit_rester=:produit_rester where id_produit=:id_produit");
+        qry.prepare("update PRODUIT set nom_produit=:nom_produit,type_produit=:type_produit,tot_produit=:tot_produit,date_produit=:date_produit where id_produit=:id_produit");
 
 
         qry.bindValue(":id_produit",id_produit);
         qry.bindValue(":nom_produit",nom_produit);
         qry.bindValue(":type_produit",type_produit);
         qry.bindValue(":tot_produit",tot_produit);
-        qry.bindValue(":produit_rester",produit_rester);
+        qry.bindValue(":date_produit",date_produit);
 
 
 
@@ -650,8 +651,8 @@ void youssef::on_pushButton_4_clicked()
                    request.prepare("SELECT * FROM PRODUIT WHERE type_produit LIKE:val");
                }else if (type=="tot_produit"){
                    request.prepare("SELECT * FROM PRODUIT WHERE tot_produit LIKE:val");
-               }else if (type=="produit_rester"){
-                   request.prepare("SELECT * FROM PRODUIT WHERE produit_rester LIKE:val");
+               }else if (type=="date_produit"){
+                   request.prepare("SELECT * FROM PRODUIT WHERE date_produit LIKE:val");
                    {while (i<101) {
                                ui->progressBar_3->setValue(i);
                                QTimer timer;
@@ -850,7 +851,7 @@ void youssef::on_pushButton_5_clicked()
     ui->letypeproduit->setCurrentText(P.afficher()->index(row,1).data().toString());
 
     ui->le_tot_produit_3->setText(P.afficher()->index(row,3).data().toString());
-    ui->leproduitrester->setCurrentText(P.afficher()->index(row,1).data().toString());
+    //ui->ledateproduit->setText(P.afficher()->index(row,1).data().toString());
 
 
 }
