@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/StyleSheet">
+        <file>NeonButtons.qss</file>
+        <file>MacOS.qss</file>
+    </qresource>
+</RCC>

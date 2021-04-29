@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/image">
+        <file>6.png</file>
+        <file>back.png</file>
+        <file>excel.png</file>
+        <file>expo.png</file>
+        <file>pdf.png</file>
+        <file>printer.png</file>
+        <file>stati.png</file>
+        <file>5.jpg</file>
+        <file>pddf.png</file>
+        <file>111.png</file>
+        <file>1.jpg</file>
+        <file>122.jpg</file>
+    </qresource>
+</RCC>

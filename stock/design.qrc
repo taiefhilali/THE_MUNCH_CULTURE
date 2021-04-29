@@ -1,0 +1,28 @@
+<RCC>
+    <qresource prefix="/StyleSheet">
+        <file>NeonButtons.qss</file>
+        <file>MacOS.qss</file>
+        <file>1.jpg</file>
+        <file>5.jpg</file>
+        <file>6.png</file>
+        <file>11.jpg</file>
+        <file>117264.png</file>
+        <file>ajouter.jpg</file>
+        <file>kisspng-computer-icons-magnifying-glass-clip-art-glass-buttons-5ae1a2958d8b85.9342250715247366615798.jpg</file>
+        <file>kisspng-computer-icons-user-profile-icon-design-edit-5b21054a784701.8199027215288906984927.jpg</file>
+        <file>pngtree-cartoon-arrow-icon-download-image_1256957.jpg</file>
+        <file>téléchargé.jfif</file>
+        <file>téléchargé.png</file>
+        <file>verifier-signer_318-9087.jpg</file>
+        <file>../111.jpg</file>
+        <file>couverture.jfif</file>
+        <file>a.jpg</file>
+        <file>b.png</file>
+        <file>c.png</file>
+        <file>d.png</file>
+        <file>e.png</file>
+        <file>f.png</file>
+        <file>g.jpg</file>
+        <file>h.jpg</file>
+    </qresource>
+</RCC>
