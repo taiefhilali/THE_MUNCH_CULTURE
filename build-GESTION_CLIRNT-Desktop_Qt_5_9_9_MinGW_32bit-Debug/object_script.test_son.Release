@@ -6,11 +6,11 @@ INPUT(
 ./release\main.o
 ./release\qcustomplot.o
 ./release\smtp.o
-./release\statistiq.o
+./release\stat.o
 ./release\qrc_design.o
 ./release\qrc_test_son.o
 ./release\moc_clicom.o
 ./release\moc_qcustomplot.o
 ./release\moc_smtp.o
-./release\moc_statistiq.o
+./release\moc_stat.o
 );

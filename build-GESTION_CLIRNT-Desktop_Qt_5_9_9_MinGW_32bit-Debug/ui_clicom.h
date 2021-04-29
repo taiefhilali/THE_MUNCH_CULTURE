@@ -609,7 +609,7 @@ public:
 
         retranslateUi(Clicom);
 
-        temprature->setCurrentIndex(1);
+        temprature->setCurrentIndex(0);
         tabWidget_2->setCurrentIndex(0);
         affichage2->setCurrentIndex(0);
 

@@ -25,7 +25,7 @@ SOURCES += \
     main.cpp \
     qcustomplot.cpp \
     smtp.cpp \
-    statistiq.cpp
+    stat.cpp
 
 HEADERS += \
     clicom.h \
@@ -34,11 +34,11 @@ HEADERS += \
     connexion.h \
     qcustomplot.h \
     smtp.h \
-    statistiq.h
+    stat.h
 
 FORMS += \
     clicom.ui \
-    statistiq.ui
+    stat.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

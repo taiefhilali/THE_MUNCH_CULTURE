@@ -26,7 +26,7 @@
 #include <QSound>
 #include <QTimer>
 #include <QPrinter>
-#include "statistiq.h"
+#include "stat.h"
 Clicom::Clicom(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Clicom)
@@ -490,8 +490,8 @@ void Clicom::on_pdf_clicked()
 void Clicom::on_satist_clicked()
 {    son->play();
 
-    statistiq *a=new statistiq();
-               a->show();
+    Stat *a=new Stat();
+           a->show();
 }
 
 void Clicom::on_pdf_com_clicked()

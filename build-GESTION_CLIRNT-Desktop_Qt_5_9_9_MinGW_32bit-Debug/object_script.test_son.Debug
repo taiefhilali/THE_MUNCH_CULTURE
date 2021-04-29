@@ -6,11 +6,11 @@ INPUT(
 ./debug\main.o
 ./debug\qcustomplot.o
 ./debug\smtp.o
-./debug\statistiq.o
+./debug\stat.o
 ./debug\qrc_design.o
 ./debug\qrc_test_son.o
 ./debug\moc_clicom.o
 ./debug\moc_qcustomplot.o
 ./debug\moc_smtp.o
-./debug\moc_statistiq.o
+./debug\moc_stat.o
 );
