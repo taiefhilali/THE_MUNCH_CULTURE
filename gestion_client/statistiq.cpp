@@ -30,7 +30,7 @@ void statistiq::makePolt()
     QCPBars *regen = new QCPBars(ui->customPlot->xAxis, ui->customPlot->yAxis);
     regen->setAntialiased(false);
     regen->setStackingGap(1);
-    regen->setName("Nombre de type de commande ");
+    regen->setName(" les types de commande ");
     regen->setPen(QPen(QColor(111, 9, 176).lighter(170)));
     regen->setBrush(QColor(111, 9, 176));
 
@@ -57,7 +57,7 @@ void statistiq::makePolt()
     // prepare y axis:
     ui->customPlot->yAxis->setRange(0,20);
     ui->customPlot->yAxis->setPadding(5); // a bit more space to the left border
-     ui->customPlot->yAxis->setLabel("Nombre des stagaire \n par mois");
+     ui->customPlot->yAxis->setLabel("Nombre des types de commande ");
     ui->customPlot->yAxis->setBasePen(QPen(Qt::white));
     ui->customPlot->yAxis->setTickPen(QPen(Qt::white));
     ui->customPlot->yAxis->setSubTickPen(QPen(Qt::white));
@@ -83,28 +83,22 @@ QSqlQuery query;
     query.next();
     int numberOfPages = query.value(0).toInt();
     qDebug()<<numberOfPages;
+
     QSqlQuery query1;
         query1.prepare("SELECT COUNT(*) FROM commande where type_com='sur place' ");
         query1.exec();
+        if (!query1.isActive())
+            QMessageBox::warning(this, tr("Database Error"),query1.lastError().text());
+        query1.next();
 int numberOfPages1 = query1.value(0).toInt();
+ qDebug()<<numberOfPages1;
 
 QSqlQueryModel * model= new QSqlQueryModel();
-    model->setQuery("select count(*) from stagaire");
+    model->setQuery("select count(*) from commande");
 
-/*while (query1.next()) {
-                        he = query1.value(0).toInt();
-                                                    }*/
 
-   /* QSqlQuery query2("select count(*) from stagaire");
-    while (query2.next()) {
-                           nbr = query2.value(0).toInt();
-                             }*/
 
-    QSqlQuery queri("select count(*) from stagaire where SELECT YEAR('datedeb'); = 3 ");
-    while (queri.next()) {
-                           yos = queri.value(0).toInt();
 
-                             }
     regenData << numberOfPages << numberOfPages1 ;
     regen->setData(ticks, regenData);
 

@@ -20,6 +20,7 @@ public:
     ~Clicom();
 public slots:
     void clockTimer();
+    void clocktimer_2();
 
 private slots:
     void on_Ajouter_clicked();

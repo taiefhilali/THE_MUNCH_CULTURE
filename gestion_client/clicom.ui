@@ -18,7 +18,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>881</width>
+     <width>911</width>
      <height>701</height>
     </rect>
    </property>
@@ -34,8 +34,8 @@
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>871</width>
-       <height>621</height>
+       <width>901</width>
+       <height>661</height>
       </rect>
      </property>
      <property name="font">
@@ -56,8 +56,8 @@
       <widget class="QLabel" name="label">
        <property name="geometry">
         <rect>
-         <x>40</x>
-         <y>60</y>
+         <x>10</x>
+         <y>130</y>
          <width>47</width>
          <height>14</height>
         </rect>
@@ -69,8 +69,8 @@
       <widget class="QLabel" name="label_2">
        <property name="geometry">
         <rect>
-         <x>40</x>
-         <y>20</y>
+         <x>10</x>
+         <y>90</y>
          <width>41</width>
          <height>16</height>
         </rect>
@@ -82,8 +82,8 @@
       <widget class="QLabel" name="label_3">
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>110</y>
+         <x>0</x>
+         <y>170</y>
          <width>71</width>
          <height>16</height>
         </rect>
@@ -96,7 +96,7 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>150</y>
+         <y>210</y>
          <width>121</width>
          <height>16</height>
         </rect>
@@ -108,8 +108,8 @@
       <widget class="QLineEdit" name="le_id">
        <property name="geometry">
         <rect>
-         <x>130</x>
-         <y>20</y>
+         <x>140</x>
+         <y>90</y>
          <width>113</width>
          <height>20</height>
         </rect>
@@ -121,8 +121,8 @@
       <widget class="QLineEdit" name="le_prenom">
        <property name="geometry">
         <rect>
-         <x>130</x>
-         <y>110</y>
+         <x>140</x>
+         <y>170</y>
          <width>113</width>
          <height>20</height>
         </rect>
@@ -131,8 +131,8 @@
       <widget class="QLineEdit" name="le_nombre">
        <property name="geometry">
         <rect>
-         <x>130</x>
-         <y>150</y>
+         <x>140</x>
+         <y>210</y>
          <width>113</width>
          <height>20</height>
         </rect>
@@ -141,10 +141,10 @@
       <widget class="QPushButton" name="Ajouter">
        <property name="geometry">
         <rect>
-         <x>120</x>
-         <y>230</y>
+         <x>140</x>
+         <y>290</y>
          <width>91</width>
-         <height>23</height>
+         <height>31</height>
         </rect>
        </property>
        <property name="text">
@@ -158,8 +158,8 @@
       <widget class="QLineEdit" name="le_nom">
        <property name="geometry">
         <rect>
-         <x>130</x>
-         <y>60</y>
+         <x>140</x>
+         <y>130</y>
          <width>113</width>
          <height>20</height>
         </rect>
@@ -168,9 +168,9 @@
       <widget class="QTableView" name="tableView_3">
        <property name="geometry">
         <rect>
-         <x>250</x>
+         <x>270</x>
          <y>10</y>
-         <width>561</width>
+         <width>601</width>
          <height>301</height>
         </rect>
        </property>
@@ -178,11 +178,16 @@
       <widget class="QLabel" name="label_5">
        <property name="geometry">
         <rect>
-         <x>320</x>
-         <y>340</y>
+         <x>360</x>
+         <y>380</y>
          <width>31</width>
-         <height>16</height>
+         <height>21</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
        </property>
        <property name="text">
         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;id&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -191,10 +196,10 @@
       <widget class="QLineEdit" name="le_idsupprimer">
        <property name="geometry">
         <rect>
-         <x>360</x>
-         <y>340</y>
-         <width>171</width>
-         <height>20</height>
+         <x>430</x>
+         <y>369</y>
+         <width>181</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -204,10 +209,10 @@
       <widget class="QPushButton" name="supprimer_3">
        <property name="geometry">
         <rect>
-         <x>540</x>
-         <y>340</y>
-         <width>101</width>
-         <height>23</height>
+         <x>620</x>
+         <y>370</y>
+         <width>91</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="text">
@@ -221,9 +226,9 @@
       <widget class="QPushButton" name="push_recherche_3">
        <property name="geometry">
         <rect>
-         <x>590</x>
-         <y>440</y>
-         <width>101</width>
+         <x>620</x>
+         <y>470</y>
+         <width>91</width>
          <height>28</height>
         </rect>
        </property>
@@ -238,115 +243,23 @@
       <widget class="QLineEdit" name="le_recherche_3">
        <property name="geometry">
         <rect>
-         <x>400</x>
-         <y>450</y>
+         <x>430</x>
+         <y>470</y>
          <width>181</width>
-         <height>20</height>
+         <height>31</height>
         </rect>
        </property>
        <property name="placeholderText">
         <string>Rechercher</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_44">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>300</y>
-         <width>41</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;id&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_6">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>340</y>
-         <width>56</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;prenom&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_7">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>390</y>
-         <width>56</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;nom&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_8">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>430</y>
-         <width>111</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;numero telephone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="idclient">
-       <property name="geometry">
-        <rect>
-         <x>90</x>
-         <y>300</y>
-         <width>113</width>
-         <height>22</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="nomclient">
-       <property name="geometry">
-        <rect>
-         <x>90</x>
-         <y>340</y>
-         <width>113</width>
-         <height>22</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="prenomclient">
-       <property name="geometry">
-        <rect>
-         <x>90</x>
-         <y>390</y>
-         <width>113</width>
-         <height>22</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="nombreclient">
-       <property name="geometry">
-        <rect>
-         <x>130</x>
-         <y>430</y>
-         <width>113</width>
-         <height>22</height>
-        </rect>
-       </property>
-      </widget>
       <widget class="QPushButton" name="modifier">
        <property name="geometry">
         <rect>
-         <x>100</x>
-         <y>500</y>
-         <width>101</width>
-         <height>28</height>
+         <x>20</x>
+         <y>330</y>
+         <width>91</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="text">
@@ -360,8 +273,8 @@
       <widget class="QComboBox" name="trie">
        <property name="geometry">
         <rect>
-         <x>310</x>
-         <y>380</y>
+         <x>340</x>
+         <y>410</y>
          <width>73</width>
          <height>22</height>
         </rect>
@@ -390,10 +303,10 @@
       <widget class="QComboBox" name="rechercher_cli">
        <property name="geometry">
         <rect>
-         <x>310</x>
-         <y>450</y>
+         <x>340</x>
+         <y>480</y>
          <width>73</width>
-         <height>22</height>
+         <height>21</height>
         </rect>
        </property>
        <item>
@@ -422,7 +335,7 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>861</width>
+         <width>891</width>
          <height>591</height>
         </rect>
        </property>
@@ -444,10 +357,10 @@ background-repeat:none;</string>
       <widget class="QPushButton" name="pushButton_2">
        <property name="geometry">
         <rect>
-         <x>220</x>
-         <y>500</y>
-         <width>101</width>
-         <height>28</height>
+         <x>20</x>
+         <y>290</y>
+         <width>91</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="text">
@@ -461,8 +374,8 @@ background-repeat:none;</string>
       <widget class="QRadioButton" name="desc">
        <property name="geometry">
         <rect>
-         <x>410</x>
-         <y>380</y>
+         <x>480</x>
+         <y>410</y>
          <width>97</width>
          <height>20</height>
         </rect>
@@ -474,8 +387,8 @@ background-repeat:none;</string>
       <widget class="QRadioButton" name="asc">
        <property name="geometry">
         <rect>
-         <x>410</x>
-         <y>410</y>
+         <x>480</x>
+         <y>440</y>
          <width>97</width>
          <height>20</height>
         </rect>
@@ -487,8 +400,8 @@ background-repeat:none;</string>
       <widget class="QPushButton" name="trierClient">
        <property name="geometry">
         <rect>
-         <x>540</x>
-         <y>380</y>
+         <x>620</x>
+         <y>410</y>
          <width>93</width>
          <height>28</height>
         </rect>
@@ -504,9 +417,9 @@ background-repeat:none;</string>
       <widget class="QLabel" name="label_9">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>190</y>
-         <width>111</width>
+         <x>0</x>
+         <y>250</y>
+         <width>91</width>
          <height>16</height>
         </rect>
        </property>
@@ -517,41 +430,18 @@ background-repeat:none;</string>
       <widget class="QLineEdit" name="le_adresse">
        <property name="geometry">
         <rect>
-         <x>130</x>
-         <y>190</y>
+         <x>140</x>
+         <y>250</y>
          <width>113</width>
          <height>20</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_12">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>470</y>
-         <width>56</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;adresse&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="adresseline">
-       <property name="geometry">
-        <rect>
-         <x>90</x>
-         <y>470</y>
-         <width>113</width>
-         <height>22</height>
         </rect>
        </property>
       </widget>
       <widget class="QPushButton" name="acualiser_1">
        <property name="geometry">
         <rect>
-         <x>700</x>
-         <y>440</y>
+         <x>740</x>
+         <y>320</y>
          <width>101</width>
          <height>28</height>
         </rect>
@@ -567,34 +457,50 @@ background-repeat:none;</string>
       <widget class="QLabel" name="date">
        <property name="geometry">
         <rect>
-         <x>490</x>
-         <y>530</y>
+         <x>0</x>
+         <y>50</y>
          <width>231</width>
          <height>16</height>
         </rect>
        </property>
+       <property name="minimumSize">
+        <size>
+         <width>231</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
        <property name="text">
-        <string/>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ff0000;&quot;&gt;date&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
       <widget class="QLabel" name="clock">
        <property name="geometry">
         <rect>
-         <x>490</x>
-         <y>490</y>
+         <x>0</x>
+         <y>10</y>
          <width>261</width>
          <height>16</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;clock&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ff0000;&quot;&gt;clock&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ff0000;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
       <widget class="QPushButton" name="exel_client">
        <property name="geometry">
         <rect>
-         <x>700</x>
-         <y>410</y>
+         <x>440</x>
+         <y>320</y>
          <width>101</width>
          <height>28</height>
         </rect>
@@ -606,8 +512,8 @@ background-repeat:none;</string>
       <widget class="QPushButton" name="pdf">
        <property name="geometry">
         <rect>
-         <x>700</x>
-         <y>380</y>
+         <x>560</x>
+         <y>320</y>
          <width>101</width>
          <height>28</height>
         </rect>
@@ -632,14 +538,6 @@ background-repeat:none;</string>
       <zorder>supprimer_3</zorder>
       <zorder>push_recherche_3</zorder>
       <zorder>le_recherche_3</zorder>
-      <zorder>label_44</zorder>
-      <zorder>label_6</zorder>
-      <zorder>label_7</zorder>
-      <zorder>label_8</zorder>
-      <zorder>idclient</zorder>
-      <zorder>nomclient</zorder>
-      <zorder>prenomclient</zorder>
-      <zorder>nombreclient</zorder>
       <zorder>modifier</zorder>
       <zorder>trie</zorder>
       <zorder>rechercher_cli</zorder>
@@ -649,8 +547,6 @@ background-repeat:none;</string>
       <zorder>trierClient</zorder>
       <zorder>label_9</zorder>
       <zorder>le_adresse</zorder>
-      <zorder>label_12</zorder>
-      <zorder>adresseline</zorder>
       <zorder>acualiser_1</zorder>
       <zorder>date</zorder>
       <zorder>clock</zorder>
@@ -682,8 +578,8 @@ background-repeat:none;</string>
       <widget class="QLabel" name="label_15">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>40</y>
+         <x>10</x>
+         <y>130</y>
          <width>71</width>
          <height>16</height>
         </rect>
@@ -696,7 +592,7 @@ background-repeat:none;</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>70</y>
+         <y>160</y>
          <width>151</width>
          <height>16</height>
         </rect>
@@ -708,8 +604,8 @@ background-repeat:none;</string>
       <widget class="QLineEdit" name="le_com">
        <property name="geometry">
         <rect>
-         <x>160</x>
-         <y>10</y>
+         <x>170</x>
+         <y>100</y>
          <width>113</width>
          <height>20</height>
         </rect>
@@ -718,8 +614,8 @@ background-repeat:none;</string>
       <widget class="QLineEdit" name="le_nb">
        <property name="geometry">
         <rect>
-         <x>160</x>
-         <y>70</y>
+         <x>170</x>
+         <y>160</y>
          <width>113</width>
          <height>20</height>
         </rect>
@@ -728,8 +624,8 @@ background-repeat:none;</string>
       <widget class="QPushButton" name="pb_ajouter">
        <property name="geometry">
         <rect>
-         <x>190</x>
-         <y>140</y>
+         <x>180</x>
+         <y>240</y>
          <width>91</width>
          <height>31</height>
         </rect>
@@ -745,8 +641,8 @@ background-repeat:none;</string>
       <widget class="QLabel" name="label_42">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>10</y>
+         <x>10</x>
+         <y>100</y>
          <width>121</width>
          <height>16</height>
         </rect>
@@ -758,8 +654,8 @@ background-repeat:none;</string>
       <widget class="QLineEdit" name="le_date">
        <property name="geometry">
         <rect>
-         <x>160</x>
-         <y>40</y>
+         <x>170</x>
+         <y>130</y>
          <width>113</width>
          <height>22</height>
         </rect>
@@ -769,7 +665,7 @@ background-repeat:none;</string>
        <property name="geometry">
         <rect>
          <x>300</x>
-         <y>50</y>
+         <y>10</y>
          <width>501</width>
          <height>251</height>
         </rect>
@@ -778,10 +674,10 @@ background-repeat:none;</string>
       <widget class="QLineEdit" name="le_idsupprimer_2">
        <property name="geometry">
         <rect>
-         <x>360</x>
-         <y>340</y>
-         <width>211</width>
-         <height>20</height>
+         <x>370</x>
+         <y>350</y>
+         <width>191</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -791,8 +687,8 @@ background-repeat:none;</string>
       <widget class="QLabel" name="label_43">
        <property name="geometry">
         <rect>
-         <x>310</x>
-         <y>340</y>
+         <x>300</x>
+         <y>350</y>
          <width>41</width>
          <height>20</height>
         </rect>
@@ -804,10 +700,10 @@ background-repeat:none;</string>
       <widget class="QPushButton" name="pb_supprimer">
        <property name="geometry">
         <rect>
-         <x>580</x>
-         <y>340</y>
+         <x>570</x>
+         <y>350</y>
          <width>91</width>
-         <height>23</height>
+         <height>31</height>
         </rect>
        </property>
        <property name="text">
@@ -822,7 +718,7 @@ background-repeat:none;</string>
        <property name="geometry">
         <rect>
          <x>290</x>
-         <y>380</y>
+         <y>390</y>
          <width>73</width>
          <height>22</height>
         </rect>
@@ -849,7 +745,7 @@ background-repeat:none;</string>
          <x>380</x>
          <y>460</y>
          <width>181</width>
-         <height>22</height>
+         <height>31</height>
         </rect>
        </property>
       </widget>
@@ -857,9 +753,9 @@ background-repeat:none;</string>
        <property name="geometry">
         <rect>
          <x>570</x>
-         <y>460</y>
+         <y>457</y>
          <width>101</width>
-         <height>28</height>
+         <height>31</height>
         </rect>
        </property>
        <property name="text">
@@ -870,80 +766,11 @@ background-repeat:none;</string>
          <normaloff>:/StyleSheet/kisspng-computer-icons-magnifying-glass-clip-art-glass-buttons-5ae1a2958d8b85.9342250715247366615798.jpg</normaloff>:/StyleSheet/kisspng-computer-icons-magnifying-glass-clip-art-glass-buttons-5ae1a2958d8b85.9342250715247366615798.jpg</iconset>
        </property>
       </widget>
-      <widget class="QLabel" name="label_11">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>240</y>
-         <width>56</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;id&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_13">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>270</y>
-         <width>56</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;date&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_14">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>300</y>
-         <width>56</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;nombre&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="idcom">
-       <property name="geometry">
-        <rect>
-         <x>70</x>
-         <y>240</y>
-         <width>113</width>
-         <height>22</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="datecome">
-       <property name="geometry">
-        <rect>
-         <x>70</x>
-         <y>270</y>
-         <width>113</width>
-         <height>22</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="nbcom">
-       <property name="geometry">
-        <rect>
-         <x>70</x>
-         <y>300</y>
-         <width>113</width>
-         <height>22</height>
-        </rect>
-       </property>
-      </widget>
       <widget class="QPushButton" name="modifiercom">
        <property name="geometry">
         <rect>
-         <x>52</x>
-         <y>370</y>
+         <x>50</x>
+         <y>240</y>
          <width>101</width>
          <height>28</height>
         </rect>
@@ -960,9 +787,9 @@ background-repeat:none;</string>
        <property name="geometry">
         <rect>
          <x>290</x>
-         <y>460</y>
+         <y>470</y>
          <width>73</width>
-         <height>22</height>
+         <height>21</height>
         </rect>
        </property>
        <item>
@@ -985,7 +812,7 @@ background-repeat:none;</string>
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>-20</y>
+         <y>0</y>
          <width>821</width>
          <height>581</height>
         </rect>
@@ -1008,8 +835,8 @@ background-repeat:none;</string>
       <widget class="QPushButton" name="pushButton_3">
        <property name="geometry">
         <rect>
-         <x>170</x>
-         <y>370</y>
+         <x>50</x>
+         <y>280</y>
          <width>101</width>
          <height>28</height>
         </rect>
@@ -1026,7 +853,7 @@ background-repeat:none;</string>
        <property name="geometry">
         <rect>
          <x>570</x>
-         <y>380</y>
+         <y>390</y>
          <width>93</width>
          <height>28</height>
         </rect>
@@ -1043,7 +870,7 @@ background-repeat:none;</string>
        <property name="geometry">
         <rect>
          <x>430</x>
-         <y>380</y>
+         <y>390</y>
          <width>97</width>
          <height>20</height>
         </rect>
@@ -1068,8 +895,8 @@ background-repeat:none;</string>
       <widget class="QLabel" name="label_26">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>100</y>
+         <x>10</x>
+         <y>200</y>
          <width>141</width>
          <height>16</height>
         </rect>
@@ -1081,41 +908,8 @@ background-repeat:none;</string>
       <widget class="QComboBox" name="combotype">
        <property name="geometry">
         <rect>
-         <x>150</x>
-         <y>100</y>
-         <width>111</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>a emporter</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>sur place</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_27">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>340</y>
-         <width>141</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;type de commande&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="comboBox_3">
-       <property name="geometry">
-        <rect>
-         <x>140</x>
-         <y>340</y>
+         <x>170</x>
+         <y>200</y>
          <width>111</width>
          <height>22</height>
         </rect>
@@ -1222,8 +1016,8 @@ background-repeat:none;</string>
       <widget class="QPushButton" name="pushButton_5">
        <property name="geometry">
         <rect>
-         <x>680</x>
-         <y>460</y>
+         <x>700</x>
+         <y>270</y>
          <width>101</width>
          <height>28</height>
         </rect>
@@ -1239,11 +1033,16 @@ background-repeat:none;</string>
       <widget class="QLabel" name="clock_2">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>430</y>
+         <x>0</x>
+         <y>10</y>
          <width>261</width>
          <height>16</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
        </property>
        <property name="text">
         <string>clock</string>
@@ -1252,21 +1051,26 @@ background-repeat:none;</string>
       <widget class="QLabel" name="date_2">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>490</y>
+         <x>0</x>
+         <y>40</y>
          <width>231</width>
          <height>16</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
        <property name="text">
-        <string/>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;date&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
       <widget class="QPushButton" name="excel">
        <property name="geometry">
         <rect>
-         <x>690</x>
-         <y>500</y>
+         <x>600</x>
+         <y>270</y>
          <width>93</width>
          <height>28</height>
         </rect>
@@ -1278,8 +1082,8 @@ background-repeat:none;</string>
       <widget class="QPushButton" name="satist">
        <property name="geometry">
         <rect>
-         <x>580</x>
-         <y>500</y>
+         <x>690</x>
+         <y>460</y>
          <width>93</width>
          <height>28</height>
         </rect>
@@ -1291,8 +1095,8 @@ background-repeat:none;</string>
       <widget class="QPushButton" name="pdf_com">
        <property name="geometry">
         <rect>
-         <x>680</x>
-         <y>420</y>
+         <x>490</x>
+         <y>270</y>
          <width>93</width>
          <height>28</height>
         </rect>
@@ -1316,12 +1120,6 @@ background-repeat:none;</string>
       <zorder>triecommande</zorder>
       <zorder>linecomande</zorder>
       <zorder>rech_but</zorder>
-      <zorder>label_11</zorder>
-      <zorder>label_13</zorder>
-      <zorder>label_14</zorder>
-      <zorder>idcom</zorder>
-      <zorder>datecome</zorder>
-      <zorder>nbcom</zorder>
       <zorder>modifiercom</zorder>
       <zorder>recombo</zorder>
       <zorder>pushButton_3</zorder>
@@ -1330,8 +1128,6 @@ background-repeat:none;</string>
       <zorder>asend</zorder>
       <zorder>label_26</zorder>
       <zorder>combotype</zorder>
-      <zorder>label_27</zorder>
-      <zorder>comboBox_3</zorder>
       <zorder>pushButton</zorder>
       <zorder>label_28</zorder>
       <zorder>total</zorder>

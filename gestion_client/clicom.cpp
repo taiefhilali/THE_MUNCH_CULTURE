@@ -40,6 +40,7 @@ connect(ui->sendBtn, SIGNAL(clicked()),this, SLOT(sendMail()));
  son=new QSound(":/sons/click.wav");
  qTimer=new QTimer(this);
      connect(qTimer,SIGNAL(timeout()),this,SLOT(clockTimer()));
+       connect(qTimer,SIGNAL(timeout()),this,SLOT(clocktimer_2()));
      qTimer->start(100);
 }
 
@@ -132,11 +133,11 @@ void Clicom::on_modifier_clicked()
   son->play();
     int id_cli,num_tel;
     QString nom_cli,prenom_cli,adresse;
-    id_cli=ui->idclient->text().toInt();
-    nom_cli=ui->nomclient->text();
-    prenom_cli=ui->prenomclient->text();
-    num_tel=ui->nombreclient->text().toInt();
-     adresse=ui->adresseline->text();
+    id_cli=ui->le_id->text().toInt();
+    nom_cli=ui->le_nom->text();
+    prenom_cli=ui->le_prenom->text();
+    num_tel=ui->le_nombre->text().toInt();
+     adresse=ui->le_adresse->text();
 
     QSqlQuery qry;
     qry.prepare("update client set nom_cli=:nom_cli,prenom_cli=:prenom_cli,num_tel=:num_tel ,adresse=:adresse where id_cli=:id_cli");
@@ -158,10 +159,10 @@ void Clicom::on_modifiercom_clicked()
 {  son->play();
     int id_com,nombre_come;
     QString date_com,type_com;
-    id_com=ui->idcom->text().toInt();
-    date_com=ui->datecome->text();
-    nombre_come=ui->nbcom->text().toInt();
-    type_com=ui->comboBox_3->currentText();
+    id_com=ui->le_com->text().toInt();
+    date_com=ui->le_date->text();
+    nombre_come=ui->le_nb->text().toInt();
+    type_com=ui->combotype->currentText();
 
 
     QSqlQuery qry;
@@ -250,11 +251,11 @@ void Clicom::on_pushButton_2_clicked()
             QString sql=QString("SELECT * FROM client WHERE id_cli=:id").arg(id);
 
         }
-        ui->idclient->setText(C.afficher()->index(row,0).data().toString());
-        ui->nomclient->setText(C.afficher()->index(row,1).data().toString());
-        ui->prenomclient->setText(C.afficher()->index(row,2).data().toString());
-        ui->nombreclient->setText(C.afficher()->index(row,3).data().toString());
-        ui->adresseline->setText(C.afficher()->index(row,4).data().toString());
+        ui->le_id->setText(C.afficher()->index(row,0).data().toString());
+        ui->le_nom->setText(C.afficher()->index(row,1).data().toString());
+        ui->le_prenom->setText(C.afficher()->index(row,2).data().toString());
+        ui->le_nombre->setText(C.afficher()->index(row,3).data().toString());
+        ui->le_adresse->setText(C.afficher()->index(row,4).data().toString());
 
 }
 
@@ -269,10 +270,10 @@ void Clicom::on_pushButton_3_clicked()
         QString sql=QString("SELECT * FROM Commande WHERE id_com=:id").arg(id);
 
     }
-    ui->idcom->setText(F.affichercom()->index(row,0).data().toString());
-    ui->datecome->setText(F.affichercom()->index(row,1).data().toString());
-    ui->nbcom->setText(F.affichercom()->index(row,2).data().toString());
-    ui->comboBox_3->setCurrentText(F.affichercom()->index(row,3).data().toString());
+    ui->le_com->setText(F.affichercom()->index(row,0).data().toString());
+    ui->le_date->setText(F.affichercom()->index(row,1).data().toString());
+    ui->le_nb->setText(F.affichercom()->index(row,2).data().toString());
+    ui->combotype->setCurrentText(F.affichercom()->index(row,3).data().toString());
 
 
 
@@ -350,6 +351,14 @@ void Clicom::clockTimer()
     ui->date->setText(date);
 
 }
+void Clicom::clocktimer_2()
+{
+    QTime clockTime=QTime::currentTime();
+    ui->clock_2->setText(clockTime.toString(" hh : mm : ss"));
+    QString date = QDate::currentDate().toString();
+    ui->date_2->setText(date);
+
+}
 
 void Clicom::on_excel_clicked()
 {
@@ -424,7 +433,8 @@ void Clicom::on_exel_client_clicked()
 }
 
 void Clicom::on_pdf_clicked()
-{
+{    son->play();
+
     QString strStream;
                           QTextStream out(&strStream);
 
@@ -478,13 +488,15 @@ void Clicom::on_pdf_clicked()
 }
 
 void Clicom::on_satist_clicked()
-{
+{    son->play();
+
     statistiq *a=new statistiq();
                a->show();
 }
 
 void Clicom::on_pdf_com_clicked()
-{
+{    son->play();
+
     QString strStream;
                           QTextStream out(&strStream);
 

@@ -1,0 +1,12 @@
+INPUT(
+./debug\clicom.o
+./debug\client.o
+./debug\commande.o
+./debug\connexion.o
+./debug\main.o
+./debug\smtp.o
+./debug\qrc_design.o
+./debug\qrc_test_son.o
+./debug\moc_clicom.o
+./debug\moc_smtp.o
+);

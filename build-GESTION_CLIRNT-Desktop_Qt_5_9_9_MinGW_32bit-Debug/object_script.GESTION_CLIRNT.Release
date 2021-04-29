@@ -1,0 +1,12 @@
+INPUT(
+./release\clicom.o
+./release\client.o
+./release\commande.o
+./release\connexion.o
+./release\main.o
+./release\smtp.o
+./release\qrc_design.o
+./release\qrc_test_son.o
+./release\moc_clicom.o
+./release\moc_smtp.o
+);
