@@ -2,5 +2,6 @@
     <qresource prefix="/sons"/>
     <qresource prefix="/">
         <file>click.wav</file>
+        <file>iPhone typing on keyboard (6E7D336-WSH).wav</file>
     </qresource>
 </RCC>

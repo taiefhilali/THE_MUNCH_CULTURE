@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+#include "interw.h"
 #include <QFile>
 #include <QApplication>
 #include <QMessageBox>
@@ -8,7 +8,11 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
+    interw w;
+    QFile styleSheetFile(":/StyleSheet/MacOS.qss");
+                  styleSheetFile.open(QFile::ReadOnly);
+                  QString styleSheet = QLatin1String(styleSheetFile.readAll());
+                  a.setStyleSheet(styleSheet);
     connection2 c;
        bool test=c.createconnect();
        if(test)

@@ -20,21 +20,25 @@ TEMPLATE = app
 
 SOURCES += \
     connection2.cpp \
+    #inter.cpp \
+    interw.cpp \
     livraison.cpp \
     livreur.cpp \
     main.cpp \
-    mainwindow.cpp \
+   # inter.cpp \
     notif.cpp
 
 HEADERS += \
     connection2.h \
+    #inter.h \
+    interw.h \
     livraison.h \
     livreur.h \
-    mainwindow.h \
+    #inter.h \
     notif.h
 
 FORMS += \
-    mainwindow.ui
+    interw.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -43,4 +47,10 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     design.qrc \
+    image.qrc \
     test_son.qrc
+
+DISTFILES += \
+    MacOS (1).qss \
+    iPhone typing on keyboard (6E7D336-WSH).wav \
+    iPhone typing on keyboard (6E7D336-WSH).wav

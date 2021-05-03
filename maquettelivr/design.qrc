@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/StyleSheet">
         <file>SyNet.qss</file>
+        <file>MacOS.qss</file>
     </qresource>
 </RCC>
