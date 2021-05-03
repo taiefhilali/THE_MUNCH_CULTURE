@@ -113,8 +113,8 @@ void Clicom::on_pb_ajouter_clicked()
     QString date_com=ui->le_date->text();
     int nombre_come=ui->le_nb->text().toInt();
     QString type_com=ui->combotype->currentText();
-
- Commande F(id_com,date_com,nombre_come,type_com,C.recupererID(ui->comboclient->currentText()));
+     QString nom_cli=ui->comboclient->currentText();
+ Commande F( id_com,date_com,nombre_come,type_com,C.recupererID(ui->comboclient->currentText()));
  bool test=F.ajoutercom();
  QMessageBox msgBox;
 

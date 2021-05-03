@@ -9,15 +9,16 @@ public:
    Commande();
     Commande(int,QString,int,QString,int);
     int getid_com();
-    int getid_cli();
     QString getdate_com();
     int getnombre_come();
     QString gettype_com();
-    void setid_cli(int);
+    int getid_cli();
+
     void setid_com(int);
     void setdate_com(QString);
     void setnombre_come(int);
     void settype_com(QString);
+     void setid_cli(int);
     bool ajoutercom();
     QSqlQueryModel* affichercom();
     bool supprimercom(int);

@@ -114,7 +114,8 @@ bool Client::modifE(int id_cli,QString nom_cli,QString prenom_cli,int num_tel,QS
      if(query.exec())
       {
          if(query.first())
-         {id_cli=query.value(0).toInt();
+         {
+             id_cli=query.value(0).toInt();
 
       }}
      return id_cli;
@@ -152,7 +153,7 @@ bool Client::modifE(int id_cli,QString nom_cli,QString prenom_cli,int num_tel,QS
          F.setnom_cli(query.value(1).toString());
          F.setprenom_cli(query.value(2).toString());
          F.setadresse(query.value(3).toString());
-          F.setnum_tel(query.value(4).toInt());
+         F.setnum_tel(query.value(4).toInt());
         }
 
 

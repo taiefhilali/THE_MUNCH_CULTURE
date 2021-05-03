@@ -42,7 +42,7 @@ bool Commande::ajoutercom()
          query.bindValue(":forename", date_com);
           query.bindValue(":nombrec", nombre_come);
            query.bindValue(":typecom", type_com);
-           query.bindValue(":id_cli", id_client_string);
+           query.bindValue(":id_cli",id_client_string);
 
         return query.exec();
 
@@ -64,11 +64,11 @@ QSqlQueryModel* Commande::affichercom()
 
 
    model->setQuery("select C.nom_cli as client, F.id_com, F.date_com, F.nombre_come, F.type_com from commande F inner join client C on F.id_com=C.id_cli");
-   model->setHeaderData(0, Qt::Horizontal, QObject::tr("id_com"));
-   model->setHeaderData(1, Qt::Horizontal, QObject::tr("date_com"));
-   model->setHeaderData(2, Qt::Horizontal, QObject::tr("nombre_come"));
-   model->setHeaderData(3, Qt::Horizontal, QObject::tr("type_com"));
-    model->setHeaderData(4, Qt::Horizontal, QObject::tr("nom_cli"));
+   model->setHeaderData(1, Qt::Horizontal, QObject::tr("id_com"));
+   model->setHeaderData(2, Qt::Horizontal, QObject::tr("date_com"));
+   model->setHeaderData(3, Qt::Horizontal, QObject::tr("nombre_come"));
+   model->setHeaderData(4, Qt::Horizontal, QObject::tr("type_com"));
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("nom_cli"));
 
 
 
