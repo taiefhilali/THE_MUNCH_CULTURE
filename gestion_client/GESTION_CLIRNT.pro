@@ -22,6 +22,7 @@ SOURCES += \
     client.cpp \
     commande.cpp \
     connexion.cpp \
+    histo.cpp \
     main.cpp \
     qcustomplot.cpp \
     smtp.cpp \
@@ -32,6 +33,7 @@ HEADERS += \
     client.h \
     commande.h \
     connexion.h \
+    histo.h \
     qcustomplot.h \
     smtp.h \
     stat.h
@@ -48,3 +50,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES += \
     design.qrc \
     test_son.qrc
+
+DISTFILES += \
+    histo.txt

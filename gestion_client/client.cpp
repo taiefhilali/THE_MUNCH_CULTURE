@@ -106,8 +106,54 @@ bool Client::modifE(int id_cli,QString nom_cli,QString prenom_cli,int num_tel,QS
       model->setHeaderData(3, Qt::Horizontal, QObject::tr("nombre_com"));
 
           return model;
+ }
+ int Client::recupererID(QString nom_cli)
+ {  QSqlQuery query;
+     int id_cli=0;
+     query.prepare("select * from client where nom_cli='"+nom_cli+"'");
+     if(query.exec())
+      {
+         if(query.first())
+         {id_cli=query.value(0).toInt();
+
+      }}
+     return id_cli;
 
 
+ }
+ QList<Client> Client::afficherRole()
+ {
+     QList<Client> f;
+     QSqlQuery query;
+         query.prepare("select nom_cli from client ");
+         if(query.exec())
+          {while(query.next())
+             {
+                 Client F;
+
+           F.setnom_cli(query.value(0).toString());
+
+           f.append(F);
+
+          }}
+         return f;
+
+ }
+ Client Client::afficherR(int id_cli)
+ {
+     QSqlQuery query;
+       Client F;
+        QString res = QString::number(id_cli);
+       query.prepare("select * from client where id_cli ='"+res+"'");
+       if(query.exec())
+        {
+         if(query.first())
+         F.setid_cli(query.value(0).toInt());
+         F.setnom_cli(query.value(1).toString());
+         F.setprenom_cli(query.value(2).toString());
+         F.setadresse(query.value(3).toString());
+          F.setnum_tel(query.value(4).toInt());
+        }
 
 
  }

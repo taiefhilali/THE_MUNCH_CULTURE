@@ -24,7 +24,10 @@ public:
     QSqlQueryModel * recherche_2(int id_cli);
     QSqlQueryModel *Trier(const QString &critere, const QString &mode);
     bool modifE(int , QString,QString,int,QString);
-
+    bool ajouterProduit(QString &mag);
+                           int recupererID(QString nom_cli);
+                           QList<Client> afficherRole();
+                           Client afficherR(int id);
 private:
     int id_cli;
     QString nom_cli, prenom_cli,adresse;

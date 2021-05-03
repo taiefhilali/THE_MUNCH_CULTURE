@@ -17,13 +17,13 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>0</y>
+     <y>10</y>
      <width>911</width>
-     <height>701</height>
+     <height>691</height>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab1">
     <attribute name="title">
@@ -56,7 +56,7 @@
       <widget class="QLabel" name="label">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>0</x>
          <y>130</y>
          <width>47</width>
          <height>14</height>
@@ -69,7 +69,7 @@
       <widget class="QLabel" name="label_2">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>0</x>
          <y>90</y>
          <width>41</width>
          <height>16</height>
@@ -564,7 +564,7 @@ background-repeat:none;</string>
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>821</width>
+       <width>881</width>
        <height>601</height>
       </rect>
      </property>
@@ -666,7 +666,7 @@ background-repeat:none;</string>
         <rect>
          <x>300</x>
          <y>10</y>
-         <width>501</width>
+         <width>531</width>
          <height>251</height>
         </rect>
        </property>
@@ -813,7 +813,7 @@ background-repeat:none;</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>821</width>
+         <width>871</width>
          <height>581</height>
         </rect>
        </property>
@@ -1016,7 +1016,7 @@ background-repeat:none;</string>
       <widget class="QPushButton" name="pushButton_5">
        <property name="geometry">
         <rect>
-         <x>700</x>
+         <x>740</x>
          <y>270</y>
          <width>101</width>
          <height>28</height>
@@ -1069,9 +1069,9 @@ background-repeat:none;</string>
       <widget class="QPushButton" name="excel">
        <property name="geometry">
         <rect>
-         <x>600</x>
+         <x>550</x>
          <y>270</y>
-         <width>93</width>
+         <width>91</width>
          <height>28</height>
         </rect>
        </property>
@@ -1095,7 +1095,7 @@ background-repeat:none;</string>
       <widget class="QPushButton" name="pdf_com">
        <property name="geometry">
         <rect>
-         <x>490</x>
+         <x>440</x>
          <y>270</y>
          <width>93</width>
          <height>28</height>
@@ -1103,6 +1103,29 @@ background-repeat:none;</string>
        </property>
        <property name="text">
         <string>pdf</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboclient">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>70</y>
+         <width>111</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>70</y>
+         <width>56</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;client&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
       <zorder>label_24</zorder>
@@ -1138,6 +1161,8 @@ background-repeat:none;</string>
       <zorder>excel</zorder>
       <zorder>satist</zorder>
       <zorder>pdf_com</zorder>
+      <zorder>comboclient</zorder>
+      <zorder>label_6</zorder>
      </widget>
     </widget>
    </widget>

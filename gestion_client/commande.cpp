@@ -7,35 +7,43 @@
 #include <QSqlError>
 #include <QFile>
 #include <QSqlQueryModel>
+#include "client.h"
 Commande::Commande()
 {
-id_com=0; date_com=" ";  nombre_come=0; type_com="";
+id_com=0; date_com=" ";  nombre_come=0; type_com="";id_cli=0;
 }
 
-Commande::Commande(int id_com,QString date_com,int nombre_come,QString type_com)
-{this->id_com=id_com; this->date_com=date_com; this->nombre_come=nombre_come; this->type_com=type_com; }
+Commande::Commande(int id_com,QString date_com,int nombre_come,QString type_com,int id_cli)
+{this->id_com=id_com; this->date_com=date_com; this->nombre_come=nombre_come; this->type_com=type_com; this->id_cli=id_cli;}
 int Commande::getid_com(){return id_com;}
 QString Commande::getdate_com(){return  date_com;}
 int Commande::getnombre_come(){return nombre_come;}
 QString Commande::gettype_com(){return type_com;}
+int Commande::getid_cli(){return id_cli;}
+
 
 
 void Commande::setid_com(int id_com){this->id_com=id_com;}
 void Commande::setdate_com(QString date_com){this->date_com=date_com;}
 void Commande::setnombre_come(int nombre_come){this->nombre_come=nombre_come;}
 void Commande::settype_com(QString type_com){this->type_com=type_com;}
+void Commande::setid_cli(int id_cli){this->id_cli=id_cli;}
 
 bool Commande::ajoutercom()
 {
 
     QSqlQuery query;
   QString id_string= QString::number(id_com);
-         query.prepare("INSERT INTO commande (id_com, date_com, nombre_come,type_com) "
-                       "VALUES (:id, :forename, :nombrec ,:typecom)");
+  QString id_client_string= QString::number(id_cli);
+
+         query.prepare("INSERT INTO commande (id_com, date_com, nombre_come,type_com,id_cli) "
+                       "VALUES (:id, :forename, :nombrec ,:typecom ,:id_cli)");
          query.bindValue(":id",id_string);
          query.bindValue(":forename", date_com);
           query.bindValue(":nombrec", nombre_come);
            query.bindValue(":typecom", type_com);
+           query.bindValue(":id_cli", id_client_string);
+
         return query.exec();
 
 }
@@ -51,14 +59,17 @@ bool Commande::supprimercom(int id_com)
 }
 QSqlQueryModel* Commande::affichercom()
 {
+
   QSqlQueryModel* model=new QSqlQueryModel();
 
 
-   model->setQuery("SELECT* FROM commande");
+   model->setQuery("select C.nom_cli as client, F.id_com, F.date_com, F.nombre_come, F.type_com from commande F inner join client C on F.id_com=C.id_cli");
    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id_com"));
    model->setHeaderData(1, Qt::Horizontal, QObject::tr("date_com"));
    model->setHeaderData(2, Qt::Horizontal, QObject::tr("nombre_come"));
-    model->setHeaderData(3, Qt::Horizontal, QObject::tr("type_com"));
+   model->setHeaderData(3, Qt::Horizontal, QObject::tr("type_com"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("nom_cli"));
+
 
 
   return  model;
@@ -94,7 +105,7 @@ QSqlQueryModel * Commande::recherche_com(int id_com)
      model->setHeaderData(0, Qt::Horizontal, QObject::tr("id_com"));
      model->setHeaderData(1, Qt::Horizontal, QObject::tr("date_com "));
      model->setHeaderData(2, Qt::Horizontal, QObject::tr("nombre_come"));
-        model->setHeaderData(3, Qt::Horizontal, QObject::tr("type_com"));
+     model->setHeaderData(3, Qt::Horizontal, QObject::tr("type_com"));
 
          return model;
 }

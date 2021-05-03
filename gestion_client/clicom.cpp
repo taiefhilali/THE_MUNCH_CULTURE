@@ -1,6 +1,7 @@
 #include "clicom.h"
 #include "ui_clicom.h"
 #include "commande.h"
+#include "histo.h"
 #include "client.h"
 #include <QMessageBox>
 #include <QIntValidator>
@@ -42,6 +43,19 @@ connect(ui->sendBtn, SIGNAL(clicked()),this, SLOT(sendMail()));
      connect(qTimer,SIGNAL(timeout()),this,SLOT(clockTimer()));
        connect(qTimer,SIGNAL(timeout()),this,SLOT(clocktimer_2()));
      qTimer->start(100);
+
+
+         Client s1;
+         QList<Client> fi1=s1.afficherRole();
+         QStringList l1;
+
+         for(int i=0;i<fi1.size();i++)
+         {
+       Client fo;
+            fo=fi1.at(i);
+            l1.append(fo.getnom_cli());
+         }ui->comboclient->addItem("");
+          ui->comboclient->addItems(l1);
 }
 
 Clicom::~Clicom()
@@ -69,6 +83,9 @@ void Clicom::on_Ajouter_clicked()
  else
      msgBox.setText("Echec d'ajout");
      msgBox.exec();
+  Histo h;
+                 QString  textajouter= "client a ete ajouté avec succees";
+                     h.write(textajouter);
 
 }
 
@@ -97,7 +114,7 @@ void Clicom::on_pb_ajouter_clicked()
     int nombre_come=ui->le_nb->text().toInt();
     QString type_com=ui->combotype->currentText();
 
- Commande F(id_com,date_com,nombre_come,type_com);
+ Commande F(id_com,date_com,nombre_come,type_com,C.recupererID(ui->comboclient->currentText()));
  bool test=F.ajoutercom();
  QMessageBox msgBox;
 
