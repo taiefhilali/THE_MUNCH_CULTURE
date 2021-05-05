@@ -26,6 +26,7 @@ public:
     bool modifier(int , int ,QString,QString);
 QSqlQueryModel * recherche_2(int id_dep);
 QSqlQueryModel * Trierdep(const QString &critere, const QString &mode);
+int get_total();
 
 private:
     int  id_dep, tot_dep;

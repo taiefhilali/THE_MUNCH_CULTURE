@@ -3,7 +3,7 @@
 #include <QtDebug>
 #include <QObject>
 #include <QDateEdit>
-
+#include "bilan.h"
 Revenu::Revenu()
 {
 id_rev=0;
@@ -24,7 +24,7 @@ void Revenu::settot_rev(int tot_rev){this-> tot_rev=tot_rev;}
 void Revenu::settype_rev(QString type_rev){this-> type_rev=type_rev;}
 void Revenu::setdate_rev(QString date_rev){this-> date_rev=date_rev;}
 
-
+int get_total();
 bool Revenu::ajouter()
 {
     QSqlQuery query;
@@ -124,3 +124,18 @@ model->setQuery("select * from revenu order by "+critere+" "+mode+"");
 
     return model;
 }
+int Revenu::get_total()
+{
+    QSqlQuery query;
+    query.prepare("SELECT tot_rev FROM Revenu ");
+ int total=0;
+    if(query.exec())
+    {
+        while (query.next())
+        {
+            total+=query.value(0).toInt();
+        }
+    }
+    return total;
+}
+

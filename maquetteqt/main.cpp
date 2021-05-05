@@ -5,16 +5,21 @@
 #include <QMessageBox>
 #include <QDebug>
 #include "connexion.h"
+#include <QStyleFactory>
+#include<QFile>
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     Connection c;
     bool test=c.ouvrirConnexion();
    youssef w;
-    QFile styleSheetFile(":/StyleSheet/MacOS.qss");
+   QFile styleSheetFile(":/C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/StyleSheet/MacOS.qss");
                   styleSheetFile.open(QFile::ReadOnly);
                   QString styleSheet = QLatin1String(styleSheetFile.readAll());
                   a.setStyleSheet(styleSheet);
+
+
     if(test)
     {w.show();
         QMessageBox::information(nullptr, QObject::tr("database is open"),

@@ -3,6 +3,7 @@
 #include <QtDebug>
 #include <QObject>
 #include "depense.h"
+#include "bilan.h"
 Depense::Depense()
 {
  id_dep=0;
@@ -23,6 +24,7 @@ void Depense::setid_dep(int id_dep){this-> id_dep=id_dep;}
 void Depense::settot_dep(int tot_dep){this-> tot_dep=tot_dep;}
 void Depense::settype_dep(QString type_dep){this-> type_dep=type_dep;}
 void Depense::setdate_dep(QString date_dep){this-> date_dep=date_dep;}
+int get_total();
 
 bool Depense::ajouter()
 {
@@ -111,4 +113,18 @@ QSqlQueryModel * Depense::Trierdep(const QString &critere, const QString &mode){
 model->setQuery("select * from depense order by "+critere+" "+mode+"");
 
     return model;
+}
+int Depense::get_total()
+{
+    QSqlQuery query;
+    query.prepare("SELECT tot_dep FROM Depense ");
+ int total=0;
+    if(query.exec())
+    {
+        while (query.next())
+        {
+            total+=query.value(0).toInt();
+        }
+    }
+    return total;
 }

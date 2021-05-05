@@ -2,7 +2,6 @@
 #define REVENU_H
 #include <QString>
 //#include<QDate>
-
 #include <QSqlQueryModel>
 class Revenu
 {
@@ -28,6 +27,7 @@ public:
     QSqlQuery  recherche_2(int id_rev);
    // QSqlQueryModel * Trierrev(QString choix1);
     QSqlQueryModel * Trierrev(const QString &critere, const QString &mode );
+    int get_total();
 
 private:
     int id_rev , tot_rev;

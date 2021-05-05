@@ -3,6 +3,7 @@
 #include "revenu.h"
 #include "depense.h"
 #include "produit.h"
+#include "bilan.h"
 #include "QSqlQuery"
 #include <QMessageBox>
 #include <QFileDialog>
@@ -82,10 +83,10 @@ void youssef::on_modifier_3_clicked()
                 QString type_rev, date_rev;
 
 
-        id_rev=ui->le_id_rev_3->text().toInt();
-        tot_rev=ui->le_tot_rev_2->text().toInt();
-        type_rev=ui->mtyperev->currentText();
-        date_rev=ui->dates->text();
+        id_rev=ui->le_id_rev->text().toInt();
+        tot_rev=ui->le_tot_rev->text().toInt();
+        type_rev=ui->letyperev->currentText();
+        date_rev=ui->date_3->text();
         click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
             click->play();
             qDebug()<<click ->errorString();
@@ -306,7 +307,14 @@ void youssef::on_supprimer_6_clicked()
     click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
     click->play();
     qDebug()<<click ->errorString();
-    Depense D1; D1.setid_dep(ui->le_id_sup_3->text().toInt());
+    Depense D1; D1.setid_dep(ui->le_id_sup_3->
+
+
+
+
+
+                             text().toInt());
+
         bool test=D1.supprimer(D1.getid_dep());
         QMessageBox msgBox;
 
@@ -341,10 +349,10 @@ void youssef::on_pushButton_2_clicked()
         int id_dep,tot_dep;
         QString type_dep,date_dep;
 
-        id_dep=ui->le_id_dep_5->text().toInt();
-        tot_dep=ui->le_tot_dep_2->text().toInt();
-        type_dep=ui->mtypedep->currentText();
-        date_dep=ui->datess->text();
+        id_dep=ui->le_id_dep->text().toInt();
+        tot_dep=ui->le_tot_dep->text().toInt();
+        type_dep=ui->letypedep->currentText();
+        date_dep=ui->date->text();
         {while (i<101) {
                         ui->progressBar_2->setValue(i);
                         QTimer timer;
@@ -563,11 +571,11 @@ void youssef::on_modifier3_2_clicked()
         int id_produit,tot_produit;
                 QString nom_produit,type_produit,date_produit;
 
-        id_produit=ui->le_id_produit_3->text().toInt();
-        nom_produit=ui->le_nom_produit_3->text();
-        type_produit=ui->mtypeproduit->currentText();
-        tot_produit=ui->le_tot_produit_3->text().toInt();
-        date_produit=ui->mdateproduit->text();
+        id_produit=ui->le_id_produit->text().toInt();
+        nom_produit=ui->le_nom_produit->text();
+        type_produit=ui->letypeproduit->currentText();
+        tot_produit=ui->le_tot_produit->text().toInt();
+        date_produit=ui->ledateproduit->text();
 
         {while (i<101) {
                     ui->progressBar_3->setValue(i);
@@ -846,11 +854,11 @@ void youssef::on_pushButton_5_clicked()
         QString sql=QString("SELECT * FROM PRODUIT WHERE id_produit=:id").arg(id);
 
     }
-    ui->le_id_produit_3->setText(P.afficher()->index(row,0).data().toString());
-    ui->le_nom_produit_3->setText(P.afficher()->index(row,1).data().toString());
+    ui->le_id_produit->setText(P.afficher()->index(row,0).data().toString());
+    ui->le_nom_produit->setText(P.afficher()->index(row,1).data().toString());
     ui->letypeproduit->setCurrentText(P.afficher()->index(row,1).data().toString());
 
-    ui->le_tot_produit_3->setText(P.afficher()->index(row,3).data().toString());
+    ui->le_tot_produit->setText(P.afficher()->index(row,3).data().toString());
     //ui->ledateproduit->setText(P.afficher()->index(row,1).data().toString());
 
 
@@ -870,8 +878,8 @@ void youssef::on_pushButton_6_clicked()
            QString sql=QString("SELECT * FROM DEPENSE WHERE id_dep=:id").arg(id);
 
        }
-       ui->le_id_dep_5->setText(D.afficher()->index(row,0).data().toString());
-       ui->le_tot_dep_2->setText(D.afficher()->index(row,1).data().toString());
+       ui->le_id_dep->setText(D.afficher()->index(row,0).data().toString());
+       ui->le_tot_dep->setText(D.afficher()->index(row,1).data().toString());
        //ui->mtypedep->setCurrentText(D.afficher()->index(row,2).data().toString());
 
 
@@ -896,9 +904,9 @@ void youssef::on_pushButton_10_clicked()
            QString sql=QString("SELECT * FROM REVENU WHERE id_rev=:id").arg(id);
           //QString dat_rev=R.afficher()->index(row, 3).data().toString();
        }
-       ui->le_id_rev_3->setText(R.afficher()->index(row,0).data().toString());
-       ui->le_tot_rev_2->setText(R.afficher()->index(row,1).data().toString());
-       ui->mtyperev->setCurrentText(R.afficher()->index(row,2).data().toString());
+       ui->le_id_rev->setText(R.afficher()->index(row,0).data().toString());
+       ui->le_tot_rev->setText(R.afficher()->index(row,1).data().toString());
+       ui->letyperev->setCurrentText(R.afficher()->index(row,2).data().toString());
        //ui->dates->setText(R.afficher()->index(row, 3).data().toString());
         //ui->datee->setSelectedDate(QDate::fromString(date_rev,"dd/MM/yyyy"));
     }
@@ -1432,3 +1440,20 @@ void youssef::makePolt_3()
 
 
 }
+
+/*void youssef::on_bilan_clicked()
+{
+    bilan *a=new bilan();
+           a->show();
+}*/
+
+void youssef::on_pushButton_11_clicked()
+{
+    ui->tab_rev->setModel(R.afficher());
+
+}
+
+
+
+
+

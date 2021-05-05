@@ -1,10 +1,9 @@
 <RCC>
-    <qresource prefix="/StyleSheet">
-        <file>SyNet.qss</file>
-        <file>MacOS.qss</file>
-        <file>1.jpg</file>
-    </qresource>
+    <qresource prefix="/StyleSheet"/>
     <qresource prefix="/">
         <file>../../../Downloads/try/try/Click.mp3</file>
+        <file>StyleSheet/MacOS.qss</file>
+        <file>StyleSheet/SyNet.qss</file>
+        <file>1.jpg</file>
     </qresource>
 </RCC>

@@ -112,3 +112,41 @@ private:
 };
 
 #endif // YOUSSEF_H
+void youssef::on_Ajouter_clicked()
+{int i=0;
+    click->setMedia(QUrl::fromLocalFile("C:/Users/achou/Desktop/gestion de comptabilite/maquetteqt/Click.mp3"));
+    click->play();
+    qDebug()<<click ->errorString();
+    int id_produi=ui->le_id_produit->text().toInt();
+    int tot_produit=ui->le_nom_produit->text().toInt();
+    QString type_produit=ui->letypeproduit->currentText();
+    int id_produit=ui->le_tot_produit->text().toInt();
+    QString date_produit=ui->dattes->text();
+
+Revenu P(id_produit,nom_produit,type_rev,tot_produit,date_rev);
+ bool test=P.ajouter();
+ QMessageBox msgBox;
+
+ if(test)
+   {  while (i<101) {
+         ui->progressBar->setValue(i);
+         QTimer timer;
+         //        timer.setSingleShot(true);
+         timer.setInterval(10);
+         QEventLoop loop;
+         connect(&timer, SIGNAL(timeout()), &loop, SLOT(quit()));
+         timer.start();
+         loop.exec();
+         i++;
+     }
+     msgBox.setText("Ajout avec succes.");
+     ui->tab_produit->setModel(P.afficher());
+
+ }
+ else
+     msgBox.setText("Echec d'ajout");
+     msgBox.exec();
+
+
+
+}

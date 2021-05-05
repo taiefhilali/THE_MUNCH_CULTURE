@@ -1,4 +1,4 @@
-#ifndef REVENU_H
+#ifndef PRODUIT_H
 #define PRODUIT_H
 #include <QString>
 
