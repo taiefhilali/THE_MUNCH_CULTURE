@@ -1,6 +1,6 @@
 #include "interw.h"
 #include "ui_interw.h"
-#include "mainwindow.h"
+#include "mainwindowvideo.h"
 #include <QMessageBox>
 #include <QIntValidator>
 #include <QTabWidget>
@@ -29,7 +29,7 @@
 #include <QFileInfo>
 #include <QSound>
 #include <QPainter>
-
+#include <QTimer>
 interw::interw(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::interw)
@@ -49,6 +49,10 @@ interw::interw(QWidget *parent)
         ui->prenom->setValidator(validator);
         ui->nom_2->setValidator(validator);
         ui->nom->setValidator(validator);
+        qTimer=new QTimer(this);
+            connect(qTimer,SIGNAL(timeout()),this,SLOT(clockTimer()));
+              connect(qTimer,SIGNAL(timeout()),this,SLOT(clocktimer_2()));
+            qTimer->start(100);
 
 }
 
@@ -705,4 +709,35 @@ void interw::on_upload_clicked()
                //qDebug()<<"error";
            }
        }
+}
+void interw::clockTimer()
+{
+    QTime clockTime=QTime::currentTime();
+    ui->clock->setText(clockTime.toString(" hh : mm : ss"));
+    QString date = QDate::currentDate().toString();
+    ui->date->setText(date);
+
+}
+void interw::clocktimer_2()
+{
+
+
+    QTime clockTime=QTime::currentTime();
+    ui->clock_2->setText(clockTime.toString(" hh : mm : ss"));
+    QString date = QDate::currentDate().toString();
+    ui->date_2->setText(date);
+
+
+
+}
+
+void interw::on_pushButton_clicked()
+{
+    video=new MainWindowvideo(this);
+     video->show();
+}
+
+void interw::on_pushButton_2_clicked()
+{
+     ui->label->setNum(l.get_total());
 }

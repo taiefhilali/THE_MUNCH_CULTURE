@@ -17,14 +17,14 @@
    <widget class="QTabWidget" name="temprature">
     <property name="geometry">
      <rect>
-      <x>-10</x>
-      <y>0</y>
+      <x>0</x>
+      <y>-10</y>
       <width>841</width>
       <height>701</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab1">
      <attribute name="title">
@@ -284,7 +284,7 @@
         <property name="styleSheet">
          <string notr="true">background-color:tranparent;
 
-border-image:url(:/image/122.jpg);
+border-image:url(:/image/1.jpg);
 
 background:none;
 
@@ -369,17 +369,30 @@ Aa</string>
          <string>excel</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="export_2">
+       <widget class="QLabel" name="clock">
         <property name="geometry">
          <rect>
-          <x>650</x>
-          <y>380</y>
-          <width>75</width>
-          <height>23</height>
+          <x>10</x>
+          <y>10</y>
+          <width>71</width>
+          <height>16</height>
          </rect>
         </property>
         <property name="text">
-         <string>export</string>
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="date">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>10</y>
+          <width>111</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
         </property>
        </widget>
        <zorder>label_2</zorder>
@@ -405,7 +418,8 @@ Aa</string>
        <zorder>datelivraison</zorder>
        <zorder>Ajouter_2</zorder>
        <zorder>excel</zorder>
-       <zorder>export_2</zorder>
+       <zorder>clock</zorder>
+       <zorder>date</zorder>
       </widget>
      </widget>
      <widget class="QPushButton" name="pushButton_3">
@@ -445,8 +459,8 @@ Aa</string>
        <widget class="QTableView" name="tab_liv_2">
         <property name="geometry">
          <rect>
-          <x>210</x>
-          <y>10</y>
+          <x>220</x>
+          <y>20</y>
           <width>331</width>
           <height>331</height>
          </rect>
@@ -456,7 +470,7 @@ Aa</string>
         <property name="geometry">
          <rect>
           <x>560</x>
-          <y>10</y>
+          <y>50</y>
           <width>81</width>
           <height>22</height>
          </rect>
@@ -490,8 +504,8 @@ Aa</string>
        <widget class="QLineEdit" name="rech">
         <property name="geometry">
          <rect>
-          <x>662</x>
-          <y>10</y>
+          <x>660</x>
+          <y>50</y>
           <width>71</width>
           <height>20</height>
          </rect>
@@ -504,7 +518,7 @@ Aa</string>
         <property name="geometry">
          <rect>
           <x>560</x>
-          <y>50</y>
+          <y>80</y>
           <width>81</width>
           <height>21</height>
          </rect>
@@ -539,7 +553,7 @@ Aa</string>
         <property name="geometry">
          <rect>
           <x>660</x>
-          <y>50</y>
+          <y>80</y>
           <width>71</width>
           <height>23</height>
          </rect>
@@ -706,7 +720,7 @@ Aa</string>
         <property name="geometry">
          <rect>
           <x>730</x>
-          <y>0</y>
+          <y>40</y>
           <width>31</width>
           <height>31</height>
          </rect>
@@ -727,7 +741,7 @@ Aa</string>
         <property name="styleSheet">
          <string notr="true">background-color:tranparent;
 
-border-image:url(:/image/122.jpg);
+border-image:url(:/image/1.jpg);
 
 background:none;
 
@@ -745,8 +759,8 @@ Aa
        <widget class="QLineEdit" name="nom">
         <property name="geometry">
          <rect>
-          <x>110</x>
-          <y>20</y>
+          <x>100</x>
+          <y>50</y>
           <width>81</width>
           <height>20</height>
          </rect>
@@ -756,7 +770,7 @@ Aa
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>20</y>
+          <y>50</y>
           <width>81</width>
           <height>16</height>
          </rect>
@@ -769,7 +783,7 @@ Aa
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>50</y>
+          <y>80</y>
           <width>81</width>
           <height>16</height>
          </rect>
@@ -781,8 +795,8 @@ Aa
        <widget class="QLineEdit" name="prenom">
         <property name="geometry">
          <rect>
-          <x>110</x>
-          <y>50</y>
+          <x>100</x>
+          <y>80</y>
           <width>81</width>
           <height>20</height>
          </rect>
@@ -792,7 +806,7 @@ Aa
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>80</y>
+          <y>110</y>
           <width>91</width>
           <height>20</height>
          </rect>
@@ -804,8 +818,8 @@ Aa
        <widget class="QLineEdit" name="numtel">
         <property name="geometry">
          <rect>
-          <x>110</x>
-          <y>80</y>
+          <x>100</x>
+          <y>110</y>
           <width>81</width>
           <height>20</height>
          </rect>
@@ -815,7 +829,7 @@ Aa
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>110</y>
+          <y>140</y>
           <width>91</width>
           <height>16</height>
          </rect>
@@ -827,8 +841,8 @@ Aa
        <widget class="QLineEdit" name="salaire">
         <property name="geometry">
          <rect>
-          <x>110</x>
-          <y>110</y>
+          <x>100</x>
+          <y>140</y>
           <width>81</width>
           <height>20</height>
          </rect>
@@ -837,8 +851,8 @@ Aa
        <widget class="QPushButton" name="ajouter1">
         <property name="geometry">
          <rect>
-          <x>60</x>
-          <y>150</y>
+          <x>50</x>
+          <y>180</y>
           <width>101</width>
           <height>21</height>
          </rect>
@@ -858,19 +872,6 @@ Aa
         </property>
         <property name="text">
          <string>excel</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="exportt">
-        <property name="geometry">
-         <rect>
-          <x>640</x>
-          <y>310</y>
-          <width>75</width>
-          <height>23</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>export</string>
         </property>
        </widget>
        <widget class="QLabel" name="img">
@@ -897,6 +898,71 @@ Aa
         </property>
         <property name="text">
          <string>upload image</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="date_2">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>10</y>
+          <width>111</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="clock_2">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>91</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton">
+        <property name="geometry">
+         <rect>
+          <x>630</x>
+          <y>390</y>
+          <width>101</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>video</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>370</y>
+          <width>121</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>SALAIRE TOTALE</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>330</x>
+          <y>410</y>
+          <width>91</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
        <zorder>label_6</zorder>
@@ -929,9 +995,13 @@ Aa
        <zorder>salaire</zorder>
        <zorder>ajouter1</zorder>
        <zorder>excell</zorder>
-       <zorder>exportt</zorder>
        <zorder>img</zorder>
        <zorder>upload</zorder>
+       <zorder>date_2</zorder>
+       <zorder>clock_2</zorder>
+       <zorder>pushButton</zorder>
+       <zorder>pushButton_2</zorder>
+       <zorder>label</zorder>
       </widget>
      </widget>
     </widget>

@@ -1,12 +1,14 @@
 #ifndef INTERW_H
 #define INTERW_H
-#include <QMainWindow>
 #include "livreur.h"
 #include "livraison.h"
 #include "notif.h"
 #include <QSound>
-
+#include <QTimer>
 #include <QMainWindow>
+#include "mainwindowvideo.h"
+#include <QMediaPlayer>
+#include <QVideoWidget>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class interw; }
@@ -19,6 +21,9 @@ class interw : public QMainWindow
 public:
     interw(QWidget *parent = nullptr);
     ~interw();
+public slots:
+    void clockTimer();
+    void clocktimer_2();
 
 private slots:
     void on_ajouter1_clicked();
@@ -78,6 +83,8 @@ private slots:
 
     void on_upload_clicked();
 
+    void on_pushButton_2_clicked();
+
 private:
     Ui::interw *ui;
    livreur l;
@@ -86,6 +93,10 @@ private:
    QSound*son;
    QSound*son2;
    QString filename;
+   QTimer *qTimer;
+   MainWindowvideo*video;
+   QMediaPlayer* player;
+      QVideoWidget* vw;
 };
 
 #endif // INTER_H
