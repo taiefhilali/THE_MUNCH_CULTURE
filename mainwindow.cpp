@@ -44,8 +44,7 @@ void MainWindow::on_pushButton_clicked()
         if ( qry.value(0).toString()==username && qry.value(3).toString()==password  )
         {
             hide();//La fenetre d'authentification se ferme automatiquement
-            menu a;
-            a.exec() ;
+
 
         }
 

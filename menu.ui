@@ -367,6 +367,32 @@ border:none;</string>
         <string/>
        </property>
       </widget>
+      <widget class="QLabel" name="label_21">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>355</y>
+         <width>91</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600; font-style:italic; text-decoration: underline; color:#ffffff;&quot;&gt;temp:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_24">
+       <property name="geometry">
+        <rect>
+         <x>580</x>
+         <y>380</y>
+         <width>55</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
       <zorder>label_18</zorder>
       <zorder>label</zorder>
       <zorder>label_2</zorder>
@@ -386,6 +412,8 @@ border:none;</string>
       <zorder>label_photo</zorder>
       <zorder>pushButton_3</zorder>
       <zorder>label_14</zorder>
+      <zorder>label_21</zorder>
+      <zorder>label_24</zorder>
      </widget>
      <widget class="QWidget" name="tab_5">
       <attribute name="title">

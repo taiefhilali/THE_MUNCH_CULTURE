@@ -1,5 +1,6 @@
 #include "menu.h"
 #include "ui_menu.h"
+
 #include <QMessageBox>
 #include "personnel.h"
 #include "profil.h"
@@ -11,21 +12,65 @@
 #include <QImage>
 #include <QPrinter>
 #include<QPrintDialog>
-menu::menu(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::menu)
+
+
+//arduino
+
+void menu::update_label()
 {
-    ui->setupUi(this);
-     ui->table_profil->setModel(tmp_profil.afficher());
-    ui->table_personnel->setModel(tmp_personnel.afficher());
+    // arduino
+    int ret=A.connect_arduino();
+
+    switch(ret){
+        case(0):qDebug()<< "arduino is availble and connected to :"<< A.getarduino_port_name();
+            break;
+        case(1):qDebug()<< "arduino is availble but not connected to :"<< A.getarduino_port_name();
+            break;
+        case(-1):qDebug()<< "arduino is not availble";
+    }
+    QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label()));
+
+    //fin arduino
+
+
+data=A.read_from_arduino();
+QString DataAsString = QString(data);
+qDebug()<< data;
+
+ui->label_24->setText("temp : "+data);
+
+if (data=="21"||data=="22"||data=="23"||data=="24"||data=="25"){
+    if (messageboxactive==0){
+        alert=1;
+    }
 
 
 }
+if (alert==1){
+    alert=0;
+    messageboxactive=1;
+    int reponse = QMessageBox::question(this, "led", "allumer led", QMessageBox::Yes |  QMessageBox::No);
+    if (reponse == QMessageBox::Yes)
+    {
+        led=1;
+    }
+    if (reponse == QMessageBox::No)
+    {
+        led=0;
+    }
 
-menu::~menu()
-{
-    delete ui;
 }
+if (led==1){
+    A.write_to_arduino("1");
+}
+if (data=="20"||data=="19"||data=="18"||data=="17"||data=="16"){
+    A.write_to_arduino("0");
+    led=0;
+}
+
+}
+
+//fin arduino
 
 void menu::on_Ajouter_clicked()
 {

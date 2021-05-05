@@ -4,6 +4,7 @@
 #include <QDialog>
 #include"personnel.h"
 #include"profil.h"
+#include"arduino.h"
 #include <QtWidgets/QMessageBox>
 #include<QPainter>
 #include<QPdfWriter>
@@ -21,6 +22,9 @@ class menu : public QDialog
 public:
     explicit menu(QWidget *parent = nullptr);
     ~menu();
+    int led,alert,messageboxactive;
+    void update_label();
+
 
 private slots:
     void on_Ajouter_clicked();
@@ -41,8 +45,6 @@ private slots:
 
 
 
-    void on_colone_tri_textActivated(const QString &arg1);
-//    void recherche_personnel();
 
 
     void on_pushButton_3_clicked();
@@ -53,7 +55,7 @@ private slots:
 
     void on_supprimer_clicked();
 
-    void on_modifier_2_clicked();
+
 
     void on_button_tri_2_clicked();
 
@@ -68,6 +70,9 @@ private:
     QString fileNameImage ;
     QPixmap photo ;
     QByteArray image;
+    QByteArray data;
+     arduino A;
+
 };
 
 #endif // MENU_H
