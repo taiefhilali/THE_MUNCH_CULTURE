@@ -19,6 +19,7 @@ public:
          QSqlQueryModel * afficher();
          bool supprimer (int);
          bool modif(int,QString,QString,int,int);
+           int get_total();
  private:
     QString nom,prenom;
     int id,salaire,numtel;

@@ -38,6 +38,7 @@ HEADERS += \
     notif.h
 
 FORMS += \
+    ../../Downloads/youssef.ui \
     interw.ui
 
 # Default rules for deployment.

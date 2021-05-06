@@ -18,13 +18,23 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>-10</y>
+      <y>0</y>
       <width>841</width>
       <height>701</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>841</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 8pt &quot;MS Shell Dlg 2&quot;;
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab1">
      <attribute name="title">
@@ -33,14 +43,15 @@
      <widget class="QTabWidget" name="tabWidget_2">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>0</y>
+        <x>0</x>
+        <y>-10</y>
         <width>781</width>
         <height>621</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">tabWidget_2 = new QWidget(this); m_myWidget-&gt;setGeometry(0, 0, 300, 100)</string>
+       <string notr="true">tabWidget_2 = new QWidget(this); m_myWidget-&gt;setGeometry(0, 0, 300, 100)
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
       </property>
       <property name="currentIndex">
        <number>0</number>
@@ -120,7 +131,7 @@
          </rect>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;adresse&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#000000;&quot;&gt;adresse&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="id_3">
@@ -146,20 +157,20 @@
          </rect>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;ID_livr&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#000000;&quot;&gt;ID_livr&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_38">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>290</y>
-          <width>47</width>
-          <height>14</height>
+          <x>26</x>
+          <y>284</y>
+          <width>41</width>
+          <height>20</height>
          </rect>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;date&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#000000;&quot;&gt;date&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
        <widget class="QPushButton" name="modifier_2">
@@ -272,31 +283,6 @@
          </rect>
         </property>
        </widget>
-       <widget class="QLabel" name="label_2">
-        <property name="geometry">
-         <rect>
-          <x>-10</x>
-          <y>-10</y>
-          <width>791</width>
-          <height>541</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color:tranparent;
-
-border-image:url(:/image/1.jpg);
-
-background:none;
-
-border:none;
-
-background-repeat:none;
-Aa</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
        <widget class="QLineEdit" name="adrlivraison">
         <property name="geometry">
          <rect>
@@ -316,8 +302,21 @@ Aa</string>
           <height>21</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">background-color:tranparent;
+
+border-image:url(:/image/888.jpg);
+
+background:none;
+
+border:none;
+
+background-repeat:none;
+
+</string>
+        </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#ffffff;&quot;&gt;adresse&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#000000;&quot;&gt;adresse&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_7">
@@ -330,7 +329,7 @@ Aa</string>
          </rect>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:600; color:#ffffff;&quot;&gt;date&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#000000;&quot;&gt;date&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
        <widget class="QDateEdit" name="datelivraison">
@@ -395,31 +394,6 @@ Aa</string>
          <string>TextLabel</string>
         </property>
        </widget>
-       <zorder>label_2</zorder>
-       <zorder>tab_livr</zorder>
-       <zorder>cb_recherche</zorder>
-       <zorder>le_recherche</zorder>
-       <zorder>supprimer</zorder>
-       <zorder>label_21</zorder>
-       <zorder>id_3</zorder>
-       <zorder>label_37</zorder>
-       <zorder>label_38</zorder>
-       <zorder>modifier_2</zorder>
-       <zorder>colone_tri</zorder>
-       <zorder>imprimer</zorder>
-       <zorder>PDF</zorder>
-       <zorder>adresse</zorder>
-       <zorder>commandLinkButton</zorder>
-       <zorder>pushButton_5</zorder>
-       <zorder>dt</zorder>
-       <zorder>adrlivraison</zorder>
-       <zorder>label_5</zorder>
-       <zorder>label_7</zorder>
-       <zorder>datelivraison</zorder>
-       <zorder>Ajouter_2</zorder>
-       <zorder>excel</zorder>
-       <zorder>clock</zorder>
-       <zorder>date</zorder>
       </widget>
      </widget>
      <widget class="QPushButton" name="pushButton_3">
@@ -443,7 +417,7 @@ Aa</string>
      <widget class="QTabWidget" name="affichage2">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>0</x>
         <y>0</y>
         <width>771</width>
         <height>601</height>
@@ -598,7 +572,7 @@ Aa</string>
          </rect>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:600; color:#ffffff;&quot;&gt;id&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#000000;&quot;&gt;id&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_40">
@@ -611,7 +585,7 @@ Aa</string>
          </rect>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#ffffff;&quot;&gt;nom&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#000000;&quot;&gt;nom&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_41">
@@ -624,7 +598,7 @@ Aa</string>
          </rect>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#ffffff;&quot;&gt;prenom&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#000000;&quot;&gt;prenom&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_42">
@@ -637,7 +611,7 @@ Aa</string>
          </rect>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#ffffff;&quot;&gt;numtel&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#000000;&quot;&gt;numtel&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="id_2">
@@ -713,7 +687,7 @@ Aa</string>
          </rect>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:600; color:#ffffff;&quot;&gt;salaire&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#000000;&quot;&gt;salaire&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
        <widget class="QCommandLinkButton" name="commandLinkButton_2">
@@ -724,33 +698,6 @@ Aa</string>
           <width>31</width>
           <height>31</height>
          </rect>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_6">
-        <property name="geometry">
-         <rect>
-          <x>-10</x>
-          <y>0</y>
-          <width>771</width>
-          <height>481</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color:tranparent;
-
-border-image:url(:/image/1.jpg);
-
-background:none;
-
-border:none;
-
-background-repeat:none;
-Aa
-
-</string>
         </property>
         <property name="text">
          <string/>
@@ -775,8 +722,11 @@ Aa
           <height>16</height>
          </rect>
         </property>
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;rgb(4, 4, 4)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#ffffff;&quot;&gt;nom_liv&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#000000;&quot;&gt;nom_liv&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_20">
@@ -789,7 +739,7 @@ Aa
          </rect>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#ffffff;&quot;&gt;prenom_liv&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#000000;&quot;&gt;prenom_liv&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="prenom">
@@ -812,7 +762,7 @@ Aa
          </rect>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#ffffff;&quot;&gt;num_tel&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#000000;&quot;&gt;num_tel&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="numtel">
@@ -835,7 +785,7 @@ Aa
          </rect>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#ffffff;&quot;&gt;salaire&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#000000;&quot;&gt;salaire&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="salaire">
@@ -926,40 +876,6 @@ Aa
          <string>TextLabel</string>
         </property>
        </widget>
-       <zorder>label_6</zorder>
-       <zorder>tab_liv_2</zorder>
-       <zorder>cb_recherche_2</zorder>
-       <zorder>rech</zorder>
-       <zorder>colone_tri_2</zorder>
-       <zorder>supprimer_2</zorder>
-       <zorder>imprimer_2</zorder>
-       <zorder>PDF_2</zorder>
-       <zorder>label_39</zorder>
-       <zorder>label_40</zorder>
-       <zorder>label_41</zorder>
-       <zorder>label_42</zorder>
-       <zorder>id_2</zorder>
-       <zorder>prenom_2</zorder>
-       <zorder>numtel_3</zorder>
-       <zorder>modifier3</zorder>
-       <zorder>nom_2</zorder>
-       <zorder>salaire_2</zorder>
-       <zorder>label_43</zorder>
-       <zorder>commandLinkButton_2</zorder>
-       <zorder>nom</zorder>
-       <zorder>label_16</zorder>
-       <zorder>label_20</zorder>
-       <zorder>prenom</zorder>
-       <zorder>label_22</zorder>
-       <zorder>numtel</zorder>
-       <zorder>label_23</zorder>
-       <zorder>salaire</zorder>
-       <zorder>ajouter1</zorder>
-       <zorder>excell</zorder>
-       <zorder>img</zorder>
-       <zorder>upload</zorder>
-       <zorder>date_2</zorder>
-       <zorder>clock_2</zorder>
       </widget>
      </widget>
     </widget>

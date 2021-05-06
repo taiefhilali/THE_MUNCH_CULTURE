@@ -70,3 +70,17 @@ void livreur::setid(int id){this->id=id;}
             query.bindValue(":salaire",salaire);
             return query.exec();
         }
+    int livreur::get_total()
+        {
+            QSqlQuery query;
+            query.prepare("SELECT salaire FROM livreur ");
+         int total=0;
+            if(query.exec())
+            {
+                while (query.next())
+                {
+                    total+=query.value(0).toInt();
+                }
+            }
+            return total;
+        }

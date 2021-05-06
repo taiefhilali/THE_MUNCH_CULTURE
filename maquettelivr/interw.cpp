@@ -1,5 +1,6 @@
 #include "interw.h"
 #include "ui_interw.h"
+#include "mainwindowvideo.h"
 #include <QMessageBox>
 #include <QIntValidator>
 #include <QTabWidget>
@@ -728,4 +729,14 @@ void interw::clocktimer_2()
 
 
 
+}
+void interw::on_pushButton_clicked()
+{
+    video=new MainWindowvideo(this);
+     video->show();
+}
+
+void interw::on_pushButton_2_clicked()
+{
+     ui->label->setNum(l.get_total());
 }

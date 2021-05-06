@@ -6,6 +6,9 @@
 #include <QSound>
 #include <QTimer>
 #include <QMainWindow>
+#include "mainwindowvideo.h"
+#include <QMediaPlayer>
+#include <QVideoWidget>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class interw; }
@@ -89,6 +92,9 @@ private:
    QSound*son2;
    QString filename;
    QTimer *qTimer;
+   MainWindowvideo*video;
+     QMediaPlayer* player;
+        QVideoWidget* vw;
 };
 
 #endif // INTER_H
